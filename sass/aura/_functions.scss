@@ -53,5 +53,51 @@
 // Find Breakpoints for Modular Scale
 //////////////////////////////
 @function responsive-scale() {
-  @return true;
+  $full: columns-width();
+  $breakpoints: $full;
+  // Add 1/2 Alphabet to Measure for Medium
+  $scale-relation: -1 !default;
+  @for $i from 1 through 3 {
+    @if $i == 2 {
+      $measure: $measure-width + 1/2 * $alphabet-count;
+    }
+    @else {
+      $measure: $measure-width;
+    }
+    $scale-ratio: ms($scale-relation, $body-font-size-em, $responsive-ratio) / 1em;
+    $scale-relation: $scale-relation - 1;
+    
+    $col-total: col-total();
+    $gutter-col-grid: gutter-col-grid($col-total);
+    $col-width: col-width($gutter-col-grid) * $scale-ratio;
+    $gutter-width: gutter-width($gutter-col-grid)  * $scale-ratio;
+    $side-gutter-width: $gutter-width;
+    
+    $breakpoints: join($breakpoints, columns-width() * $scale-ratio);
+    
+  }
+  @return $breakpoints;
+}
+//////////////////////////////
+// Aura Grid Functions
+//////////////////////////////
+// Returns Total Column Width
+@function col-total() {
+  @return $measure / $main-content-cols * 1em;
+}
+// Returns Total Number of Sub Column Pieces
+@function gutter-col-total() {
+  @return nth($gutter-to-col, 1) + nth($gutter-to-col, 2);
+}
+// Returns Width of One Full Column + Gutter
+@function gutter-col-grid($col-total) {
+  @return $col-total / $gutter-col-total;
+}
+// Returns Width of One Column
+@function col-width($gutter-col-grid) {
+  @return $gutter-col-grid * nth($gutter-to-col, 2);
+}
+// Returns Width of One Gutter
+@function gutter-width($gutter-col-grid) {
+  @return $gutter-col-grid * nth($gutter-to-col, 1);
 }
