@@ -1,38 +1,43 @@
 /* line 24, ../sass/aura/_mixins.scss */
 html {
   font-size: 0.72em;
+  line-height: 1.02em;
 }
 @media screen and (min-width: 23.387em) {
   /* line 24, ../sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
+    line-height: 1.2em;
   }
 }
 @media screen and (min-width: 45.677em) {
   /* line 24, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
+    line-height: 1.425em;
   }
 }
 @media screen and (min-width: 57.096em) {
   /* line 24, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
+    line-height: 1.706em;
   }
 }
 @media screen and (min-width: 88.111em) {
   /* line 24, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.758em;
+    line-height: 2.058em;
   }
 }
 
-/* line 52, ../sass/aura/_mixins.scss */
+/* line 57, ../sass/aura/_mixins.scss */
 img, object, embed, iframe, video, audio {
   max-width: 100%;
 }
 
-/* line 58, ../sass/aura/_mixins.scss */
+/* line 63, ../sass/aura/_mixins.scss */
 .measure, #main-content {
   display: inline;
   float: left;
@@ -55,7 +60,6 @@ img, object, embed, iframe, video, audio {
   background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
   background-image: linear-gradient(left, rgba(0, 0, 0, 0) 1.639%, rgba(100, 100, 225, 0.25) 1.639%, rgba(100, 100, 225, 0.25) 8.197%, rgba(0, 0, 0, 0) 8.197%, rgba(0, 0, 0, 0) 9.836%, rgba(100, 100, 225, 0.25) 9.836%, rgba(100, 100, 225, 0.25) 16.393%, rgba(0, 0, 0, 0) 16.393%, rgba(0, 0, 0, 0) 18.033%, rgba(100, 100, 225, 0.25) 18.033%, rgba(100, 100, 225, 0.25) 24.59%, rgba(0, 0, 0, 0) 24.59%, rgba(0, 0, 0, 0) 26.23%, rgba(100, 100, 225, 0.25) 26.23%, rgba(100, 100, 225, 0.25) 32.787%, rgba(0, 0, 0, 0) 32.787%, rgba(0, 0, 0, 0) 34.426%, rgba(100, 100, 225, 0.25) 34.426%, rgba(100, 100, 225, 0.25) 40.984%, rgba(0, 0, 0, 0) 40.984%, rgba(0, 0, 0, 0) 42.623%, rgba(100, 100, 225, 0.25) 42.623%, rgba(100, 100, 225, 0.25) 49.18%, rgba(0, 0, 0, 0) 49.18%, rgba(0, 0, 0, 0) 50.82%, rgba(100, 100, 225, 0.25) 50.82%, rgba(100, 100, 225, 0.25) 57.377%, rgba(0, 0, 0, 0) 57.377%, rgba(0, 0, 0, 0) 59.016%, rgba(100, 100, 225, 0.25) 59.016%, rgba(100, 100, 225, 0.25) 65.574%, rgba(0, 0, 0, 0) 65.574%, rgba(0, 0, 0, 0) 67.213%, rgba(100, 100, 225, 0.25) 67.213%, rgba(100, 100, 225, 0.25) 73.77%, rgba(0, 0, 0, 0) 73.77%, rgba(0, 0, 0, 0) 75.41%, rgba(100, 100, 225, 0.25) 75.41%, rgba(100, 100, 225, 0.25) 81.967%, rgba(0, 0, 0, 0) 81.967%, rgba(0, 0, 0, 0) 83.607%, rgba(100, 100, 225, 0.25) 83.607%, rgba(100, 100, 225, 0.25) 90.164%, rgba(0, 0, 0, 0) 90.164%, rgba(0, 0, 0, 0) 91.803%, rgba(100, 100, 225, 0.25) 91.803%, rgba(100, 100, 225, 0.25) 98.361%, rgba(0, 0, 0, 0) 98.361%, rgba(0, 0, 0, 0) 100%);
   background-position: left top;
-  height: 100%;
 }
 /* line 38, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #page-wrapper:after {
@@ -64,39 +68,38 @@ img, object, embed, iframe, video, audio {
   clear: both;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 25, ../sass/style.scss */
 #main-content {
   margin-left: 1.639%;
   color: white;
   background-color: red;
-  height: 100%;
 }
 @media screen and (min-width: 23.387em) {
-  /* line 26, ../sass/style.scss */
+  /* line 25, ../sass/style.scss */
   #main-content {
     background-color: orange;
   }
 }
 @media screen and (min-width: 45.677em) {
-  /* line 26, ../sass/style.scss */
+  /* line 25, ../sass/style.scss */
   #main-content {
     background-color: green;
   }
 }
 @media screen and (min-width: 57.096em) {
-  /* line 26, ../sass/style.scss */
+  /* line 25, ../sass/style.scss */
   #main-content {
     background-color: blue;
   }
 }
 @media screen and (min-width: 88.111em) {
-  /* line 26, ../sass/style.scss */
+  /* line 25, ../sass/style.scss */
   #main-content {
     background-color: purple;
   }
 }
 
-/* line 47, ../sass/style.scss */
+/* line 45, ../sass/style.scss */
 #sidebar {
   display: inline;
   float: left;
