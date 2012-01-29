@@ -20,7 +20,6 @@ $responsive-ratio: $major-third;
   @include container;
   background-color: red;
   @include susy-grid-background;
-  height: 100%;
 }
 
 #main-content {
@@ -28,7 +27,6 @@ $responsive-ratio: $major-third;
   @include alpha;
   color: white;
   background-color: red;
-  height: 100%;
 
   @include respond-to('small') {
     background-color: orange;
