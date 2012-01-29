@@ -2,10 +2,12 @@
 // Requires Susy, so Import Susy
 //////////////////////////////
 @import 'susy';
+@import 'modular-scale';
 
 //////////////////////////////
 // Aurora Variables, Functions, Mixins
 //////////////////////////////
-@import 'aurora/variables';
-@import 'aurora/functions';
-@import 'aurora/mixins';
+@import 'aura/variables';
+@import 'aura/functions';
+@import 'aura/mixins';
+
