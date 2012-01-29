@@ -1,34 +1,34 @@
 /* line 34, ../sass/aura/_mixins.scss */
 html {
   font-size: 0.72em;
-  line-height: 1.02em;
+  line-height: 1.36em;
 }
 @media screen and (min-width: 27.068em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
-    line-height: 1.1em;
+    line-height: 1.45em;
   }
 }
 @media screen and (min-width: 33.835em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
-    line-height: 1.225em;
+    line-height: 1.563em;
   }
 }
 @media screen and (min-width: 42.293em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
-    line-height: 1.406em;
+    line-height: 1.703em;
   }
 }
 @media screen and (min-width: 64.615em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.758em;
-    line-height: 1.658em;
+    line-height: 1.879em;
   }
 }
 
