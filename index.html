@@ -2,10 +2,42 @@
   <head>
     <title>Aurora Test Page</title>
     
-    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Poly:400,400italic' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+    <!-- <script type="text/javascript">
+    (function(doc) {
+
+      var addEvent = 'addEventListener',
+          type = 'gesturestart',
+          qsa = 'querySelectorAll',
+          scales = [1, 1],
+          meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+
+      function fix() {
+        meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+        doc.removeEventListener(type, fix, true);
+      }
+
+      if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+        fix();
+        scales = [.25, 1.6];
+        doc[addEvent](type, fix, true);
+      }
+
+    }(document));
+    </script> -->
   </head>
   
   <body>
+    <div id="page-wrapper">
+      <div id="main-content">
+        Hello World
+      </div>
+      <div id="sidebar">
+        Banana
+      </div>
+    </div>
     
   </body>
 </html>  
