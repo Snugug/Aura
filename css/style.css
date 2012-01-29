@@ -1,43 +1,43 @@
-/* line 24, ../sass/aura/_mixins.scss */
+/* line 34, ../sass/aura/_mixins.scss */
 html {
   font-size: 0.72em;
   line-height: 1.02em;
 }
 @media screen and (min-width: 23.387em) {
-  /* line 24, ../sass/aura/_mixins.scss */
+  /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
-    line-height: 1.2em;
+    line-height: 1.1em;
   }
 }
 @media screen and (min-width: 45.677em) {
-  /* line 24, ../sass/aura/_mixins.scss */
+  /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
-    line-height: 1.425em;
+    line-height: 1.225em;
   }
 }
 @media screen and (min-width: 57.096em) {
-  /* line 24, ../sass/aura/_mixins.scss */
+  /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
-    line-height: 1.706em;
+    line-height: 1.406em;
   }
 }
 @media screen and (min-width: 88.111em) {
-  /* line 24, ../sass/aura/_mixins.scss */
+  /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.758em;
-    line-height: 2.058em;
+    line-height: 1.658em;
   }
 }
 
-/* line 57, ../sass/aura/_mixins.scss */
+/* line 63, ../sass/aura/_mixins.scss */
 img, object, embed, iframe, video, audio {
   max-width: 100%;
 }
 
-/* line 63, ../sass/aura/_mixins.scss */
+/* line 69, ../sass/aura/_mixins.scss */
 .measure, #main-content {
   display: inline;
   float: left;
@@ -45,7 +45,7 @@ img, object, embed, iframe, video, audio {
   margin-right: 1.639%;
 }
 
-/* line 18, ../sass/style.scss */
+/* line 17, ../sass/style.scss */
 #page-wrapper {
   font-family: 'Poly', serif;
   *zoom: 1;
@@ -68,38 +68,38 @@ img, object, embed, iframe, video, audio {
   clear: both;
 }
 
-/* line 25, ../sass/style.scss */
+/* line 24, ../sass/style.scss */
 #main-content {
   margin-left: 1.639%;
   color: white;
   background-color: red;
 }
 @media screen and (min-width: 23.387em) {
-  /* line 25, ../sass/style.scss */
+  /* line 24, ../sass/style.scss */
   #main-content {
     background-color: orange;
   }
 }
 @media screen and (min-width: 45.677em) {
-  /* line 25, ../sass/style.scss */
+  /* line 24, ../sass/style.scss */
   #main-content {
     background-color: green;
   }
 }
 @media screen and (min-width: 57.096em) {
-  /* line 25, ../sass/style.scss */
+  /* line 24, ../sass/style.scss */
   #main-content {
     background-color: blue;
   }
 }
 @media screen and (min-width: 88.111em) {
-  /* line 25, ../sass/style.scss */
+  /* line 24, ../sass/style.scss */
   #main-content {
     background-color: purple;
   }
 }
 
-/* line 45, ../sass/style.scss */
+/* line 44, ../sass/style.scss */
 #sidebar {
   display: inline;
   float: left;
