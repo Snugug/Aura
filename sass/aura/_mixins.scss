@@ -5,6 +5,16 @@
   // Calculate HTML font size in Em
   $body-font-size-em: base-font-size();
   
+  // Default Responsive Ratio if none is set
+  @if not $responsive-ratio {
+    @if $font-scale {
+      $responsive-ratio: $major-third;
+    }
+    @else {
+      $responsive-ratio: $golden;
+    }
+  }
+  
   // Define Initial Grid Dimensions
   @if $font-scale {
     $measure: $measure-width + 1/2 * $alphabet-count;
@@ -25,31 +35,27 @@
     // If Font Scale is enabled, set up root font scaling
     @if $font-scale {
       // Set base Root Font to -2 Modular Scale
-      font-size: ms(-2, $body-font-size-em, $responsive-ratio);
-      line-height: ms(-2, $body-font-size-em, $responsive-ratio) + $lh-addition;
+      @include font-scale-setup(-2);
       
       // At Small Responsive Scale, increase Modular Scale by 1
       @include respond-to('small') {
-        font-size: ms(-1, $body-font-size-em, $responsive-ratio);
-        line-height: ms(-1, $body-font-size-em, $responsive-ratio) + $lh-addition;
+        @include font-scale-setup(-1, $lh-addition - .1em);
       }
       @include respond-to('medium') {
-        font-size: ms(0, $body-font-size-em, $responsive-ratio);
-        line-height: ms(0, $body-font-size-em, $responsive-ratio) + $lh-addition;
+        @include font-scale-setup(0, $lh-addition - .2em);
       }
       // At Large Responsive Scale, increase Modular Scale by 2 to base
       @include respond-to('large') {
-        font-size: ms(1, $body-font-size-em, $responsive-ratio);
-        line-height: ms(1, $body-font-size-em, $responsive-ratio) + $lh-addition;
+        @include font-scale-setup(1, $lh-addition - .3em);
       }
       @include respond-to('full') {
-        font-size: ms(2, $body-font-size-em, $responsive-ratio);
-        line-height: ms(2, $body-font-size-em, $responsive-ratio) + $lh-addition;
+        @include font-scale-setup(2, $lh-addition - .4em);
       }
     }
     // If Font Scale is disabled, set root font to base font size
     @else {
       font-size: $body-font-size-em;
+      line-height: $body-font-size-em + $lh-addition;
     }
   }
   // If Object Scaling is enabled, set up object scaling
@@ -63,6 +69,14 @@
   .measure {
     @include columns($main-content-cols);
   }
+}
+
+//////////////////////////////
+// Aura Font Scale Font
+//////////////////////////////
+@mixin font-scale-setup($scale, $lh-plus: $lh-addition) {
+  font-size: ms($scale, $body-font-size-em, $responsive-ratio);
+  line-height: ms($scale, $body-font-size-em, $responsive-ratio) + $lh-plus;
 }
 
 //////////////////////////////
