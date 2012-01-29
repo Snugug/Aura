@@ -1,0 +1,17 @@
+//////////////////////////////
+// Internal Variables for Aurora
+//////////////////////////////
+$measure:           52em        !default;
+$alphabet-count:    26          !default;
+$sizes: 'full' 'large' 'medium' 'small';
+
+//////////////////////////////
+// User-Defined Variables for Aurora
+//////////////////////////////
+$body-font-size:    16px                    !default;
+$total-cols:        12                      !default;
+$main-content-cols: 9                       !default;
+$gutter-to-col:     1, 4                    !default;
+$measure-width:     $alphabet-count * 2     !default;
+$font-scale:        true                    !default;
+$responsive-ratio:  $golden                 !default;
