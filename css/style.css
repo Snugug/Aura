@@ -3,28 +3,28 @@ html {
   font-size: 0.72em;
   line-height: 1.02em;
 }
-@media screen and (min-width: 23.387em) {
+@media screen and (min-width: 27.068em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
     line-height: 1.1em;
   }
 }
-@media screen and (min-width: 45.677em) {
+@media screen and (min-width: 33.835em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
     line-height: 1.225em;
   }
 }
-@media screen and (min-width: 57.096em) {
+@media screen and (min-width: 42.293em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
     line-height: 1.406em;
   }
 }
-@media screen and (min-width: 88.111em) {
+@media screen and (min-width: 64.615em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.758em;
@@ -50,7 +50,7 @@ img, object, embed, iframe, video, audio {
   font-family: 'Poly', serif;
   *zoom: 1;
   margin: auto;
-  width: 40.602em;
+  width: 46.993em;
   max-width: 100%;
   background-color: red;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.639%, rgba(0, 0, 0, 0)), color-stop(1.639%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -74,25 +74,25 @@ img, object, embed, iframe, video, audio {
   color: white;
   background-color: red;
 }
-@media screen and (min-width: 23.387em) {
+@media screen and (min-width: 27.068em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: orange;
   }
 }
-@media screen and (min-width: 45.677em) {
+@media screen and (min-width: 33.835em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: green;
   }
 }
-@media screen and (min-width: 57.096em) {
+@media screen and (min-width: 42.293em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: blue;
   }
 }
-@media screen and (min-width: 88.111em) {
+@media screen and (min-width: 64.615em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: purple;
