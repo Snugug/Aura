@@ -35,21 +35,21 @@
     // If Font Scale is enabled, set up root font scaling
     @if $font-scale {
       // Set base Root Font to -2 Modular Scale
-      @include font-scale-setup(-2);
+      @include font-scale(-2);
       
       // At Small Responsive Scale, increase Modular Scale by 1
       @include respond-to('small') {
-        @include font-scale-setup(-1, $lh-addition - .1em);
+        @include font-scale(-1);
       }
       @include respond-to('medium') {
-        @include font-scale-setup(0, $lh-addition - .2em);
+        @include font-scale(0);
       }
       // At Large Responsive Scale, increase Modular Scale by 2 to base
       @include respond-to('large') {
-        @include font-scale-setup(1, $lh-addition - .3em);
+        @include font-scale(1);
       }
       @include respond-to('full') {
-        @include font-scale-setup(2, $lh-addition - .4em);
+        @include font-scale(2);
       }
     }
     // If Font Scale is disabled, set root font to base font size
@@ -74,9 +74,10 @@
 //////////////////////////////
 // Aura Font Scale Font
 //////////////////////////////
-@mixin font-scale-setup($scale, $lh-plus: $lh-addition) {
-  font-size: ms($scale, $body-font-size-em, $responsive-ratio);
-  line-height: ms($scale, $body-font-size-em, $responsive-ratio) + $lh-plus;
+@mixin font-scale($scale) {
+  $ms: ms($scale, $body-font-size-em, $responsive-ratio);
+  font-size: $ms;
+  line-height: $ms + (1em - (.5 * $ms));
 }
 
 //////////////////////////////
