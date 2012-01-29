@@ -58,19 +58,14 @@
   // Add 1/2 Alphabet to Measure for Medium
   $scale-relation: -1 !default;
   @for $i from 1 through 3 {
-    @if $i == 2 {
-      $measure: $measure-width + 1/2 * $alphabet-count;
-    }
-    @else {
-      $measure: $measure-width;
-    }
+    $measure: $measure-width;
     $scale-ratio: ms($scale-relation, $body-font-size-em, $responsive-ratio) / 1em;
     $scale-relation: $scale-relation - 1;
     
     $col-total: col-total();
     $gutter-col-grid: gutter-col-grid($col-total);
-    $col-width: col-width($gutter-col-grid) * $scale-ratio;
-    $gutter-width: gutter-width($gutter-col-grid)  * $scale-ratio;
+    $col-width: col-width($gutter-col-grid);
+    $gutter-width: gutter-width($gutter-col-grid);
     $side-gutter-width: $gutter-width;
     
     $breakpoints: join($breakpoints, columns-width() * $scale-ratio);
