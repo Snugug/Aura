@@ -5,6 +5,21 @@
   // Calculate HTML font size in Em
   $body-font-size-em: base-font-size();
   
+  // Define Initial Grid Dimensions
+  @if $font-scale {
+    $measure: $measure-width + 1/2 * $alphabet-count;
+  }
+  @else {
+    $measure: $measure-width;
+  }
+  // Set UP Grid
+  $col-total: col-total();
+  $gutter-col-total: gutter-col-total();
+  $gutter-col-grid: gutter-col-grid($col-total);
+  $col-width: col-width($gutter-col-grid);
+  $gutter-width: gutter-width($gutter-col-grid);
+  $side-gutter-width: $gutter-width;
+  
   // Set Root Em
   html {
     // If Font Scale is enabled, set up root font scaling
@@ -16,10 +31,15 @@
       @include respond-to('small') {
         font-size: ms(-1, $body-font-size-em, $responsive-ratio);
       }
-      
+      @include respond-to('medium') {
+        font-size: ms(0, $body-font-size-em, $responsive-ratio);
+      }
       // At Large Responsive Scale, increase Modular Scale by 2 to base
       @include respond-to('large') {
-        font-size: ms(0, $body-font-size-em, $responsive-ratio);
+        font-size: ms(1, $body-font-size-em, $responsive-ratio);
+      }
+      @include respond-to('full') {
+        font-size: ms(2, $body-font-size-em, $responsive-ratio);
       }
     }
     // If Font Scale is disabled, set root font to base font size
@@ -27,8 +47,12 @@
       font-size: $body-font-size-em;
     }
   }
-  // Define Grid Dimensions
-  @include measure-to-grid;
+  // If Object Scaling is enabled, set up object scaling
+  @if $obj-scale {
+    img, object, embed, iframe, video, audio {
+      max-width: 100%;
+    }
+  }
   
   // Create Measure class to be extended
   .measure {
@@ -37,30 +61,13 @@
 }
 
 //////////////////////////////
-// Aura Grid Generation
-//////////////////////////////
-@mixin measure-to-grid {
-  $col-total: $measure-width / $main-content-cols * 1em;
-  $gutter-col-total: nth($gutter-to-col, 1) + nth($gutter-to-col, 2);
-  $gutter-col-grid: $col-total / $gutter-col-total;
-  
-  // Set up Susy variables based on Measure
-  $col-width: $gutter-col-grid * nth($gutter-to-col, 2);
-  $gutter-width: $gutter-col-grid * nth($gutter-to-col, 1);
-  $side-gutter-width: $gutter-width;
-  
-  $measure: columns-width(9);
-}
-
-//////////////////////////////
 // Aurora Respond-To
 //////////////////////////////
 @mixin respond-to($context) {
-  $breakpoints: '' !default;
-  @if $font-scale {
+  @if $font-scale and not $breakpoints {
     $breakpoints: responsive-scale();
   }
-  @else {
+  @else if not $font-scale and not $breakpoints {
     $breakpoints: responsive-ratio();
   }
   $i: 1 !default;
