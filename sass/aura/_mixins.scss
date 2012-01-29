@@ -1,0 +1,143 @@
+//////////////////////////////
+// Aura Setup Mixin
+//////////////////////////////
+@mixin aura-setup {
+  // Calculate HTML font size in Em
+  $body-font-size-em: base-font-size();
+  
+  // Set Root Em
+  html {
+    // If Font Scale is enabled, set up root font scaling
+    @if $font-scale {
+      // Set base Root Font to -2 Modular Scale
+      font-size: ms(-2, $body-font-size-em, $responsive-ratio);
+      
+      // At Small Responsive Scale, increase Modular Scale by 1
+      @include respond-to('small') {
+        font-size: ms(-1, $body-font-size-em, $responsive-ratio);
+      }
+      
+      // At Large Responsive Scale, increase Modular Scale by 2 to base
+      @include respond-to('large') {
+        font-size: ms(0, $body-font-size-em, $responsive-ratio);
+      }
+    }
+    // If Font Scale is disabled, set root font to base font size
+    @else {
+      font-size: $body-font-size-em;
+    }
+  }
+  // Define Grid Dimensions
+  @include measure-to-grid;
+  
+  // Create Measure class to be extended
+  .measure {
+    @include columns($main-content-cols);
+  }
+}
+
+//////////////////////////////
+// Aura Grid Generation
+//////////////////////////////
+@mixin measure-to-grid {
+  $col-total: $measure-width / $main-content-cols * 1em;
+  $gutter-col-total: nth($gutter-to-col, 1) + nth($gutter-to-col, 2);
+  $gutter-col-grid: $col-total / $gutter-col-total;
+  
+  // Set up Susy variables based on Measure
+  $col-width: $gutter-col-grid * nth($gutter-to-col, 2);
+  $gutter-width: $gutter-col-grid * nth($gutter-to-col, 1);
+  $side-gutter-width: $gutter-width;
+  
+  $measure: columns-width(9);
+}
+
+//////////////////////////////
+// Aurora Respond-To
+//////////////////////////////
+@mixin respond-to($context) {
+  $breakpoints: '' !default;
+  @if $font-scale {
+    $breakpoints: responsive-scale();
+  }
+  @else {
+    $breakpoints: responsive-ratio();
+  }
+  $i: 1 !default;
+  @each $size in $sizes {
+    @if $context == $size {
+      $respond: nth($breakpoints, $i);
+      @media screen and (min-width: $respond) {
+        @content;
+      }
+    }
+    $i: $i + 1;
+  }
+}
+
+//@mixin responsive-background($color) {
+//  background: $color;
+//  color: darken($color, 1%);
+//}
+//
+//@function columns-in-320() {
+//  // Determine what 320px in current EM conversion is
+//  $three20: px-em(320px);
+//  @debug ($three20);
+//  
+//  @for $i from 1 through $total-cols {
+//    $width: columns-width($i);
+//    @debug $i;
+//    @debug $width;
+//    @if $width == $three20 {
+//      @return $i;
+//    }
+//    @else if $width > $three20 {
+//      @return $i - 1;
+//    }
+//  }
+//}
+
+//////////////////////////////
+// Scratch Work
+//////////////////////////////
+//  $cin320: columns-in-320();
+//  @debug $cin320 + ' Cin320';
+  
+  // For loop from cin320 to total-cols to build widths
+//  $max-widths: '';
+//  @for $i from $cin320 through $total-cols {
+//    $width: columns-width($i);
+//    @if $i == $cin320 {
+//      $max-widths: $width;
+//    }
+//    @else {
+//      $max-widths: join($max-widths, $width);
+//    }
+//  }
+
+//  @if $size == 'full' or $size == 'FULL' {
+//    $respond-width: columns-width();
+//    @media screen and (min-width: $respond-width) {
+//      @content;
+//    }
+//  }
+//  @else {
+//    @debug $size;
+//    $respond-width: columns-width($size);
+//    @debug $respond-width;
+//    @media screen and (max-width: $respond-width) {
+//      @content;
+//    }
+//  }
+
+//  @each $respond-width in $max-widths {
+////    @debug $respond-width;
+//    $rsize: nth($respond-width, 1);
+//    @debug $rsize;
+//    @if $size == nth($respond-width, 1) {
+//      @media screen and (max-width: nth($respond-width, 2)) {
+//        @content;
+//      }
+//    }
+//  }
