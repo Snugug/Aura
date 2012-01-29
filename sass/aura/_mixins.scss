@@ -26,20 +26,25 @@
     @if $font-scale {
       // Set base Root Font to -2 Modular Scale
       font-size: ms(-2, $body-font-size-em, $responsive-ratio);
+      line-height: ms(-2, $body-font-size-em, $responsive-ratio) + $lh-addition;
       
       // At Small Responsive Scale, increase Modular Scale by 1
       @include respond-to('small') {
         font-size: ms(-1, $body-font-size-em, $responsive-ratio);
+        line-height: ms(-1, $body-font-size-em, $responsive-ratio) + $lh-addition;
       }
       @include respond-to('medium') {
         font-size: ms(0, $body-font-size-em, $responsive-ratio);
+        line-height: ms(0, $body-font-size-em, $responsive-ratio) + $lh-addition;
       }
       // At Large Responsive Scale, increase Modular Scale by 2 to base
       @include respond-to('large') {
         font-size: ms(1, $body-font-size-em, $responsive-ratio);
+        line-height: ms(1, $body-font-size-em, $responsive-ratio) + $lh-addition;
       }
       @include respond-to('full') {
         font-size: ms(2, $body-font-size-em, $responsive-ratio);
+        line-height: ms(2, $body-font-size-em, $responsive-ratio) + $lh-addition;
       }
     }
     // If Font Scale is disabled, set root font to base font size
