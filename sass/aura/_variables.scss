@@ -13,7 +13,6 @@ $alphabet-count:        26                          !default;
 $measure-width:         $alphabet-count* $fourth    !default;
 $lh-addition:           .3em                        !default;
 $responsive-ratio:      false                       !default;
-@debug $minor-third;
 // If using font-scale, suggest $major-third ratio. If not, suggest $golden ratio
 
 //////////////////////////////
