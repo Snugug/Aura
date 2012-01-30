@@ -1,0 +1,25 @@
+//////////////////////////////
+// User-Defined Variables for Aurora
+//////////////////////////////
+// Basic Options.
+$body-font-size:        16px                        !default;
+$total-cols:            12                          !default;
+$main-content-cols:     9                           !default;
+$font-scale:            true                        !default;
+$obj-scale:             true                        !default;
+// Advanced Options
+$gutter-to-col:         1, 4                        !default;
+$alphabet-count:        26                          !default;
+$measure-width:         $alphabet-count* $fourth    !default;
+$lh-addition:           .3em                        !default;
+$responsive-ratio:      false                       !default;
+// If using font-scale, suggest $major-third ratio. If not, suggest $golden ratio
+
+//////////////////////////////
+// Internal Variables for Aurora
+//////////////////////////////
+$measure:           false                           !default;
+$gutter-col-total:  5                               !default;
+$breakpoints:       false                           !default;
+$body-font-size-em: false                           !default;
+$sizes:             'full' 'large' 'medium' 'small';

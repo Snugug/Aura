@@ -1,0 +1,98 @@
+//////////////////////////////
+// Converting between px and em
+//////////////////////////////
+@function px-em($px) {
+  @return $px / $font-size-px * 1em;
+}
+
+@function em-em($em, $base: 14px) {
+  @return $em * $base / $font-size-px;
+}
+
+@function em-px($em) {
+  @return $em / $font-size-em * $font-size-px;
+}
+
+//////////////////////////////
+// Find Base Font Size from Input Font Size;
+//////////////////////////////
+@function base-font-size() {
+  $unit: unit($body-font-size);
+  @if $unit == 'px' {
+    @return $body-font-size / 16px * 1em;
+  }
+  @else if $unit == '%' {
+    @return $body-font-size / 100% * 1em;
+  }
+  @else if $unit == 'em' {
+    @return $body-font-size;
+  }
+  @else if $unit == 'pt' {
+    @return $body-font-size / 12pt * 1em;
+  }
+  @else {
+    @warn 'Variable $body-font-size does not have a valid font unit';
+  }
+}
+
+//////////////////////////////
+// Find Breakpoints for Non Modular-Scale
+//////////////////////////////
+@function responsive-ratio() {
+  $full: columns-width();
+  $breakpoints: $full;
+  
+  @for $i from 1 through 3 {
+    $bsize: nth($breakpoints, $i) / $responsive-ratio;
+    $breakpoints: join($breakpoints, $bsize);
+  }
+  @return $breakpoints;
+}
+
+//////////////////////////////
+// Find Breakpoints for Modular Scale
+//////////////////////////////
+@function responsive-scale() {
+  $full: columns-width();
+  $breakpoints: $full;
+  // Add 1/2 Alphabet to Measure for Medium
+  $scale-relation: -1 !default;
+  @for $i from 1 through 3 {
+    $measure: $measure-width;
+    $scale-ratio: ms($scale-relation, $body-font-size-em, $responsive-ratio) / 1em;
+    $scale-relation: $scale-relation - 1;
+    
+    $col-total: col-total();
+    $gutter-col-grid: gutter-col-grid($col-total);
+    $col-width: col-width($gutter-col-grid);
+    $gutter-width: gutter-width($gutter-col-grid);
+    $side-gutter-width: $gutter-width;
+    
+    $breakpoints: join($breakpoints, columns-width() * $scale-ratio);
+    
+  }
+  @return $breakpoints;
+}
+//////////////////////////////
+// Aura Grid Functions
+//////////////////////////////
+// Returns Total Column Width
+@function col-total() {
+  @return $measure / $main-content-cols * 1em;
+}
+// Returns Total Number of Sub Column Pieces
+@function gutter-col-total() {
+  @return nth($gutter-to-col, 1) + nth($gutter-to-col, 2);
+}
+// Returns Width of One Full Column + Gutter
+@function gutter-col-grid($col-total) {
+  @return $col-total / $gutter-col-total;
+}
+// Returns Width of One Column
+@function col-width($gutter-col-grid) {
+  @return $gutter-col-grid * nth($gutter-to-col, 2);
+}
+// Returns Width of One Gutter
+@function gutter-width($gutter-col-grid) {
+  @return $gutter-col-grid * nth($gutter-to-col, 1);
+}

@@ -1,0 +1,103 @@
+//////////////////////////////
+// Aura Setup Mixin
+//////////////////////////////
+@mixin aura-setup {
+  // Calculate HTML font size in Em
+  $body-font-size-em: base-font-size();
+  
+  // Default Responsive Ratio if none is set
+  @if not $responsive-ratio {
+    @if $font-scale {
+      $responsive-ratio: $major-third;
+    }
+    @else {
+      $responsive-ratio: $golden;
+    }
+  }
+  
+  // Define Initial Grid Dimensions
+  @if $font-scale {
+    $measure: $measure-width + 1/2 * $alphabet-count;
+  }
+  @else {
+    $measure: $measure-width;
+  }
+  // Set UP Grid
+  $col-total: col-total();
+  $gutter-col-total: gutter-col-total();
+  $gutter-col-grid: gutter-col-grid($col-total);
+  $col-width: col-width($gutter-col-grid);
+  $gutter-width: gutter-width($gutter-col-grid);
+  $side-gutter-width: $gutter-width;
+  
+  // Set Root Em
+  html {
+    // If Font Scale is enabled, set up root font scaling
+    @if $font-scale {
+      // Set base Root Font to -2 Modular Scale
+      @include font-scale(-2);
+      
+      // At Small Responsive Scale, increase Modular Scale by 1
+      @include respond-to('small') {
+        @include font-scale(-1);
+      }
+      @include respond-to('medium') {
+        @include font-scale(0);
+      }
+      // At Large Responsive Scale, increase Modular Scale by 2 to base
+      @include respond-to('large') {
+        @include font-scale(1);
+      }
+      @include respond-to('full') {
+        @include font-scale(2);
+      }
+    }
+    // If Font Scale is disabled, set root font to base font size
+    @else {
+      font-size: $body-font-size-em;
+      line-height: $body-font-size-em + $lh-addition;
+    }
+  }
+  // If Object Scaling is enabled, set up object scaling
+  @if $obj-scale {
+    img, object, embed, iframe, video, audio {
+      max-width: 100%;
+    }
+  }
+  
+  // Create Measure class to be extended
+  .measure {
+    @include columns($main-content-cols);
+  }
+}
+
+//////////////////////////////
+// Aura Font Scale Font
+//////////////////////////////
+@mixin font-scale($scale) {
+  $ms: ms($scale, $body-font-size-em, $responsive-ratio);
+  font-size: $ms;
+  line-height: $ms + (1em - (.5 * $ms));
+}
+
+//////////////////////////////
+// Aurora Respond-To
+//////////////////////////////
+@mixin respond-to($context) {
+  @if $font-scale and not $breakpoints {
+    $breakpoints: responsive-scale();
+  }
+  @else if not $font-scale and not $breakpoints {
+    $breakpoints: responsive-ratio();
+  }
+  $i: 1 !default;
+  @each $size in $sizes {
+    @if $context == $size {
+      $respond: nth($breakpoints, $i);
+      @media screen and (min-width: $respond) {
+        @content;
+      }
+    }
+    $i: $i + 1;
+  }
+}
