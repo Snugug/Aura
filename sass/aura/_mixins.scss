@@ -74,6 +74,8 @@
   }
 }
 
+$modular-scale-loaded: false !default;
+
 //////////////////////////////
 // Aura Font Scale Font
 //////////////////////////////
@@ -81,6 +83,9 @@
   $ms: ms($scale, $body-font-size-em, $responsive-ratio);
   font-size: $ms;
   line-height: $ms + (1em - (.5 * $ms));
+  @if $modular-scale-loaded == false {
+    @warn 'the font-scale mixin requires modular-scale to be loaded.';
+  }
 }
 
 //////////////////////////////
@@ -102,5 +107,8 @@
       }
     }
     $i: $i + 1;
+  }
+  @if $modular-scale-loaded == false {
+    @warn 'the font-scale mixin requires modular-scale to be loaded.';
   }
 }

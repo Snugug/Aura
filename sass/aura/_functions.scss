@@ -52,7 +52,14 @@
 //////////////////////////////
 // Find Breakpoints for Modular Scale
 //////////////////////////////
+
+$modular-scale-loaded: false !default;
+
 @function responsive-scale() {
+  @if $modular-scale-loaded == false {
+    @warn 'the responsive-scale function requires modular-scale to be loaded. The responsive-ratio value was returned.';
+    @return responsive-ratio();
+  }
   $full: columns-width();
   $breakpoints: $full;
   // Add 1/2 Alphabet to Measure for Medium
