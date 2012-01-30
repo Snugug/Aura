@@ -1,0 +1,21 @@
+A Typography based responsive framework for Sass+Compass powered by Susy and Modular Scale. This extension requires Sass 3.2 (or the most up-to-date beta if Sass 3.2 isn't out).
+
+To install:
+gem install compass-aura
+@include 'aura'
+
+Basic Setup:
+Set your Body Font Size, in any measurement you are comfortable in. Suggested minimum is 16px/1em/100%/12pt
+$body-font-size: 16px;
+Decide if you want your fonts to scale:
+$font-scale: true/false
+To use the calculated breakpoints, use the 'respond-to' mixin with "full", "large", "medium", or "small" as the input.
+#wrapper {
+  background-color: red;
+  
+  @include respond-to('large') {
+    background-color: green;
+  }
+}
+
+See index.html and style.scss for examples as to how to use. More to come, including advanced usage, better documentation, and some best practices.
