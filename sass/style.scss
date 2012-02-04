@@ -22,7 +22,7 @@ $font-scale: true;
 }
 
 #main-content {
-  @extend .measure;
+  @extend %measure;
   @include alpha;
   color: white;
   background-color: red;
