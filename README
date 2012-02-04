@@ -8,7 +8,13 @@ Basic Setup:
 Set your Body Font Size, in any measurement you are comfortable in. Suggested minimum is 16px/1em/100%/12pt
 $body-font-size: 16px;
 Decide if you want your fonts to scale:
-$font-scale: true/false
+$font-scale: true/false;
+Include the setup mixin:
+@include aura-setup;
+Whichever item you want as your main content wrapper, @extend .measure for setup:
+#main-content {
+  @extend .measure;
+}
 To use the calculated breakpoints, use the 'respond-to' mixin with "full", "large", "medium", or "small" as the input.
 #wrapper {
   background-color: red;
