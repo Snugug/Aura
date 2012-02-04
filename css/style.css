@@ -3,21 +3,21 @@ html {
   font-size: 0.72em;
   line-height: 1.36em;
 }
-@media screen and (min-width: 27.068em) {
+@media screen and (min-width: 33.083em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
     line-height: 1.45em;
   }
 }
-@media screen and (min-width: 33.835em) {
+@media screen and (min-width: 41.353em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
     line-height: 1.563em;
   }
 }
-@media screen and (min-width: 42.293em) {
+@media screen and (min-width: 51.692em) {
   /* line 34, ../sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
@@ -38,14 +38,14 @@ img, object, embed, iframe, video, audio {
 }
 
 /* line 69, ../sass/aura/_mixins.scss */
-.measure, #main-content {
+#main-content {
   clear: both;
   margin-left: 1.639%;
   margin-right: 1.639%;
 }
-@media screen and (min-width: 27.068em) {
+@media screen and (min-width: 33.083em) {
   /* line 69, ../sass/aura/_mixins.scss */
-  .measure, #main-content {
+  #main-content {
     display: inline;
     float: left;
     width: 72.131%;
@@ -58,7 +58,7 @@ img, object, embed, iframe, video, audio {
   font-family: 'Poly', serif;
   *zoom: 1;
   margin: auto;
-  width: 46.993em;
+  width: 64.615em;
   max-width: 100%;
   background-color: red;
   background-image: -webkit-gradient(linear, 0% 50%, 100% 50%, color-stop(1.639%, rgba(0, 0, 0, 0)), color-stop(1.639%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(100, 100, 225, 0.25)), color-stop(8.197%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(0, 0, 0, 0)), color-stop(9.836%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(100, 100, 225, 0.25)), color-stop(16.393%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(0, 0, 0, 0)), color-stop(18.033%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(100, 100, 225, 0.25)), color-stop(24.59%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(0, 0, 0, 0)), color-stop(26.23%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(100, 100, 225, 0.25)), color-stop(32.787%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(0, 0, 0, 0)), color-stop(34.426%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(100, 100, 225, 0.25)), color-stop(40.984%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(0, 0, 0, 0)), color-stop(42.623%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(100, 100, 225, 0.25)), color-stop(49.18%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(0, 0, 0, 0)), color-stop(50.82%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(100, 100, 225, 0.25)), color-stop(57.377%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(0, 0, 0, 0)), color-stop(59.016%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(100, 100, 225, 0.25)), color-stop(65.574%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(0, 0, 0, 0)), color-stop(67.213%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(100, 100, 225, 0.25)), color-stop(73.77%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(0, 0, 0, 0)), color-stop(75.41%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(100, 100, 225, 0.25)), color-stop(81.967%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(0, 0, 0, 0)), color-stop(83.607%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(100, 100, 225, 0.25)), color-stop(90.164%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(0, 0, 0, 0)), color-stop(91.803%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(100, 100, 225, 0.25)), color-stop(98.361%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
@@ -82,19 +82,19 @@ img, object, embed, iframe, video, audio {
   color: white;
   background-color: red;
 }
-@media screen and (min-width: 27.068em) {
+@media screen and (min-width: 33.083em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: orange;
   }
 }
-@media screen and (min-width: 33.835em) {
+@media screen and (min-width: 41.353em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: green;
   }
 }
-@media screen and (min-width: 42.293em) {
+@media screen and (min-width: 51.692em) {
   /* line 24, ../sass/style.scss */
   #main-content {
     background-color: blue;
