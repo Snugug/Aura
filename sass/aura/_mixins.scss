@@ -66,7 +66,7 @@
   }
   
   // Create Measure class to be extended
-  .measure {
+  %measure {
     @include full;
     @include respond-to('small') {
       @include columns($main-content-cols);
