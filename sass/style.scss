@@ -9,14 +9,16 @@
 $body-font-size: 18px;
 $font-scale: true;
 
+//$width: 960px;
+
 //////////////////////////////
 // Aura Setup Mixin
 //////////////////////////////
 @include aura-setup;
 
 #page-wrapper {
+  @extend %aura-container;
   font-family: 'Poly', serif;
-  @include container;
   background-color: red;
   @include susy-grid-background;
 }
