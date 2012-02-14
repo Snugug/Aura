@@ -2,8 +2,15 @@
 // Aura Setup Mixin
 //////////////////////////////
 @mixin aura-setup {
+  // Hard sets font-scale to false if width is set
+  @if $width {
+    $font-scale: false;
+  }
   // Calculate HTML font size in Em
   $body-font-size-em: base-font-size();
+  $body-font-size-px: bfs('px');
+  $body-font-size-percent: bfs('%');
+  $body-font-size-pt: bfs('pt');
   
   // Default Responsive Ratio if none is set
   @if not $responsive-ratio {
@@ -23,12 +30,22 @@
     $measure: $measure-width;
   }
   // Set UP Grid
-  $col-total: col-total();
-  $gutter-col-total: gutter-col-total();
-  $gutter-col-grid: gutter-col-grid($col-total);
-  $col-width: col-width($gutter-col-grid);
-  $gutter-width: gutter-width($gutter-col-grid);
-  $side-gutter-width: $gutter-width;
+  // If there's a width, figure out body-font-size for width
+  @if $width {
+    $width-em: px-em($width);
+    $sub-col: $width-em / ($total-cols * gutter-col-total() + nth($gutter-to-col, 1));
+    $col-width: $sub-col * nth($gutter-to-col, 2);
+    $gutter-width: $sub-col * nth($gutter-to-col, 1);
+    $side-gutter-width: $gutter-width;
+  }
+  @else {
+    $col-total: col-total();
+    $gutter-col-total: gutter-col-total();
+    $gutter-col-grid: gutter-col-grid($col-total);
+    $col-width: col-width($gutter-col-grid);
+    $gutter-width: gutter-width($gutter-col-grid);
+    $side-gutter-width: $gutter-width;
+  }
   
   // Set Root Em
   html {
@@ -66,10 +83,19 @@
   }
   
   // Create Measure class to be extended
-  .measure {
-    @include columns($main-content-cols);
+  %measure {
+    @include full;
+    @include respond-to('small') {
+      @include columns($main-content-cols);
+    }
+  }
+  
+  %aura-container {
+    @include container;
   }
 }
+
+$modular-scale-loaded: false !default;
 
 //////////////////////////////
 // Aura Font Scale Font
@@ -78,6 +104,9 @@
   $ms: ms($scale, $body-font-size-em, $responsive-ratio);
   font-size: $ms;
   line-height: $ms + (1em - (.5 * $ms));
+  @if $modular-scale-loaded == false {
+    @warn 'the font-scale mixin requires modular-scale to be loaded.';
+  }
 }
 
 //////////////////////////////
@@ -99,5 +128,8 @@
       }
     }
     $i: $i + 1;
+  }
+  @if $modular-scale-loaded == false {
+    @warn 'the font-scale mixin requires modular-scale to be loaded.';
   }
 }

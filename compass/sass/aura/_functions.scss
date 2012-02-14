@@ -2,15 +2,15 @@
 // Converting between px and em
 //////////////////////////////
 @function px-em($px) {
-  @return $px / $font-size-px * 1em;
+  @return $px / $body-font-size-px * 1em;
 }
 
 @function em-em($em, $base: 14px) {
-  @return $em * $base / $font-size-px;
+  @return $em * $base / $body-font-size-px;
 }
 
 @function em-px($em) {
-  @return $em / $font-size-em * $font-size-px;
+  @return $em / $body-font-size-em * $body-font-size-px;
 }
 
 //////////////////////////////
@@ -36,6 +36,27 @@
 }
 
 //////////////////////////////
+// Generates Body Font Sizes for each unit
+//////////////////////////////
+@function bfs($unit) {
+  @if $unit == 'px' {
+    @return $body-font-size-em / 1em * 16px;
+  }
+  @else if $unit == '%' {
+    @return $body-font-size-em / 1em * 100%;
+  }
+  @else if $unit == 'em' {
+    @return $body-font-size-em;
+  }
+  @else if $unit == 'pt' {
+    @return $body-font-size-em / 1em * 12pt;
+  }
+  @else {
+    @warn 'Invalid unit passed in.';
+  }
+}
+
+//////////////////////////////
 // Find Breakpoints for Non Modular-Scale
 //////////////////////////////
 @function responsive-ratio() {
@@ -53,9 +74,12 @@
 // Find Breakpoints for Modular Scale
 //////////////////////////////
 @function responsive-scale() {
+  @if $modular-scale-loaded == false {
+    @warn 'the responsive-scale function requires modular-scale to be loaded. The responsive-ratio value was returned.';
+    @return responsive-ratio();
+  }
   $full: columns-width();
   $breakpoints: $full;
-  // Add 1/2 Alphabet to Measure for Medium
   $scale-relation: -1 !default;
   @for $i from 1 through 3 {
     $measure: $measure-width;

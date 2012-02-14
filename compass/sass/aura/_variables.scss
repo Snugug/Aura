@@ -14,12 +14,20 @@ $measure-width:         $alphabet-count* $fourth    !default;
 $lh-addition:           .3em                        !default;
 $responsive-ratio:      false                       !default;
 // If using font-scale, suggest $major-third ratio. If not, suggest $golden ratio
+// Bad Options
+$width:                 false                       !default;
+// Optionally can set width for main grid which will override all other options.
 
 //////////////////////////////
 // Internal Variables for Aurora
 //////////////////////////////
-$measure:           false                           !default;
-$gutter-col-total:  5                               !default;
-$breakpoints:       false                           !default;
-$body-font-size-em: false                           !default;
+$measure:                 false                           !default;
+$gutter-col-total:        5                               !default;
+$breakpoints:             false                           !default;
+$body-font-size-em:       false                           !default;
+$body-font-size-px:       false                           !default;
+$body-font-size-percent:  false                           !default;
+$body-font-size-pt:       false                           !default;
+$width-em:                false                           !default;
+$modular-scale-loaded:    false                           !default;
 $sizes:             'full' 'large' 'medium' 'small';
