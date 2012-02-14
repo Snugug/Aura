@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{compass-aura}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.5")
   s.authors = ["Sam Richard"]
-  s.date = %q{2012-01-30}
+  s.date = %q{2012-02-14}
   s.description = %q{Typography based Responsive Framework utilizing Susy and Modular Scale.}
   s.email = %w{snugug@gmail.com}
   s.has_rdoc = false
