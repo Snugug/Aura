@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{compass-aura}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.3.5")
   s.authors = ["Sam Richard"]
@@ -13,7 +13,10 @@ Gem::Specification.new do |s|
   s.files = [
     "compass-aura.gemspec",
     "lib/compass-aura.rb",
-    "stylesheets/_aura.scss"
+    "sass/_aura.scss",
+    "sass/aura/_functions.scss",
+    "sass/aura/_mixins.scss",
+    "sass/aura/_variables.scss"
   ]
   s.homepage = %q{https://github.com/Snugug/Aura}
   s.require_paths = ["lib"]
