@@ -25,3 +25,15 @@ To use the calculated breakpoints, use the 'respond-to' mixin with "full", "larg
 }
 
 See index.html and style.scss for examples as to how to use. More to come, including advanced usage, better documentation, and some best practices.
+
+Setting Up Sidebars:
+Set number of sidebars.
+Syntax is:
+Number of Sidebars (0, 1, 2). If 0, also need to set $main-content-cols and $total-cols equal.
+Side of the Sidebar (left, right, both, none).
+Sidebar Widths (Integer number of columns for left (and right) to span, such as 2, 3).
+  Default for 1 sidebar is difference between $main-content-cols and $total-cols.
+  Default for 2 sidebars is split difference between $main-content-cols and $total-cols
+    with left sidebar getting overflow from odd remainders.
+  If one width is provided and you have more than one sidebar, the same width will be used
+    for both sidebars.
