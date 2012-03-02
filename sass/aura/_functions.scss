@@ -120,3 +120,131 @@
 @function gutter-width($gutter-col-grid) {
   @return $gutter-col-grid * nth($gutter-to-col, 1);
 }
+
+//////////////////////////////
+// Sidebar Functions
+//////////////////////////////
+@function sidebar-width($overflow: true) {
+  // Grab number of sidebars
+  $num: nth($sidebars, 1);
+  
+  @if $num > 2 or $num < 0 {
+    @warn 'Invalid number of sidebars! You can have 0, 1, or 2 sidebars!';
+    @return -1;
+  }
+  
+  // Grab length of sidebar variable to determine how to act
+  $length: length($sidebars);
+  
+  @if $length < 2 {
+    @warn "Not enough arguments! You need to provide at least the number of sidebars and the side of the sidebar! If you do not want sidebars, set $sidebars: 0, 'none';";
+    @return -1;
+  }
+  @else if $length > 4 {
+    @warn "Too many arguments!";
+    @return -1;
+  }
+  
+  @if $length == 2 {
+    @if $num == 0 {
+      $total-cols: $main-content-cols;
+      @return 0;
+    }
+    @else if $num == 1 {
+      @return $total-cols - $main-content-cols;
+    }
+    @else if $num == 2 {
+      $remainder: $total-cols - $main-content-cols;
+      $floor: floor($remainder / 2);
+      $extra: $remainder - $floor;
+      $big: '';
+      $small: '';
+      @if $floor > $extra {
+        $big: $floor;
+        $small: $extra;
+      }
+      @else if $extra > $floor {
+        $big: $extra;
+        $small: $floor;
+      }
+      @else {
+        $big: $floor;
+        $small: $extra;
+      }
+      
+      @if $overflow == true {
+        @return $big;
+      }
+      @else {
+        @return $small;
+      }
+    }
+    @else {
+      @warn 'Invalid number of sidebars! You can have 0, 1, or 2 sidebars!';
+      @return -1;
+    }
+  }
+  @else if $length == 3 {
+    $sidebar-width: nth($sidebars, 3);
+    @if is-int($sidebar-width) == false {
+      @warn 'Sidebar width must be an integer!';
+      @return -1;
+    }
+    
+    @if $num == 0 {
+      $total-cols: $main-content-cols;
+      @return 0;
+    }
+    @else if $num == 1 {
+      $total-cols: $main-content-cols + $sidebar-width;
+      @return $sidebar-width;
+    }
+    @else if $num == 2 {
+      $total-cols: $main-content-cols + 2 * $sidebar-width;
+      @return $sidebar-width;
+    }
+  }
+  @else if $length == 4 {
+    $sidebar-1-width: nth($sidebars, 3);
+    @if is-int($sidebar-1-width) == false {
+      @warn 'First sidebar width must be an integer!';
+      @return -1;
+    }
+    
+    $sidebar-2-width: nth($sidebars, 4);
+    @if is-int($sidebar-2-width) == false {
+      @warn 'Second sidebar width must be an integer!';
+      @return -1;
+    }
+    
+   @if $num == 0 {
+      $total-cols: $main-content-cols;
+      @return 0;
+    }
+    @else if $num > 1 {
+      $total-cols: $main-content-cols + $sidebar-1-width + $sidebar-2-width;
+      
+      $big: '';
+      $small: '';
+      
+      @if $sidebar-1-width > $sidebar-2-width {
+        $big: $sidebar-1-width;
+        $small: $sidebar-2-width;
+      }
+      @else if $sidebar-1-width < $sidebar-2-width {
+        $big: $sidebar-2-width;
+        $small: $sidebar-1-width;
+      }
+      @else {
+        $big: $sidebar-1-width;
+        $small: $sidebar-2-width;
+      }
+      @if $overflow == true {
+        @return $big;
+      }
+      @else {
+        @return $small;
+      }
+    }
+  }
+}
