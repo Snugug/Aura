@@ -1,50 +1,71 @@
-/* line 51, ../sass/aura/_mixins.scss */
+@charset "UTF-8";
+/* line 34, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
+#sidebar {
+  display: inline;
+  float: left;
+  width: 22.951%;
+  margin-right: 1.639%;
+  float: none;
+}
+@media screen and (min-width: 31.232em) {
+  /* line 34, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
+  #sidebar {
+    margin-left: 1.639%;
+    float: left;
+  }
+}
+
+@media screen and (min-width: 31.232em) {
+}
+
+/* line 112, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
 html {
   font-size: 0.72em;
   line-height: 1.36em;
 }
-@media screen and (min-width: 33.083em) {
-  /* line 51, ../sass/aura/_mixins.scss */
+@media screen and (min-width: 31.232em) {
+  /* line 112, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
   html {
     font-size: 0.9em;
     line-height: 1.45em;
   }
 }
-@media screen and (min-width: 41.353em) {
-  /* line 51, ../sass/aura/_mixins.scss */
+@media screen and (min-width: 39.04em) {
+  /* line 112, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
   html {
     font-size: 1.125em;
     line-height: 1.563em;
   }
 }
-@media screen and (min-width: 51.692em) {
-  /* line 51, ../sass/aura/_mixins.scss */
+@media screen and (min-width: 48.8em) {
+  /* line 112, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
   html {
     font-size: 1.406em;
     line-height: 1.703em;
   }
 }
-@media screen and (min-width: 64.615em) {
-  /* line 51, ../sass/aura/_mixins.scss */
+@media screen and (min-width: 61em) {
+  /* line 112, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
   html {
     font-size: 1.758em;
     line-height: 1.879em;
   }
 }
 
-/* line 80, ../sass/aura/_mixins.scss */
+/* line 141, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
 img, object, embed, iframe, video, audio {
   max-width: 100%;
 }
 
-/* line 86, ../sass/aura/_mixins.scss */
+/* line 147, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
 #main-content {
   clear: both;
   margin-left: 1.639%;
   margin-right: 1.639%;
+  float: none;
 }
-@media screen and (min-width: 33.083em) {
-  /* line 86, ../sass/aura/_mixins.scss */
+@media screen and (min-width: 31.232em) {
+  /* line 147, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
   #main-content {
     display: inline;
     float: left;
@@ -52,22 +73,35 @@ img, object, embed, iframe, video, audio {
     margin-right: 1.639%;
   }
 }
+@media screen and (min-width: 31.232em) {
+  /* line 147, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
+  #main-content {
+    float: right;
+  }
+}
+@media screen and (min-width: 31.232em) {
+  /* line 147, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
+  #main-content {
+    margin-left: 0;
+    margin-right: 1.639%;
+  }
+}
 
-/* line 93, ../sass/aura/_mixins.scss */
+/* line 184, /Users/Valhalla/Development/Aura/sass/aura/_mixins.scss */
 #page-wrapper {
   *zoom: 1;
   margin: auto;
   width: 64.615em;
   max-width: 100%;
 }
-/* line 38, ../../../../../Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Library/Ruby/Gems/1.8/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #page-wrapper:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 19, ../sass/style.scss */
+/* line 20, ../sass/style.scss */
 #page-wrapper {
   font-family: 'Poly', serif;
   background-color: red;
@@ -80,32 +114,31 @@ img, object, embed, iframe, video, audio {
   background-position: left top;
 }
 
-/* line 26, ../sass/style.scss */
+/* line 27, ../sass/style.scss */
 #main-content {
-  margin-left: 1.639%;
   color: white;
   background-color: red;
 }
-@media screen and (min-width: 33.083em) {
-  /* line 26, ../sass/style.scss */
+@media screen and (min-width: 31.232em) {
+  /* line 27, ../sass/style.scss */
   #main-content {
     background-color: orange;
   }
 }
-@media screen and (min-width: 41.353em) {
-  /* line 26, ../sass/style.scss */
+@media screen and (min-width: 39.04em) {
+  /* line 27, ../sass/style.scss */
   #main-content {
     background-color: green;
   }
 }
-@media screen and (min-width: 51.692em) {
-  /* line 26, ../sass/style.scss */
+@media screen and (min-width: 48.8em) {
+  /* line 27, ../sass/style.scss */
   #main-content {
     background-color: blue;
   }
 }
-@media screen and (min-width: 64.615em) {
-  /* line 26, ../sass/style.scss */
+@media screen and (min-width: 61em) {
+  /* line 27, ../sass/style.scss */
   #main-content {
     background-color: purple;
   }
@@ -113,11 +146,5 @@ img, object, embed, iframe, video, audio {
 
 /* line 46, ../sass/style.scss */
 #sidebar {
-  display: inline;
-  float: left;
-  width: 22.951%;
-  margin-right: 1.639%;
-  height: 50%;
   color: black;
-  background-color: yellow;
 }
