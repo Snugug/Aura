@@ -7,9 +7,10 @@
 // Aura Variables
 //////////////////////////////
 $body-font-size: 18px;
-$font-scale: true;
+//$font-scale: false;
+$sidebars: 1, 'left';
 
-//$width: 960px;
+//$width: 960 px;
 
 //////////////////////////////
 // Aura Setup Mixin
@@ -25,7 +26,6 @@ $font-scale: true;
 
 #main-content {
   @extend %measure;
-  @include alpha;
   color: white;
   background-color: red;
 
@@ -44,8 +44,6 @@ $font-scale: true;
 }
 
 #sidebar {
-  @include columns(3);
-  height: 50%;
+  @extend %primary-sidebar;
   color: black;
-  background-color: yellow;
 }
