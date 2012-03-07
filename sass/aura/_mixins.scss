@@ -44,7 +44,7 @@
     @else if nth($sidebars, 2) == 'right' {
       float: none;
       @include respond-to('small') {
-        float: right;
+        float: left;
         @if nth($sidebars, 1) == 1 {
           margin-left: 0;
           margin-right: gutter();
@@ -71,12 +71,19 @@
         float: left;
       }
     }
-    @else if nth($sidebars, 2) == 'right' or nth($sidebars, 2) == 'both' {
+    @else if nth($sidebars, 2) == 'right' {
       float: none;
       @include respond-to('small') {
         float: right;
         margin-left: 0;
         margin-right: gutter();
+      }
+    }
+    @else if nth($sidebars, 2) == 'both' {
+      float: none;
+      @include respond-to('small') {
+        float: right;
+        margin-right: -1 * (columns($main-content-cols) + columns(sidebar-width($overflow: false)) + gutter());
       }
     }
     @else if nth($sidebars, 2) == 'none' {
@@ -149,10 +156,19 @@
     @include respond-to('small') {
       @include columns($main-content-cols);
     }
-    @if nth($sidebars, 2) == 'left' or nth($sidebars, 2) == 'both'{
+    @if nth($sidebars, 2) == 'left'{
       float: none;
       @include respond-to('small') {
         float: right;
+      }
+    }
+    @else if nth($sidebars, 2) == 'both' {
+      float: none;
+      @include respond-to('small') {
+        float: right;
+        @include alpha;
+        margin-left: 0;
+        margin-right: columns(sidebar-width($overflow: false)) + gutter() + gutter();
       }
     }
     @else if nth($sidebars, 2) == 'right' {
