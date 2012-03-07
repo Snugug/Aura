@@ -1,0 +1,54 @@
+//////////////////////////////
+// Aura Import
+//////////////////////////////
+@import 'aura';
+
+//////////////////////////////
+// Aura Variables
+//////////////////////////////
+$body-font-size: 18px;
+//$font-scale: false;
+$sidebars: 2, 'both', 3, 2;
+
+$width: 960px;
+
+//////////////////////////////
+// Aura Setup Mixin
+//////////////////////////////
+@include aura-setup;
+
+#page-wrapper {
+  @extend %aura-container;
+  font-family: 'Poly', serif;
+  background-color: red;
+  @include susy-grid-background;
+}
+
+#main-content {
+  @extend %measure;
+  color: white;
+  background-color: red;
+
+  @include respond-to('small') {
+    background-color: orange;
+  }
+  @include respond-to('medium') {
+    background-color: green;
+  }
+  @include respond-to('large') {
+    background-color: blue;
+  }
+  @include respond-to('full') {
+    background-color: purple;
+  }
+}
+
+#sidebar-first {
+  @extend %primary-sidebar;
+  color: black;
+}
+
+#sidebar-second {
+  @extend %secondary-sidebar;
+  color: black;
+}
