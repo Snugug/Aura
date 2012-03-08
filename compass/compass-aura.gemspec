@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "compass-aura"
-  s.version = "0.1.5.2"
+  s.version = "0.1.6"
   s.date = "2011-03-02"
   s.rubyforge_project = "compass-aura"
   s.rubygems_version = "1.7.2"
