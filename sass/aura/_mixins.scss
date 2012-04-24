@@ -32,68 +32,85 @@
   
   // Set up sidebars now as sidebars can affect $total-cols
   %primary-sidebar {
-    @include columns(sidebar-width());
-
-    @if nth($sidebars, 2) == 'left' or nth($sidebars, 2) == 'both'{
-      float: none;
+    @include columns($total-cols, $total-cols);
+    
+    // Single column debugging for mobile-first design!
+    @if $single-column == false {
       @include respond-to('small') {
-        @include alpha();
-        float: left;
+        @include columns(sidebar-width());
       }
-    }
-    @else if nth($sidebars, 2) == 'right' {
-      float: none;
-      @include respond-to('small') {
-        float: left;
-        @if nth($sidebars, 1) == 1 {
-          margin-left: 0;
-          margin-right: gutter();
+      
+      @if nth($sidebars, 2) == 'left' or nth($sidebars, 2) == 'both'{
+        float: none;
+        @include respond-to('small') {
+          @include alpha();
+          float: left;
         }
       }
-    }
-    @else if nth($sidebars, 2) == 'none' {
-      float: none;
-      @include respond-to('small') {
-        float: right;
+      @else if nth($sidebars, 2) == 'right' {
+        float: none;
+        @include respond-to('small') {
+          float: left;
+          @if nth($sidebars, 1) == 1 {
+            margin-left: 0;
+            margin-right: gutter();
+          }
+        }
+      }
+      @else if nth($sidebars, 2) == 'none' {
+        float: none;
+        @include respond-to('small') {
+          float: right;
+        }
+      }
+      @else {
+        @warn 'Sidebar side can only have a value of left, right, both, or none';
       }
     }
     @else {
-      @warn 'Sidebar side can only have a value of left, right, both, or none';
+      float: none;
     }
   }
   
   %secondary-sidebar {
-    @include columns(sidebar-width($overflow: false));
-
-    @if nth($sidebars, 2) == 'left' {
-      float: none;
+    @include columns($total-cols, $total-cols);
+    
+    // Single column debugging for mobile-first design!
+    @if $single-column == false {
       @include respond-to('small') {
-        float: left;
+        @include columns(sidebar-width($overflow: false));
       }
-    }
-    @else if nth($sidebars, 2) == 'right' {
-      float: none;
-      @include respond-to('small') {
-        float: right;
-        margin-left: 0;
-        margin-right: gutter();
+      
+      @if nth($sidebars, 2) == 'left' {
+        float: none;
+        @include respond-to('small') {
+          float: left;
+        }
       }
-    }
-    @else if nth($sidebars, 2) == 'both' {
-      float: none;
-      @include respond-to('small') {
-        float: right;
-        margin-right: -1 * (columns($main-content-cols) + columns(sidebar-width($overflow: false)) + gutter());
+      @else if nth($sidebars, 2) == 'right' {
+        float: none;
+        @include respond-to('small') {
+          float: right;
+          margin-left: 0;
+          margin-right: gutter();
+        }
       }
-    }
-    @else if nth($sidebars, 2) == 'none' {
-      float: none;
-      @include respond-to('small') {
-        float: right;
+      @else if nth($sidebars, 2) == 'both' {
+        float: none;
+        @include respond-to('small') {
+          float: right;
+          margin-right: -1 * (columns($main-content-cols) + columns(sidebar-width($overflow: false)) + gutter());
+        }
       }
-    }
-    @else {
-      @warn 'Sidebar side can only have a value of left, right, both, or none';
+      @else if nth($sidebars, 2) == 'none' {
+        float: none;
+        @include respond-to('small') {
+          float: right;
+        }
+      }
+      @else {
+        @warn 'Sidebar side can only have a value of left, right, both, or none';
+      }
     }
   }
   
@@ -122,19 +139,22 @@
       // Set base Root Font to -2 Modular Scale
       @include font-scale(-2);
       
-      // At Small Responsive Scale, increase Modular Scale by 1
-      @include respond-to('small') {
-        @include font-scale(-1);
-      }
-      @include respond-to('medium') {
-        @include font-scale(0);
-      }
-      // At Large Responsive Scale, increase Modular Scale by 2 to base
-      @include respond-to('large') {
-        @include font-scale(1);
-      }
-      @include respond-to('full') {
-        @include font-scale(2);
+      // Single column debugging for mobile-first design!
+      @if $single-column == false {
+        // At Small Responsive Scale, increase Modular Scale by 1
+        @include respond-to('small') {
+          @include font-scale(-1);
+        }
+        @include respond-to('medium') {
+          @include font-scale(0);
+        }
+        // At Large Responsive Scale, increase Modular Scale by 2 to base
+        @include respond-to('large') {
+          @include font-scale(1);
+        }
+        @include respond-to('full') {
+          @include font-scale(2);
+        }
       }
     }
     // If Font Scale is disabled, set root font to base font size
@@ -153,47 +173,52 @@
   // Create Measure class to be extended
   %measure {
     @include full;
-    @include respond-to('small') {
-      @include columns($main-content-cols);
-    }
-    @if nth($sidebars, 2) == 'left'{
-      float: none;
+    
+    // Single column debugging for mobile-first design!
+    @if $single-column == false {
       @include respond-to('small') {
-        float: right;
+        @include columns($main-content-cols);
       }
-    }
-    @else if nth($sidebars, 2) == 'both' {
-      float: none;
-      @include respond-to('small') {
-        float: right;
-        @include alpha;
-        margin-left: 0;
-        margin-right: columns(sidebar-width($overflow: false)) + gutter() + gutter();
+      @if nth($sidebars, 2) == 'left'{
+        float: none;
+        @include respond-to('small') {
+          float: right;
+        }
       }
-    }
-    @else if nth($sidebars, 2) == 'right' {
-      float: none;
-      @include respond-to('small') {
-        @include alpha();
-        float: left;
+      @else if nth($sidebars, 2) == 'both' {
+        float: none;
+        @include respond-to('small') {
+          float: right;
+          @include alpha;
+          margin-left: 0;
+          margin-right: columns(sidebar-width($overflow: false)) + gutter() + gutter();
+        }
       }
-    }
-    @else if nth($sidebars, 2) == 'none' {
-      float: none;
-      @include respond-to('small') {
-        @include alpha();
-        float: left;
+      @else if nth($sidebars, 2) == 'right' {
+        float: none;
+        @include respond-to('small') {
+          @include alpha();
+          float: left;
+        }
       }
-    }
-    // Add in "Omega"
-    @if nth($sidebars, 2) == 'left' {
-      @include respond-to('small') {
-        margin-left: 0;
-        margin-right: gutter();
+      @else if nth($sidebars, 2) == 'none' {
+        float: none;
+        @include respond-to('small') {
+          @include alpha();
+          float: left;
+        }
       }
-    }
-    @else {
-      @warn 'Sidebar side can only have a value of left, right, both, or none';
+      @else {
+        @warn 'Sidebar side can only have a value of left, right, both, or none';
+      }
+
+      // Add in "Omega"
+      @if nth($sidebars, 2) == 'left' {
+        @include respond-to('small') {
+          margin-left: 0;
+          margin-right: gutter();
+        }
+      }
     }
   }
   
