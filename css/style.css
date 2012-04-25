@@ -5,28 +5,29 @@
   float: left;
   width: 100%;
   margin-right: 1.695%;
+  margin-left: 1.639%;
   float: none;
 }
 
-/* line 136, ../sass/aura/_mixins.scss */
+/* line 138, ../sass/aura/_mixins.scss */
 html {
   font-size: 0.72em;
   line-height: 1.36em;
 }
 
-/* line 168, ../sass/aura/_mixins.scss */
+/* line 170, ../sass/aura/_mixins.scss */
 img, object, embed, iframe, video, audio {
   max-width: 100%;
 }
 
-/* line 174, ../sass/aura/_mixins.scss */
+/* line 176, ../sass/aura/_mixins.scss */
 #main-content {
   clear: both;
   margin-left: 1.639%;
   margin-right: 1.639%;
 }
 
-/* line 225, ../sass/aura/_mixins.scss */
+/* line 227, ../sass/aura/_mixins.scss */
 #page-wrapper {
   *zoom: 1;
   margin: auto;
