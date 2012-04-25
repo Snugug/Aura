@@ -61,13 +61,13 @@
 //////////////////////////////
 @function responsive-ratio() {
   $full: columns-width();
-  $breakpoints: $full;
+  $aura-breakpoints: $full;
   
   @for $i from 1 through 3 {
-    $bsize: nth($breakpoints, $i) / $responsive-ratio;
-    $breakpoints: join($breakpoints, $bsize);
+    $bsize: nth($aura-breakpoints, $i) / $responsive-ratio;
+    $aura-breakpoints: join($aura-breakpoints, $bsize);
   }
-  @return $breakpoints;
+  @return $aura-breakpoints;
 }
 
 //////////////////////////////
@@ -79,7 +79,7 @@
     @return responsive-ratio();
   }
   $full: columns-width();
-  $breakpoints: $full;
+  $aura-breakpoints: $full;
   $scale-relation: -1 !default;
   @for $i from 1 through 3 {
     $measure: $measure-width;
@@ -92,10 +92,10 @@
     $gutter-width: gutter-width($gutter-col-grid);
     $side-gutter-width: $gutter-width;
     
-    $breakpoints: join($breakpoints, columns-width() * $scale-ratio);
+    $aura-breakpoints: join($aura-breakpoints, columns-width() * $scale-ratio);
     
   }
-  @return $breakpoints;
+  @return $aura-breakpoints;
 }
 //////////////////////////////
 // Aura Grid Functions
