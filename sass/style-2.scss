@@ -7,11 +7,12 @@
 // Aura Variables
 //////////////////////////////
 $body-font-size: 18px;
-//$font-scale: false;
+//$font-scale: true;
 $sidebars: 2, 'both', 4, 2;
-$single-column: true;
+$single-column: false;
 
 $width: 960px;
+$breakpoints: 'test' 1000px 'max-width', 1000px 1000px 'width' 'print';
 
 //////////////////////////////
 // Aura Setup Mixin
@@ -23,6 +24,14 @@ $width: 960px;
   font-family: 'Poly', serif;
   background-color: red;
   @include susy-grid-background;
+  
+  @include respond-to('test') {
+    background-color: green;
+  }
+  
+  @include respond-to(1000px) {
+    background-color: yellow;
+  }
 }
 
 #main-content {
