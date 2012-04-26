@@ -13,6 +13,7 @@
   $body-font-size-pt: bfs('pt');
   
   // Default Responsive Ratio if none is set
+  // If using font-scale, suggest $major-third ratio. If not, suggest $golden ratio
   @if not $responsive-ratio {
     @if $font-scale {
       $responsive-ratio: $major-third;
@@ -264,8 +265,7 @@ $modular-scale-loaded: false !default;
     $i: $i + 1;
   }
   
-  // Special case for Breakpoint Length equal to 2, 3, or 4
-  @if length($breakpoints) >= 2 and length($breakpoints) <= 4 {
+  @if $breakpoints != false {
     // Check to see if the 2nd item is a number. If it is, we've got a single query
     @if type-of(nth($breakpoints, 2)) == 'number' {
       // Check to see if the context matches the breakpoint namespace
@@ -286,19 +286,6 @@ $modular-scale-loaded: false !default;
           @include media-query-gen($bkpt) {
             @content;
           }
-        }
-      }
-    }
-  }
-  // Else, loop over all of them
-  @else {
-    // Loop over each breakpoint and check context
-    @each $bkpt in $breakpoints {
-      // If context is correct…
-      @if $context == nth($bkpt, 1) {
-        // Call the generator!
-        @include media-query-gen($bkpt) {
-          @content;
         }
       }
     }
