@@ -16,7 +16,6 @@ $measure-width:         $alphabet-count* $fourth    !default;
 $lh-addition:           .3em                        !default;
 $responsive-ratio:      false                       !default;
 $breakpoints:           false                       !default;
-// If using font-scale, suggest $major-third ratio. If not, suggest $golden ratio
 // Bad Options
 $width:                 false                       !default;
 // Optionally can set width for main grid which will override all other options.
@@ -33,4 +32,4 @@ $body-font-size-percent:  false                           !default;
 $body-font-size-pt:       false                           !default;
 $width-em:                false                           !default;
 $modular-scale-loaded:    false                           !default;
-$sizes:             'full' 'large' 'medium' 'small';
+$sizes:                   'full' 'large' 'medium' 'small';
