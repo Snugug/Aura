@@ -39,6 +39,7 @@
     // Single column debugging for mobile-first design!
     @if $single-column == false {
       @include respond-to('small') {
+        margin-left: 0;
         @include columns(sidebar-width());
       }
       
@@ -81,6 +82,7 @@
     // Single column debugging for mobile-first design!
     @if $single-column == false {
       @include respond-to('small') {
+        margin-left: 0;
         @include columns(sidebar-width($overflow: false));
       }
       
