@@ -57,3 +57,7 @@ $total-cols with left sidebar getting overflow from odd remainders.
 
 If one width is provided and you have more than one sidebar, the same width will
 be used for both sidebars.
+
+## License
+
+This software is © Sam Richard and is available under a dual MIT/GPL2 License.
