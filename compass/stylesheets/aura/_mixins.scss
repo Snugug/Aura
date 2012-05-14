@@ -31,22 +31,21 @@
     $measure: $measure-width;
   }
   
-  // Set up sidebars now as sidebars can affect $total-cols
+  // Set up sidebars now as sidebars can affect $total-columns
   %primary-sidebar {
-    @include columns($total-cols, $total-cols);
-    margin-left: gutter();
+    clear: both;
     
     // Single column debugging for mobile-first design!
     @if $single-column == false {
       @include respond-to('small') {
-        margin-left: 0;
-        @include columns(sidebar-width());
+        clear: none;
+        @include span-columns(sidebar-width());
       }
       
       @if nth($sidebars, 2) == 'left' or nth($sidebars, 2) == 'both'{
         float: none;
         @include respond-to('small') {
-          @include alpha();
+          ;
           float: left;
         }
       }
@@ -55,8 +54,7 @@
         @include respond-to('small') {
           float: left;
           @if nth($sidebars, 1) == 1 {
-            margin-left: 0;
-            margin-right: gutter();
+            @include omega;
           }
         }
       }
@@ -74,16 +72,17 @@
       float: none;
     }
   }
+;
+  
   
   %secondary-sidebar {
-    @include columns($total-cols, $total-cols);
-    margin-left: gutter();
-    
+//    @include span-columns($total-columns);
+    clear: both;
     // Single column debugging for mobile-first design!
     @if $single-column == false {
       @include respond-to('small') {
-        margin-left: 0;
-        @include columns(sidebar-width($overflow: false));
+        clear: none;
+        @include span-columns(sidebar-width($overflow: false));
       }
       
       @if nth($sidebars, 2) == 'left' {
@@ -96,14 +95,14 @@
         float: none;
         @include respond-to('small') {
           float: right;
-          margin-left: 0;
-          margin-right: gutter();
+          @include omega;
         }
       }
       @else if nth($sidebars, 2) == 'both' {
         float: none;
         @include respond-to('small') {
           float: right;
+          // Need to fake "pull" for this column in order to work 
           margin-right: -1 * (columns($main-content-cols) + columns(sidebar-width($overflow: false)) + gutter());
         }
       }
@@ -123,18 +122,18 @@
   // If there's a width, figure out body-font-size for width
   @if $width {
     $width-em: px-em($width);
-    $sub-col: $width-em / ($total-cols * gutter-col-total() + nth($gutter-to-col, 1));
-    $col-width: $sub-col * nth($gutter-to-col, 2);
+    $sub-col: $width-em / ($total-columns * gutter-col-total() + nth($gutter-to-col, 1));
+    $column-width: $sub-col * nth($gutter-to-col, 2);
     $gutter-width: $sub-col * nth($gutter-to-col, 1);
-    $side-gutter-width: $gutter-width;
+    $grid-padding: $gutter-width;
   }
   @else {
     $col-total: col-total();
     $gutter-col-total: gutter-col-total();
     $gutter-col-grid: gutter-col-grid($col-total);
-    $col-width: col-width($gutter-col-grid);
+    $column-width: col-width($gutter-col-grid);
     $gutter-width: gutter-width($gutter-col-grid);
-    $side-gutter-width: $gutter-width;
+    $grid-padding: $gutter-width;
   }
   
   // Set Root Em
@@ -177,52 +176,42 @@
   
   // Create Measure class to be extended
   %measure {
-    @include full;
+    clear: both;
     
     // Single column debugging for mobile-first design!
     @if $single-column == false {
       @include respond-to('small') {
-        @include columns($main-content-cols);
+        clear: none;
+        @include span-columns($main-content-cols);
       }
       @if nth($sidebars, 2) == 'left'{
         float: none;
         @include respond-to('small') {
-          float: right;
+          @include omega;
+          margin-right: 0;
         }
       }
       @else if nth($sidebars, 2) == 'both' {
         float: none;
         @include respond-to('small') {
           float: right;
-          @include alpha;
-          margin-left: 0;
-          margin-right: columns(sidebar-width($overflow: false)) + gutter() + gutter();
+          @include push(2, $from: 'right');
         }
       }
       @else if nth($sidebars, 2) == 'right' {
         float: none;
         @include respond-to('small') {
-          @include alpha();
           float: left;
         }
       }
       @else if nth($sidebars, 2) == 'none' {
         float: none;
         @include respond-to('small') {
-          @include alpha();
           float: left;
         }
       }
       @else {
         @warn 'Sidebar side can only have a value of left, right, both, or none';
-      }
-
-      // Add in "Omega"
-      @if nth($sidebars, 2) == 'left' {
-        @include respond-to('small') {
-          margin-left: 0;
-          margin-right: gutter();
-        }
       }
     }
   }
