@@ -3,8 +3,8 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "compass-aura"
-  s.version = "0.2.2"
-  s.date = "2011-04-26"
+  s.version = "0.3.1"
+  s.date = "2011-05-14"
   s.rubyforge_project = "compass-aura"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/Snugug/Aura"
   
   # Project Description
-  s.description = "Typography based Responsive Framework utilizing Susy and Modular Scale."
-  s.summary = "Typography based Responsive Framework."
+  s.description = "Responsive Framework utilizing Susy and Modular Scale."
+  s.summary = "Responsive Framework for Compass."
   
   # Files to Include
   s.files = [
@@ -29,6 +29,6 @@ Gem::Specification.new do |s|
   
   # Dependent Gems
   s.add_dependency 'modular-scale',       ">= 0.0.4" 
-  s.add_dependency 'compass-susy-plugin', ">= 0.9"
+  s.add_dependency 'susy',                ">= 1.0.rc.0"
   s.add_dependency 'sassy-math',          ">= 0.1.8"
 end
