@@ -88,15 +88,34 @@
     
     $col-total: col-total();
     $gutter-col-grid: gutter-col-grid($col-total);
-    $col-width: col-width($gutter-col-grid);
+    $column-width: col-width($gutter-col-grid);
     $gutter-width: gutter-width($gutter-col-grid);
-    $side-gutter-width: $gutter-width;
+    $grid-padding: $gutter-width;
     
     $aura-breakpoints: join($aura-breakpoints, columns-width() * $scale-ratio);
     
   }
   @return $aura-breakpoints;
 }
+
+////////////////////////
+// Aura Breakpoints
+////////////////////////
+@function aura-break($size) {
+  @if $size == 'full' {
+    @return nth($aura-breakpoints, 1);
+  }
+  @else if $size == 'large' {
+    @return nth($aura-breakpoints, 2);
+  }
+  @else if $size == 'medium' {
+    @return nth($aura-breakpoints, 3);
+  }
+  @else if $size == 'small' {
+    @return nth($aura-breakpoints, 4);
+  }
+}
+
 //////////////////////////////
 // Aura Grid Functions
 //////////////////////////////
@@ -147,14 +166,14 @@
   
   @if $length == 2 {
     @if $num == 0 {
-      $total-cols: $main-content-cols;
+      $total-columns: $main-content-cols;
       @return 0;
     }
     @else if $num == 1 {
-      @return $total-cols - $main-content-cols;
+      @return $total-columns - $main-content-cols;
     }
     @else if $num == 2 {
-      $remainder: $total-cols - $main-content-cols;
+      $remainder: $total-columns - $main-content-cols;
       $floor: floor($remainder / 2);
       $extra: $remainder - $floor;
       $big: '';
@@ -192,15 +211,15 @@
     }
     
     @if $num == 0 {
-      $total-cols: $main-content-cols;
+      $total-columns: $main-content-cols;
       @return 0;
     }
     @else if $num == 1 {
-      $total-cols: $main-content-cols + $sidebar-width;
+      $total-columns: $main-content-cols + $sidebar-width;
       @return $sidebar-width;
     }
     @else if $num == 2 {
-      $total-cols: $main-content-cols + 2 * $sidebar-width;
+      $total-columns: $main-content-cols + 2 * $sidebar-width;
       @return $sidebar-width;
     }
   }
@@ -218,11 +237,11 @@
     }
     
    @if $num == 0 {
-      $total-cols: $main-content-cols;
+      $total-columns: $main-content-cols;
       @return 0;
     }
     @else if $num > 1 {
-      $total-cols: $main-content-cols + $sidebar-1-width + $sidebar-2-width;
+      $total-columns: $main-content-cols + $sidebar-1-width + $sidebar-2-width;
       
       $big: '';
       $small: '';
