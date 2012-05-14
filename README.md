@@ -1,6 +1,6 @@
 # Aura
 
-A Typography based responsive framework for Sass+Compass powered by Susy
+Aura is a responsive framework for Sass+Compass powered by Susy
 and Modular Scale. This extension requires Sass 3.2 (or the most up-to-date
 beta if Sass 3.2 isn't out).
 
@@ -9,7 +9,15 @@ beta if Sass 3.2 isn't out).
     gem install compass-aura
     @include 'aura'
 
-## Basic Setup:
+### Susy 1.0
+
+Aura has been updated to, and now requires, Susy 1.0. See the [Susy 1.0 Changelog](https://github.com/ericam/susy/blob/master/CHANGELOG.mkdn) for tips on updating your code to be Susy 1.0 compatible. I have not built in defaults for Susy 1.0's `at-breakpoint` mixin because I firmly believe that is a design choice that should not be assumed by Aura (at least not without some out of the box thinking and some silly maths), but I have added a function, `aura-break`, that takes one of the breakpoint sizes' names that Aura generates and returns the value perfect for using with `at-breakpoint`, allowing you to do something like following:
+
+`@include at-breakpoint(aura-break('medium') 8)`
+
+If you want to set arbitrary breakpoints, you can use Aura's `respond-to` mixin (see advanced usage).
+
+## Basic Setup
 
 Set your Body Font Size, in any measurement you are comfortable in.
 Suggested minimum is 16px/1em/100%/12pt
@@ -57,6 +65,10 @@ $total-cols with left sidebar getting overflow from odd remainders.
 
 If one width is provided and you have more than one sidebar, the same width will
 be used for both sidebars.
+
+## Advanced Usage
+
+Todo. Respond-to mixin 
 
 ## License
 
