@@ -1,0 +1,11 @@
+#page-wrapper {
+  @extend %aura-container;
+}
+
+#main-content {
+  @extend %measure;
+}
+
+#sidebar {
+  @extend %primary-sidebar;
+}
