@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<!-- saved from url=(0129)chrome-devtools://devtools/devtools.html?docked=false&dockSide=bottom&toolbarColor=rgba(128,143,156,1)&textColor=rgba(23,34,55,1) -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.text-editor {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    white-space: pre;
+    overflow: auto;
+}
+
+.text-editor-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    -webkit-user-select: none;
+    background-color: rgb(240, 240, 240);
+    border-right: 1px solid rgb(187, 187, 187);
+    min-width: 19px;
+}
+
+.text-editor-contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    -webkit-user-select: text;
+}
+
+.text-editor-contents .inner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    min-width: 100%;
+}
+
+.text-editor-editable {
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+.text-editor-read-only {
+    -webkit-user-modify: read-only;
+    background-color: rgb(240, 240, 240);
+}
+
+.webkit-line-decorations {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -webkit-user-modify: read-only;
+}
+
+.webkit-html-message-bubble {
+    -webkit-box-shadow: black 0px 2px 5px;
+    -webkit-border-radius: 9px;
+    -webkit-border-fit: lines;
+    font-size: 10px;
+    font-family: Lucida Grande, sans-serif;
+    font-weight: bold;
+    margin: 6px 25px;
+    padding: 0 7px 1px;
+    z-index:20;
+}
+
+.webkit-html-warning-message {
+    background-color: rgb(100%, 62%, 42%);
+    border: 2px solid rgb(100%, 52%, 21%);
+}
+
+.webkit-html-error-message {
+    background-color: rgb(100%, 42%, 42%);
+    border: 2px solid rgb(100%, 31%, 31%);
+}
+
+.webkit-html-message-line {
+    padding-left: 23px;
+    text-indent: -20px;
+}
+
+.webkit-html-message-line-hover {
+    padding-left: 23px;
+    text-indent: -20px;
+    white-space: auto;
+    text-overflow: auto;
+    overflow: auto;
+}
+
+.webkit-html-message-icon {
+    position: relative;
+    top: 2px;
+    margin: 0 4px;
+}
+
+.webkit-line-number {
+    color: rgb(128, 128, 128);
+    text-align: right;
+    vertical-align: top;
+    word-break: normal;
+    padding-right: 4px;
+    padding-left: 6px;
+}
+
+.webkit-line-number-outer {
+    margin-right: -4px;
+    margin-left: -4px;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0 0 0px 2px;
+    vertical-align: top;
+}
+
+.webkit-line-number-inner {
+    margin-right: 4px;
+}
+
+.webkit-breakpoint .webkit-line-number-inner, .webkit-breakpoint-conditional .webkit-line-number-inner, .webkit-execution-line .webkit-line-number-inner {
+    margin-right: -10px;
+}
+
+.webkit-line-content {
+    padding-left: 2px;
+}
+
+.webkit-breakpoint .webkit-line-number-outer {
+    color: white;
+    border-width: 0 14px 0px 2px;
+    -webkit-border-image: url(Images/breakpointBorder.png) 0 14 0 2;
+}
+
+.webkit-breakpoint-conditional .webkit-line-number-outer {
+    color: white;
+    border-width: 0 14px 0px 2px;
+    -webkit-border-image: url(Images/breakpointConditionalBorder.png) 0 14 0 2;
+}
+
+.webkit-execution-line .webkit-line-number-outer {
+    color: transparent;
+    border-width: 0 14px 0px 2px;
+    -webkit-border-image: url(Images/programCounterBorder.png) 0 14 0 2;
+}
+
+.webkit-breakpoint.webkit-execution-line .webkit-line-number-outer {
+    color: white;
+    -webkit-border-image: url(Images/breakpointCounterBorder.png) 0 14 0 2;
+}
+
+.webkit-breakpoint.webkit-execution-line .webkit-line-number-outer {
+    color: transparent;
+    -webkit-border-image: url(Images/breakpointCounterBorder.png) 0 14 0 2;
+}
+
+.webkit-breakpoint-conditional.webkit-execution-line .webkit-line-number-outer {
+    color: transparent;
+    -webkit-border-image: url(Images/breakpointConditionalCounterBorder.png) 0 14 0 2;
+}
+
+.webkit-breakpoint-disabled .webkit-line-number-outer {
+    opacity: 0.5;
+}
+
+.breakpoints-deactivated .webkit-breakpoint .webkit-line-number-outer {
+    opacity: 0.5;
+}
+
+.breakpoints-deactivated .webkit-breakpoint-disabled .webkit-line-number-outer {
+    opacity: 0.3;
+}
+
+.webkit-execution-line.webkit-line-content {
+    background-color: rgb(171, 191, 254);
+    outline: 1px solid rgb(64, 115, 244);
+}
+
+.diff-container .webkit-added-line.webkit-line-content {
+    background-color: rgb(220, 255, 220);
+}
+
+.diff-container .webkit-removed-line.webkit-line-content {
+    background-color: rgb(255, 220, 220);
+    text-decoration: line-through;
+}
+
+.diff-container .webkit-changed-line.webkit-line-content {
+    background-color: rgb(220, 220, 255);
+}
+
+.webkit-highlighted-line.webkit-line-content {
+    -webkit-animation: "fadeout" 2s 0s;
+}
+
+@-webkit-keyframes fadeout {
+    from {background-color: rgb(255, 255, 120); }
+    to { background-color: white; }
+}
+</style><style type="text/css">/*
+ * Copyright (C) 2006, 2007, 2008 Apple Inc.  All rights reserved.
+ * Copyright (C) 2009 Anthony Ricaud <rik@webkit.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1.  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 2.  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.resources.panel .sidebar-resizer-vertical {
+    top: 23px;
+}
+
+.resources.panel .sidebar {
+    padding-left: 0;
+    z-index: 10;
+}
+
+.resources.panel .sidebar li {
+    height: 17px;
+    white-space: nowrap;
+}
+
+.resources.panel .sidebar li.selected {
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.33) 0 1px 0;
+    font-weight: bold;
+}
+
+.resources.panel .sidebar li.selected .selection {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(162, 177, 207)), to(rgb(120, 138, 177)));
+    border-top: 1px solid #979797;
+    height: 17px;
+}
+
+.resources.panel .sidebar :focus li.selected .selection {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(92, 147, 213)), to(rgb(21, 83, 170)));
+    border-top: 1px solid rgb(68, 128, 200);
+}
+
+body.inactive .resources.panel .sidebar li.selected .selection {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(180, 180, 180)), to(rgb(138, 138, 138)));
+    border-top: 1px solid rgb(151, 151, 151);
+}
+
+.resources.panel .sidebar .icon {
+    width: 16px;
+    height: 16px;
+    float: left;
+}
+
+.resources.panel .base-storage-tree-element-title {
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    padding-left: 2px;
+    top: 1px;
+}
+
+li.selected .base-storage-tree-element-subtitle {
+    color: white;
+}
+
+.base-storage-tree-element-subtitle {
+    padding-left: 2px;
+    color: rgb(80, 80, 80);
+    text-shadow: none;
+}
+
+.resources.panel .status {
+    float: right;
+    height: 16px;
+    margin-top: 1px;
+    margin-left: 4px;
+    line-height: 1em;
+}
+
+.resources.panel li .status .bubble {
+    height: 13px;
+    padding-top: 0;
+}
+
+.storage-view {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.storage-view.visible {
+    display: block;
+}
+
+.storage-view {
+    overflow: hidden;
+}
+
+.storage-view .data-grid {
+    border: none;
+    height: 100%;
+}
+
+.storage-view .storage-table-error {
+    color: rgb(66%, 33%, 33%);
+}
+
+.storage-view.query {
+    padding: 2px 0;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: auto;
+}
+
+.database-query-prompt {
+    position: relative;
+    padding: 1px 22px 1px 24px;
+    min-height: 16px;
+    white-space: pre-wrap;
+    -webkit-user-modify: read-write-plaintext-only;
+    -webkit-user-select: text;
+}
+
+.database-user-query::before, .database-query-prompt::before, .database-query-result::before {
+    position: absolute;
+    display: block;
+    content: "";
+    left: 7px;
+    top: 0.8em;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    -webkit-user-select: none;
+}
+
+.database-query-prompt::before {
+    background-image: url(Images/userInputIcon.png);
+}
+
+.database-user-query {
+    position: relative;
+    border-bottom: 1px solid rgb(245, 245, 245);
+    padding: 1px 22px 1px 24px;
+    min-height: 16px;
+}
+
+.database-user-query::before {
+    background-image: url(Images/userInputPreviousIcon.png);
+}
+
+.database-query-text {
+    color: rgb(0, 128, 255);
+    -webkit-user-select: text;
+}
+
+.database-query-result {
+    position: relative;
+    padding: 1px 22px 1px 24px;
+    min-height: 16px;
+    margin-left: -24px;
+    padding-right: 0;
+}
+
+.database-query-result.error {
+    color: red;
+    -webkit-user-select: text;
+}
+
+.database-query-result.error::before {
+    background-image: url(Images/errorIcon.png);
+}
+
+.resource-sidebar-tree-item .icon {
+    content: url(Images/resourcePlainIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item .icon {
+    content: url(Images/resourcePlainIconSmall.png);
+}
+
+.resource-sidebar-tree-item.resources-category-images .icon {
+    position: relative;
+    background-image: url(Images/resourcePlainIcon.png);
+    background-repeat: no-repeat;
+    content: "";
+}
+
+.resources-category-images .image-resource-icon-preview {
+    position: absolute;
+    margin: auto;
+    top: 3px;
+    bottom: 4px;
+    left: 5px;
+    right: 5px;
+    max-width: 18px;
+    max-height: 21px;
+    min-width: 1px;
+    min-height: 1px;
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-images .icon {
+    background-image: url(Images/resourcePlainIconSmall.png);
+    content: "";
+}
+
+.children.small .resources-category-images .image-resource-icon-preview {
+    top: 2px;
+    bottom: 1px;
+    left: 3px;
+    right: 3px;
+    max-width: 8px;
+    max-height: 11px;
+}
+
+.resource-sidebar-tree-item.resources-category-documents .icon {
+    content: url(Images/resourceDocumentIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-documents .icon {
+    content: url(Images/resourceDocumentIconSmall.png);
+}
+
+.resource-sidebar-tree-item.resources-category-stylesheets .icon {
+    content: url(Images/resourceCSSIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-stylesheets .icon {
+    content: url(Images/resourceDocumentIconSmall.png);
+}
+
+.resource-sidebar-tree-item.resources-category-images .icon {
+    position: relative;
+    background-image: url(Images/resourcePlainIcon.png);
+    background-repeat: no-repeat;
+    content: "";
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-images .icon {
+    background-image: url(Images/resourcePlainIconSmall.png);
+    content: "";
+}
+
+.resource-sidebar-tree-item.resources-category-fonts .icon {
+    content: url(Images/resourcePlainIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-fonts .icon {
+    content: url(Images/resourcePlainIconSmall.png);
+}
+
+.resource-sidebar-tree-item.resources-category-scripts .icon {
+    content: url(Images/resourceJSIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-scripts .icon {
+    content: url(Images/resourceDocumentIconSmall.png);
+}
+
+.resource-sidebar-tree-item.resources-category-xhr .icon {
+    content: url(Images/resourcePlainIcon.png);
+}
+
+.children.small .resource-sidebar-tree-item.resources-category-xhr .icon {
+    content: url(Images/resourceDocumentIconSmall.png);
+}
+
+.frame-storage-tree-item .icon {
+    content: url(Images/frame.png);
+}
+
+.database-storage-tree-item .icon {
+    content: url(Images/database.png);
+}
+
+.database-table-storage-tree-item .icon {
+    content: url(Images/databaseTable.png);
+}
+
+.indexed-db-storage-tree-item .icon {
+    content: url(Images/indexedDB.png);
+}
+
+.indexed-db-object-store-storage-tree-item .icon {
+    content: url(Images/indexedDBObjectStore.png);
+}
+
+.indexed-db-index-storage-tree-item .icon {
+    content: url(Images/indexedDBIndex.png);
+}
+
+.domstorage-storage-tree-item.local-storage .icon {
+    content: url(Images/localStorage.png);
+}
+
+.domstorage-storage-tree-item.session-storage .icon {
+    content: url(Images/sessionStorage.png);
+}
+
+.cookie-storage-tree-item .icon {
+    content: url(Images/cookie.png);
+}
+
+.application-cache-storage-tree-item .icon {
+    content: url(Images/applicationCache.png);
+}
+
+/* FIXME: Make separate png for file-system */
+.file-system-storage-tree-item .icon {
+    content: url(Images/applicationCache.png);
+}
+</style><style type="text/css">/*
+ * Copyright (C) 2011 Google Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY GOOGLE INC. AND ITS CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE INC.
+ * OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.split-view {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.split-view-contents {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    cursor: default;
+}
+
+.split-view-sidebar-left {
+    border-right: 1px solid rgb(64%, 64%, 64%);
+}
+
+.split-view-sidebar-left.maximized {
+    border-right: none;
+}
+
+.split-view-sidebar-right {
+    border-left: 1px solid rgb(64%, 64%, 64%);
+}
+
+.split-view-sidebar-right.maximized {
+    border-right: none;
+}
+
+.split-view-resizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    z-index: 500;
+    cursor: ew-resize;
+}
+
+.sidebar-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.sidebar-overlay-resizer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    z-index: 500;
+    cursor: ew-resize;
+}
+</style><style type="text/css">/*
+ * Copyright (C) 2011 Google Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *     * Neither the name of Google Inc. nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.suggest-box {
+    position: absolute;
+    background-color: #FFFFFF;
+    display: block;
+    border: 1px solid black;
+    padding: 2px;
+    z-index: 100;
+}
+
+.suggest-box .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.suggest-box-content-item {
+    padding: 1px;
+    margin: 0;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid transparent;
+}
+
+.suggest-box-content-item .prefix {
+    font-weight: bold;
+}
+
+.suggest-box-content-item.selected {
+    background-color: rgb(212, 212, 212);
+}
+
+.suggest-box-content-item:hover:not(.selected) {
+    border: 1px solid rgb(204, 204, 204);
+}
+</style><style type="text/css">/*
+ * Copyright (C) 2006, 2007, 2008 Apple Inc.  All rights reserved.
+ * Copyright (C) 2009 Anthony Ricaud <rik@webkit.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1.  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 2.  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#elements-content.nowrap {
+    white-space: nowrap;
+}
+
+#elements-content {
+    padding-left: 0;
+}
+
+#elements-content > ol {
+    display: inline-block;
+}
+
+#elements-content .editing {
+    margin-left: 8px;
+}
+
+.elements-tree-editor {
+    -webkit-user-select: text;
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+.crumbs {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 19px;
+    text-shadow: rgba(255, 255, 255, 0.75) 0 1px 0;
+    color: rgb(20, 20, 20);
+    margin-left: -1px;
+    padding-right: 12px;
+}
+
+.crumbs .crumb {
+    height: 24px;
+    border-width: 0 12px 0 2px;
+    -webkit-border-image: url(Images/segment.png) 0 12 0 2;
+    margin-right: -12px;
+    padding-left: 18px;
+    padding-right: 2px;
+    white-space: nowrap;
+    line-height: 23px;
+    float: right;
+}
+
+.crumbs .crumb.collapsed > * {
+    display: none;
+}
+
+.crumbs .crumb.collapsed::before {
+    content: "\2026";
+    font-weight: bold;
+}
+
+.crumbs .crumb.compact .extra {
+    display: none;
+}
+
+.crumbs .crumb.dimmed {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.crumbs .crumb.start {
+    padding-left: 7px;
+}
+
+.crumbs .crumb.end {
+    border-width: 0 2px 0 2px;
+    padding-right: 6px;
+    -webkit-border-image: url(Images/segmentEnd.png) 0 2 0 2;
+}
+
+.crumbs .crumb.selected {
+    -webkit-border-image: url(Images/segmentSelected.png) 0 12 0 2;
+    color: black;
+    text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
+}
+
+.crumbs .crumb.selected:hover {
+    -webkit-border-image: url(Images/segmentSelected.png) 0 12 0 2;
+}
+
+.crumbs .crumb.selected.end, .crumbs .crumb.selected.end:hover {
+    -webkit-border-image: url(Images/segmentSelectedEnd.png) 0 2 0 2;
+}
+
+.crumbs .crumb:hover {
+    -webkit-border-image: url(Images/segmentHover.png) 0 12 0 2;
+    color: black;
+}
+
+.crumbs .crumb.dimmed:hover {
+    -webkit-border-image: url(Images/segmentHover.png) 0 12 0 2;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.crumbs .crumb.end:hover {
+    -webkit-border-image: url(Images/segmentHoverEnd.png) 0 2 0 2;
+}
+
+.metrics {
+    padding: 8px;
+    font-size: 10px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.metrics .label {
+    position: absolute;
+    font-size: 10px;
+    color: black;
+    margin-left: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.metrics .position {
+    border: 1px rgb(66%, 66%, 66%) dotted;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+    margin: 3px;
+}
+
+.metrics .margin {
+    border: 1px dashed;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    margin: 3px;
+}
+
+.metrics .border {
+    border: 1px black solid;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    margin: 3px;
+}
+
+.metrics .padding {
+    border: 1px grey dashed;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    margin: 3px;
+}
+
+.metrics .content {
+    position: static;
+    border: 1px gray solid;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px;
+    margin: 3px;
+    min-width: 80px;
+    text-align: center;
+    overflow: visible;
+}
+
+.metrics .content span {
+    display: inline-block;
+}
+
+.metrics .editing {
+    position: relative;
+    z-index: 100;
+}
+
+.metrics .left {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.metrics .right {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.metrics .top {
+    display: inline-block;
+}
+
+.metrics .bottom {
+    display: inline-block;
+}
+
+
+.styles-section {
+    padding: 2px 2px 4px 4px;
+    min-height: 18px;
+    white-space: nowrap;
+    -webkit-background-origin: padding;
+    -webkit-background-clip: padding;
+    -webkit-user-select: text;
+}
+
+.styles-section:not(.first-styles-section) {
+    border-top: 1px solid rgb(191, 191, 191);
+}
+
+.styles-section.read-only {
+    background-color: rgb(240, 240, 240);
+}
+
+.styles-section .properties li.not-parsed-ok {
+    margin-left: 0px;
+}
+
+.styles-section .properties li.not-parsed-ok img.exclamation-mark {
+    content: url(Images/warningIcon.png);
+    opacity: 0.75;
+    width: 12px;
+    height: 10px;
+    margin: 0 6px 0 0;
+    padding: 0 1px;
+    vertical-align: baseline;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+.styles-section .header {
+    white-space: nowrap;
+    -webkit-background-origin: padding;
+    -webkit-background-clip: padding;
+}
+
+.styles-section .header .title {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.styles-section .header .title .media, .styles-section .header .title .media .subtitle {
+    color: rgb(128, 128, 128);
+    overflow: hidden;
+}
+
+.styles-section .header .subtitle {
+    color: rgb(85, 85, 85);
+    float: right;
+    margin-left: 5px;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.styles-section .header .subtitle a {
+    color: inherit;
+}
+
+.styles-section a[data-uncopyable] {
+    display: inline-block;
+}
+
+.styles-section a[data-uncopyable]::before {
+    content: attr(data-uncopyable);
+    text-decoration: underline;
+}
+
+.styles-section .properties {
+    display: none;
+    margin: 0;
+    padding: 2px 4px 0 6px;
+    list-style: none;
+    clear: both;
+}
+
+.styles-section.matched-styles .properties {
+    padding-left: 0;
+}
+
+.styles-section.no-affect .properties li {
+    opacity: 0.5;
+}
+
+.styles-section.no-affect .properties li.editing {
+    opacity: 1.0;
+}
+
+.styles-section.expanded .properties {
+    display: block;
+}
+
+.styles-section .properties li {
+    margin-left: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: auto;
+}
+.styles-section.matched-styles .properties li {
+    margin-left: 0 !important;
+}
+
+.styles-section .properties li.child-editing {
+    word-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+.styles-section .properties ol {
+    display: none;
+    margin: 0;
+    -webkit-padding-start: 12px;
+    list-style: none;
+}
+
+.styles-section .properties ol.expanded {
+    display: block;
+}
+
+.styles-section .properties li.parent::before {
+    content: none;
+}
+
+.styles-section .properties li.parent.expanded::before {
+    content: none;
+}
+
+.styles-section.matched-styles .properties li.parent .expand-element {
+    content: url(Images/treeRightTriangleBlack.png);
+    margin-right: 1px;
+    margin-left: -5px;
+    opacity: 0.6;
+}
+
+.styles-section.matched-styles .properties li.parent.expanded .expand-element {
+    content: url(Images/treeDownTriangleBlack.png);
+}
+
+.styles-section.computed-style .properties li.parent::before {
+    content: url(Images/treeRightTriangleBlack.png);
+    opacity: 0.75;
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin-top: 0;
+    padding-right: 3px;
+    -webkit-user-select: none;
+    cursor: default;
+}
+
+.styles-section.computed-style .properties li.parent.expanded::before {
+    content: url(Images/treeDownTriangleBlack.png);
+    margin-top: 1px;
+}
+
+.styles-section .properties li .info {
+    padding-top: 4px;
+    padding-bottom: 3px;
+}
+
+.styles-section.matched-styles:not(.read-only):hover .properties .enabled-button {
+    visibility: visible;
+}
+
+.styles-section.matched-styles:not(.read-only) .properties li.disabled .enabled-button {
+    visibility: visible;
+}
+
+.styles-section .properties .enabled-button {
+    visibility: hidden;
+    float: left;
+    font-size: 10px;
+    margin: 0;
+    vertical-align: top;
+    position: relative;
+    z-index: 1;
+    width: 18px;
+    left: -2px;
+}
+
+.styles-section.matched-styles .properties ol.expanded {
+    margin-left: 16px;
+}
+
+.styles-section .properties .overloaded, .styles-section .properties .inactive, .styles-section .properties .disabled {
+    text-decoration: line-through;
+}
+
+.styles-section.computed-style .properties .disabled {
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+.styles-section .properties .implicit, .styles-section .properties .inherited {
+    opacity: 0.5;
+}
+
+.styles-element-state-pane {
+    background-color: rgb(240, 240, 240);
+    overflow: hidden;
+    margin-top: -38px;
+    -webkit-transition: margin-top 0.1s ease-in-out;
+    padding-left: 2px;
+}
+
+.styles-element-state-pane.expanded {
+    border-bottom: 1px solid rgb(189, 189, 189);
+    margin-top: 0;
+}
+
+.styles-element-state-pane > table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.styles-element-state-pane input {
+    margin: 2px;
+    vertical-align: -2px;
+}
+
+.styles-selector {
+    cursor: text;
+}
+
+.body .styles-section .properties .inherited {
+    display: none;
+}
+
+.body.show-inherited .styles-section .properties .inherited {
+    display: block;
+}
+
+.add-attribute {
+    margin-left: 1px;
+    margin-right: 1px;
+    white-space: nowrap;
+}
+
+.section .event-bars {
+    display: none;
+}
+
+.section.expanded .event-bars {
+    display: block;
+}
+
+.event-bar {
+    position: relative;
+    margin-left: 10px;
+}
+
+.event-bar:first-child {
+    margin-top: 1px;
+}
+
+.event-bars .event-bar .header {
+    padding: 0 8px 0 18px;
+    min-height: 16px;
+    opacity: 1.0;
+    white-space: nowrap;
+    -webkit-background-origin: padding;
+    -webkit-background-clip: padding;
+}
+
+.event-bars .event-bar .header .title {
+    font-weight: normal;
+    color: black;
+    text-shadow: white 0 1px 0;
+}
+
+.event-bars .event-bar .header .subtitle {
+    color: rgba(90, 90, 90, 0.75);
+}
+
+.event-bars .event-bar .header::before {
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 8px;
+    height: 8px;
+    opacity: 0.75;
+    content: url(Images/treeRightTriangleBlack.png) !important;
+}
+
+.event-bars .event-bar.expanded .header::before {
+    content: url(Images/treeDownTriangleBlack.png) !important;
+}
+
+.image-preview-container {
+    background: transparent;
+    text-align: center;
+    padding-left: 11px;
+}
+
+.image-preview-container img {
+    margin: 2px auto;
+    background-image: url(Images/checker.png);
+    -webkit-user-select: text;
+    -webkit-user-drag: auto;
+}
+
+/* https://github.com/bgrins/spectrum */
+.spectrum-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    background: rgba(230, 230, 230, 1) !important;
+    border: 1px solid #646464;
+    padding: 10px;
+    width: 220px;
+    z-index: 10;
+    -webkit-user-select: none;
+}
+
+.spectrum-top {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.spectrum-color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 40px;
+}
+
+.spectrum-display-value {
+    -webkit-user-select: text;
+    position: relative;
+    left: 2px;
+    top: -6px;
+}
+
+.spectrum-hue {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 170px;
+    -webkit-box-reflect: right -28px;
+}
+
+.spectrum-fill {
+    /* Same as spectrum-color width to force aspect ratio. */
+    margin-top: 150px;
+}
+
+.spectrum-range-container {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.spectrum-range-container * {
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+.spectrum-range-container label {
+    display: inline-block;
+    padding-right: 4px;
+}
+
+.spectrum-range-container input {
+    position: absolute;
+    left: 15px;
+    right: 40px;
+    margin: 3px 0 0 0;
+}
+
+.swatch, .spectrum-dragger, .spectrum-slider {
+    -webkit-user-select: none;
+}
+
+.spectrum-sat {
+    background-image: -webkit-linear-gradient(left, white, rgba(204, 154, 129, 0));
+}
+
+.spectrum-val {
+    background-image: -webkit-linear-gradient(bottom, black, rgba(204, 154, 129, 0));
+}
+
+.spectrum-hue {
+    background: -webkit-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+}
+
+.spectrum-dragger {
+    border-radius: 5px;
+    height: 5px;
+    width: 5px;
+    border: 1px solid white;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+}
+
+.spectrum-slider {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    border: 1px solid black;
+    height: 4px;
+    left: -1px;
+    right: -1px;
+}
+
+.spectrum-container .swatch {
+    width: 20px;
+    height:20px;
+    margin: 0;
+}
+</style>
+    
+    <link rel="stylesheet" type="text/css" href="chrome-devtools://devtools/devTools.css">
+    <script type="text/javascript" src="chrome-devtools://devtools/DevTools.js"></script>
+<style>#toolbar {             background-image: none !important;             background-color: rgba(128,143,156,1) !important;         }                  .toolbar-label {             color: rgba(23,34,55,1) !important;             text-shadow: none;         }</style><title>Developer Tools - http://dira.ro/code/SassBrush/</title><style>.toolbar-item.extension-panel-1_1 .toolbar-icon { background-image: url(chrome-extension://gplegfbjlmmehdoakndmohflojccocli/pagespeed-32.png); }</style><style>.toolbar-small .toolbar-item.extension-panel-1_1 .toolbar-icon { background-position-x: -32px; }</style></head>
+<body class="detached platform-mac platform-mac-snowleopard port-undefined" id="-webkit-web-inspector">
+    <div id="toolbar">
+        <div class="toolbar-item close-left"><button id="close-button-left"></button></div>
+        <div id="toolbar-controls">
+            <div class="toolbar-item"><button id="toolbar-dropdown-arrow" class="toolbar-label hidden">»</button></div>
+            <div class="toolbar-item hidden" id="search-results-matches"></div>
+            <div class="toolbar-item toolbar-search-item"><input id="search" type="search" incremental="" results="0"><div id="search-toolbar-label" class="toolbar-label">Search Resources</div></div>
+            <div class="toolbar-item close-right"><button id="close-button-right"></button></div>
+        </div>
+    <button class="toolbar-item toggleable elements"><div class="toolbar-icon"></div><div class="toolbar-label">Elements</div></button><button class="toolbar-item toggleable resources toggled-on"><div class="toolbar-icon"></div><div class="toolbar-label">Resources</div></button><button class="toolbar-item toggleable network"><div class="toolbar-icon"></div><div class="toolbar-label">Network</div></button><button class="toolbar-item toggleable scripts"><div class="toolbar-icon"></div><div class="toolbar-label">Scripts</div></button><button class="toolbar-item toggleable timeline"><div class="toolbar-icon"></div><div class="toolbar-label">Timeline</div></button><button class="toolbar-item toggleable profiles"><div class="toolbar-icon"></div><div class="toolbar-label">Profiles</div></button><button class="toolbar-item toggleable audits"><div class="toolbar-icon"></div><div class="toolbar-label">Audits</div></button><button class="toolbar-item toggleable console"><div class="toolbar-icon"></div><div class="toolbar-label">Console</div></button><button class="toolbar-item toggleable extension-panel-1_1"><div class="toolbar-icon"></div><div class="toolbar-label">Page Speed</div></button></div>
+    <div id="main">
+        <div id="main-status-bar" class="status-bar"><div id="anchored-status-bar-items"><div id="counters"><div id="error-warning-count" class="hidden"></div></div><button class="dock-status-bar-item status-bar-item toggled-on" title="Dock to main window."><div class="glyph"></div><div class="glyph shadow"></div></button><button class="console-status-bar-item status-bar-item" title="Show console."><div class="glyph"></div><div class="glyph shadow"></div></button><button class="node-search-status-bar-item status-bar-item" title="Select an element in the page to inspect it."><div class="glyph"></div><div class="glyph shadow"></div></button><button class="settings-status-bar-item status-bar-item" title="Settings"><div class="glyph"></div><div class="glyph shadow"></div></button></div><div><div class="status-bar-items" style="left: 360px; "></div></div></div>
+    <div id="main-panels" spellcheck="false" class="visible"><div class="panel elements"><div class="split-view visible"><div class="split-view-contents outline-disclosure source-code" style="left: 0px; right: 325px; " id="elements-content"></div><div class="split-view-contents split-view-sidebar-right" style="right: 0px; width: 325px; "><div class="pane"><div class="title" tabindex="0">Computed Style<label class="sidebar-pane-subtitle"><input type="checkbox">Show inherited</label></div><div class="body"><div class="styles-section monospace first-styles-section read-only computed-style expanded"><div class="header monospace hidden"><div class="subtitle"></div><div class="title"></div></div><ol class="properties properties-tree monospace"></ol></div></div></div><div class="pane expanded"><div class="title" tabindex="0">Styles<select class="select-settings"><option value="original" label="As Authored"></option><option value="hex" label="Hex Colors"></option><option value="rgb" label="RGB Colors"></option><option value="hsl" label="HSL Colors"></option></select><button class="pane-title-button element-state" title="Toggle Element State"></button><button class="pane-title-button add" id="add-style-button-test-id" title="New Style Rule"></button></div><div class="body"><div class="styles-element-state-pane source-code"><table><tr><td><label><input type="checkbox">:active</label></td><td><label><input type="checkbox">:hover</label></td></tr><tr><td><label><input type="checkbox">:focus</label></td><td><label><input type="checkbox">:visited</label></td></tr></table></div><div><div class="styles-section matched-styles monospace first-styles-section expanded"><div class="header monospace"><div class="subtitle"></div><div class="title"><div><div class="subtitle"></div><span>element.style</span><span> {</span></div></div></div><ol class="properties properties-tree monospace"></ol><div>}</div></div><div class="sidebar-separator">Matched CSS Rules</div><div class="styles-section matched-styles monospace first-styles-section read-only expanded"><div class="header monospace"><div class="subtitle"></div><div class="title styles-selector"><div><div class="subtitle">user agent stylesheet</div><span>script</span><span> {</span></div></div></div><ol class="properties properties-tree monospace"><li title=""><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="display: none;">display</span>: <span class="expand-element"></span><span class="value">none</span>;</li></ol><div>}</div></div><div class="sidebar-separator">Inherited from <span class="node-link" title="body"><span>body</span></span></div><div class="styles-section matched-styles monospace first-styles-section show-inherited expanded"><div class="header monospace"><div class="subtitle"></div><div class="title styles-selector"><div class="media"><div class="subtitle"><a href="http://dira.ro/code/SassBrush/" class="subtitle webkit-html-resource-link" title="http://dira.ro/code/SassBrush/" style="max-width: 100%; float: right; ">/code/SassBrush/</a></div><span title="screen">media="screen"</span></div><div><div class="subtitle"><a href="http://dira.ro/stylesheets/html5.css" class="webkit-html-resource-link" title="http://dira.ro/stylesheets/html5.css:15" style="max-width: 100%; " data-uncopyable="html5.css:15"></a></div><span>body</span><span> {</span></div></div></div><ol class="properties properties-tree monospace"><li title=""><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="line-height: 1;">line-height</span>: <span class="expand-element"></span><span class="value">1</span>;</li></ol><div>}</div></div><div class="styles-section matched-styles monospace show-inherited expanded"><div class="header monospace"><div class="subtitle"></div><div class="title styles-selector"><div class="media"><div class="subtitle"><a href="http://dira.ro/code/SassBrush/" class="subtitle webkit-html-resource-link" title="http://dira.ro/code/SassBrush/" style="max-width: 100%; float: right; ">/code/SassBrush/</a></div><span title="screen">media="screen"</span></div><div><div class="subtitle"><a href="http://dira.ro/stylesheets/html5.css" class="webkit-html-resource-link" title="http://dira.ro/stylesheets/html5.css:6" style="max-width: 100%; " data-uncopyable="html5.css:6"></a></div><span>html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video</span><span> {</span></div></div></div><ol class="properties properties-tree monospace"><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="margin: 0;">margin</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="padding: 0;">padding</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="border: 0;">border</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="outline: 0;">outline</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title=""><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="font-size: 100%;">font-size</span>: <span class="expand-element"></span><span class="value">100%</span>;</li><li title="" class="inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="vertical-align: baseline;">vertical-align</span>: <span class="expand-element"></span><span class="value">baseline</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="background: transparent;">background</span>: <span class="expand-element"></span><span class="value"><span title="Click to open a colorpicker. Shift-click to change color format" class="swatch"><span class="swatch-inner" style="background-color: transparent; "></span></span><span>transparent</span></span>;</li></ol><div>}</div></div><div class="sidebar-separator">Inherited from <span class="node-link" title="html"><span>html</span></span></div><div class="styles-section matched-styles monospace first-styles-section show-inherited expanded"><div class="header monospace"><div class="subtitle"></div><div class="title styles-selector"><div class="media"><div class="subtitle"><a href="http://dira.ro/code/SassBrush/" class="subtitle webkit-html-resource-link" title="http://dira.ro/code/SassBrush/" style="max-width: 100%; float: right; ">/code/SassBrush/</a></div><span title="screen">media="screen"</span></div><div><div class="subtitle"><a href="http://dira.ro/stylesheets/html5.css" class="webkit-html-resource-link" title="http://dira.ro/stylesheets/html5.css:6" style="max-width: 100%; " data-uncopyable="html5.css:6"></a></div><span>html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video</span><span> {</span></div></div></div><ol class="properties properties-tree monospace"><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="margin: 0;">margin</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="padding: 0;">padding</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="border: 0;">border</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="outline: 0;">outline</span>: <span class="expand-element"></span><span class="value">0</span>;</li><li title="" class="overloaded"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="font-size: 100%;">font-size</span>: <span class="expand-element"></span><span class="value">100%</span>;</li><li title="" class="inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="vertical-align: baseline;">vertical-align</span>: <span class="expand-element"></span><span class="value">baseline</span>;</li><li title="" class="parent inherited"><input class="enabled-button" type="checkbox"><span class="webkit-css-property" title="background: transparent;">background</span>: <span class="expand-element"></span><span class="value"><span title="Click to open a colorpicker. Shift-click to change color format" class="swatch"><span class="swatch-inner" style="background-color: transparent; "></span></span><span>transparent</span></span>;</li></ol><div>}</div></div></div></div></div><div class="pane"><div class="title" tabindex="0">Metrics</div><div class="body"></div></div><div class="pane"><div class="title" tabindex="0">Properties</div><div class="body"></div></div><div class="pane"><div class="title" tabindex="0">DOM Breakpoints</div><div class="body"><div class="info">No Breakpoints</div></div></div><div class="pane"><div class="title" tabindex="0">Event Listeners<select class="select-filter"><option value="all" label="All Nodes"></option><option value="selected" label="Selected Node Only"></option></select></div><div class="body events-pane"></div></div></div><div class="split-view-resizer" style="right: 322px; "></div></div></div><div class="panel resources visible"><div class="split-view visible"><div class="split-view-contents split-view-sidebar-left sidebar outline-disclosure filter-all children small" style="left: 0px; width: 360px; "><ol class="" tabindex="0"><li title="" class="parent frame-storage-tree-item expanded"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Frames</div></li><ol class="children expanded"><li title="" class="frame-storage-tree-item parent expanded"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title"><span class="base-storage-tree-element-subtitle">(/code/SassBrush/)</span></div></li><ol class="children expanded"><li title="" class="parent expanded"><div class="selection"></div><div class="base-storage-tree-element-title">Scripts</div></li><ol class="children expanded"><li title="http://dira.ro/javascripts/SyntaxHighlighter/shBrushRuby.js" class="resource-sidebar-tree-item resources-category-scripts" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">shBrushRuby.js</div></li><li title="http://dira.ro/javascripts/SyntaxHighlighter/shBrushSass.js" class="resource-sidebar-tree-item resources-category-scripts selected" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">shBrushSass.js</div></li><li title="http://dira.ro/javascripts/SyntaxHighlighter/shCore.js" class="resource-sidebar-tree-item resources-category-scripts" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">shCore.js</div></li></ol><li title="" class="parent expanded"><div class="selection"></div><div class="base-storage-tree-element-title">Stylesheets</div></li><ol class="children expanded"><li title="http://dira.ro/stylesheets/html5.css" class="resource-sidebar-tree-item resources-category-stylesheets" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">html5.css</div></li><li title="http://dira.ro/css/SyntaxHighlighter/shCore.css" class="resource-sidebar-tree-item resources-category-stylesheets" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">shCore.css</div></li><li title="http://dira.ro/css/SyntaxHighlighter/shThemeGithub.css" class="resource-sidebar-tree-item resources-category-stylesheets" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">shThemeGithub.css</div></li></ol><li title="http://dira.ro/code/SassBrush/" class="resource-sidebar-tree-item resources-category-documents" draggable="true"><div class="selection"></div><img class="icon"><div class="status"></div><div class="base-storage-tree-element-title">/code/SassBrush/</div></li></ol></ol><li title="" class="parent database-storage-tree-item"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Databases</div></li><li title="" class="parent domstorage-storage-tree-item local-storage"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Local Storage</div></li><li title="" class="parent domstorage-storage-tree-item session-storage"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Session Storage</div></li><li title="" class="parent cookie-storage-tree-item"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Cookies</div></li><li title="" class="parent application-cache-storage-tree-item"><div class="selection"></div><img class="icon"><div class="base-storage-tree-element-title">Application Cache</div></li></ol></div><div class="split-view-contents diff-container" style="right: 0px; left: 360px; "><div class="script-view visible"><div class="text-editor monospace visible" style="line-height: 13px; "><div class="text-editor-contents" tabindex="0" style="left: 32px; "><div class="inner-container" tabindex="0"><div class="webkit-line-content"><span class="webkit-javascript-comment">/**</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * SyntaxHighlighter</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * http://alexgorbatchev.com/SyntaxHighlighter</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> *</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * SyntaxHighlighter is donationware. If you are using it, please donate.</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * http://alexgorbatchev.com/SyntaxHighlighter/donate.html</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> *</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * @version</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * 3.0.83 (July 02 2010)</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * </span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * @copyright</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * Copyright (C) 2004-2010 Alex Gorbatchev.</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> *</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * @license</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> * Dual licensed under the MIT and GPL licenses.</span></div><div class="webkit-line-content"><span class="webkit-javascript-comment"> */</span></div><div class="webkit-line-content">;(<span class="webkit-javascript-keyword">function</span>()</div><div class="webkit-line-content">{</div><div class="webkit-line-content">	<span class="webkit-javascript-comment">// CommonJS</span></div><div class="webkit-line-content">	<span class="webkit-javascript-keyword">typeof</span>(<span class="webkit-javascript-ident">require</span>) != <span class="webkit-javascript-string">'undefined'</span> ? <span class="webkit-javascript-ident">SyntaxHighlighter</span> = <span class="webkit-javascript-ident">require</span>(<span class="webkit-javascript-string">'shCore'</span>).<span class="webkit-javascript-ident">SyntaxHighlighter</span> : <span class="webkit-javascript-keyword">null</span>;</div><div class="webkit-line-content"><br></div><div class="webkit-line-content">	<span class="webkit-javascript-keyword">function</span> <span class="webkit-javascript-ident">Brush</span>()</div><div class="webkit-line-content">	{</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">function</span> <span class="webkit-javascript-ident">getKeywordsCSS</span>(<span class="webkit-javascript-ident">str</span>)</div><div class="webkit-line-content">		{</div><div class="webkit-line-content">			<span class="webkit-javascript-keyword">return</span> <span class="webkit-javascript-string">'\\b([a-z_]|)'</span> + <span class="webkit-javascript-ident">str</span>.<span class="webkit-javascript-ident">replace</span>(<span class="webkit-javascript-regexp">/ /g</span>, <span class="webkit-javascript-string">'(?=:)\\b|\\b([a-z_\\*]|\\*|)'</span>) + <span class="webkit-javascript-string">'(?=:)\\b'</span>;</div><div class="webkit-line-content">		};</div><div class="webkit-line-content">	</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">function</span> <span class="webkit-javascript-ident">getValuesCSS</span>(<span class="webkit-javascript-ident">str</span>)</div><div class="webkit-line-content">		{</div><div class="webkit-line-content">			<span class="webkit-javascript-keyword">return</span> <span class="webkit-javascript-string">'\\b'</span> + <span class="webkit-javascript-ident">str</span>.<span class="webkit-javascript-ident">replace</span>(<span class="webkit-javascript-regexp">/ /g</span>, <span class="webkit-javascript-string">'(?!-)(?!:)\\b|\\b()'</span>) + '\:\\<span class="webkit-javascript-ident">b</span>';</div><div class="webkit-line-content">		};</div><div class="webkit-line-content"><br></div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">keywords</span> =	<span class="webkit-javascript-string">'ascent azimuth background-attachment background-color background-image background-position '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'border-bottom-width border-left-width border-width border bottom cap-height caption-side centerline clear clip color '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'content counter-increment counter-reset cue-after cue-before cue cursor definition-src descent direction display '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'elevation empty-cells float font-size-adjust font-family font-size font-stretch font-style font-variant font-weight font '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'height left letter-spacing line-height list-style-image list-style-position list-style-type list-style margin-top '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'margin-right margin-bottom margin-left margin marker-offset marks mathline max-height max-width min-height min-width orphans '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'outline-color outline-style outline-width outline overflow padding-top padding-right padding-bottom padding-left padding page '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em '</span> +</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index zoom'</span>;</div><div class="webkit-line-content">		</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">values</span> =	<span class="webkit-javascript-string">'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'continuous counter counters crop cross crosshair cursive dashed decimal decimal-leading-zero digits disc dotted double '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'embed embossed e-resize expanded extra-condensed extra-expanded fantasy far-left far-right fast faster fixed format fuchsia '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'gray green groove handheld hebrew help hidden hide high higher icon inline-table inline inset inside invert italic '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'justify landscape large larger left-side left leftwards level lighter lime line-through list-item local loud lower-alpha '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'lowercase lower-greek lower-latin lower-roman lower low ltr marker maroon medium message-box middle mix move narrower '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'navy ne-resize no-close-quote none no-open-quote no-repeat normal nowrap n-resize nw-resize oblique olive once open-quote outset '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'outside overline pointer portrait pre print projection purple red relative repeat repeat-x repeat-y rgb ridge right right-side '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'rightwards rtl run-in screen scroll semi-condensed semi-expanded separate se-resize show silent silver slower slow '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'small small-caps small-caption smaller soft solid speech spell-out square s-resize static status-bar sub super sw-resize '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'table-caption table-cell table-column table-column-group table-footer-group table-header-group table-row table-row-group teal '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'text-bottom text-top thick thin top transparent tty tv ultra-condensed ultra-expanded underline upper-alpha uppercase upper-latin '</span>+</div><div class="webkit-line-content">						<span class="webkit-javascript-string">'upper-roman url visible wait white wider w-resize x-fast x-high x-large x-loud x-low x-slow x-small x-soft xx-large xx-small yellow'</span>;</div><div class="webkit-line-content">		</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">fonts</span> =		<span class="webkit-javascript-string">'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif'</span>;</div><div class="webkit-line-content">		</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">statements</span>		= <span class="webkit-javascript-string">'!important !default'</span>;</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">preprocessors</span>	= <span class="webkit-javascript-string">'import extend debug warn if for while mixin include'</span>;</div><div class="webkit-line-content">		</div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">r</span> = <span class="webkit-javascript-ident">SyntaxHighlighter</span>.<span class="webkit-javascript-ident">regexLib</span>;</div><div class="webkit-line-content">		</div><div class="webkit-line-content">	  <span class="webkit-javascript-keyword">var</span> <span class="webkit-javascript-ident">getKeywordsPrependedBy</span> = <span class="webkit-javascript-keyword">function</span>(<span class="webkit-javascript-ident">keywords</span>, <span class="webkit-javascript-ident">by</span>)</div><div class="webkit-line-content">    {</div><div class="webkit-line-content">      <span class="webkit-javascript-ident">str</span> = <span class="webkit-javascript-ident">keywords</span></div><div class="webkit-line-content">        .<span class="webkit-javascript-ident">replace</span>(<span class="webkit-javascript-regexp">/^\s+|\s+$/g</span>, <span class="webkit-javascript-string">''</span>)</div><div class="webkit-line-content">        .<span class="webkit-javascript-ident">replace</span>(<span class="webkit-javascript-regexp">/\s+/g</span>, <span class="webkit-javascript-string">'|'</span> + <span class="webkit-javascript-ident">by</span> + <span class="webkit-javascript-string">'\\b'</span>)</div><div class="webkit-line-content">        .<span class="webkit-javascript-ident">replace</span>(<span class="webkit-javascript-regexp">/^/</span>, <span class="webkit-javascript-ident">by</span> + <span class="webkit-javascript-string">'\\b'</span>)</div><div class="webkit-line-content">        ;</div><div class="webkit-line-content"><br></div><div class="webkit-line-content">      <span class="webkit-javascript-keyword">return</span> <span class="webkit-javascript-string">'(?:'</span> + <span class="webkit-javascript-ident">str</span> + <span class="webkit-javascript-string">')\\b'</span>;</div><div class="webkit-line-content">    }</div><div class="webkit-line-content"><br></div><div class="webkit-line-content">		<span class="webkit-javascript-keyword">this</span>.<span class="webkit-javascript-ident">regexList</span> = [</div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-ident">r</span>.<span class="webkit-javascript-ident">multiLineCComments</span>,		                                					<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'comments'</span> },	    <span class="webkit-javascript-comment">// multiline comments</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-ident">r</span>.<span class="webkit-javascript-ident">singleLineCComments</span>,		                                					<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'comments'</span> },	    <span class="webkit-javascript-comment">// singleline comments</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-ident">r</span>.<span class="webkit-javascript-ident">doubleQuotedString</span>,		                                					<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'string'</span> },	      <span class="webkit-javascript-comment">// double quoted strings</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-ident">r</span>.<span class="webkit-javascript-ident">singleQuotedString</span>,		                                					<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'string'</span> },	      <span class="webkit-javascript-comment">// single quoted strings</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-regexp">/\#[a-fA-F0-9]{3,6}/g</span>,		                                					<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'value'</span> },		      <span class="webkit-javascript-comment">// html colors</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-regexp">/\b(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)\b/g</span>,                     			<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'value'</span> },		      <span class="webkit-javascript-comment">// sizes</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-regexp">/(\$|!)\w+/g</span>,											                                <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'variable'</span> },      <span class="webkit-javascript-comment">// variables</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-keyword">this</span>.<span class="webkit-javascript-ident">getKeywords</span>(<span class="webkit-javascript-ident">statements</span>), <span class="webkit-javascript-string">'g'</span>),		                  <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'color3'</span> },	      <span class="webkit-javascript-comment">// statements</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-ident">getKeywordsPrependedBy</span>(<span class="webkit-javascript-ident">preprocessors</span>, <span class="webkit-javascript-string">'@'</span>), <span class="webkit-javascript-string">'g'</span>),	      <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'preprocessor'</span> },	<span class="webkit-javascript-comment">// preprocessors</span></div><div class="webkit-line-content">      { <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-string">'(^|\\n)\\s*=.*'</span>, <span class="webkit-javascript-string">'g'</span>),	                                <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'functions'</span> },   	<span class="webkit-javascript-comment">// short mixin declarations</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-string">'(^|\\n)\\s*\\+.*'</span>, <span class="webkit-javascript-string">'g'</span>),                              	<span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'functions'</span> },   	<span class="webkit-javascript-comment">// short mixin call</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-string">'&amp;amp;'</span>, <span class="webkit-javascript-string">'g'</span>),	                                        <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'keyword'</span> },     	<span class="webkit-javascript-comment">// &amp;</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-string">'#(\\w|-|_)+'</span>, <span class="webkit-javascript-string">'g'</span>),	                                  <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'color2'</span> },        <span class="webkit-javascript-comment">// ids</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-string">'(\\.(\\w|-|_)+)'</span>, <span class="webkit-javascript-string">'g'</span>),                                <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'color4'</span> },        <span class="webkit-javascript-comment">// classes</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-ident">getKeywordsCSS</span>(<span class="webkit-javascript-ident">keywords</span>), <span class="webkit-javascript-string">'gm'</span>),	                      <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'keyword'</span> },   		<span class="webkit-javascript-comment">// keywords</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-ident">getKeywordsPrependedBy</span>(<span class="webkit-javascript-ident">keywords</span>, <span class="webkit-javascript-string">':'</span>), <span class="webkit-javascript-string">'g'</span>),	          <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'keyword'</span> },   		<span class="webkit-javascript-comment">// :keyword value</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-ident">getValuesCSS</span>(<span class="webkit-javascript-ident">values</span>), <span class="webkit-javascript-string">'g'</span>),				                      <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'value'</span> },	      	<span class="webkit-javascript-comment">// values</span></div><div class="webkit-line-content">			{ <span class="webkit-javascript-ident">regex</span>: <span class="webkit-javascript-keyword">new</span> <span class="webkit-javascript-ident">RegExp</span>(<span class="webkit-javascript-keyword">this</span>.<span class="webkit-javascript-ident">getKeywords</span>(<span class="webkit-javascript-ident">fonts</span>), <span class="webkit-javascript-string">'g'</span>),			                    <span class="webkit-javascript-ident">css</span>: <span class="webkit-javascript-string">'color1'</span> }	      	<span class="webkit-javascript-comment">// fonts</span></div><div class="webkit-line-content">			];
+	};
+
+
+	Brush.prototype	= new SyntaxHighlighter.Highlighter();
+	Brush.aliases	= ['sass', 'scss'];
+
+	SyntaxHighlighter.brushes.Sass = Brush;
+
+	// CommonJS
+	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+})();
+<br></div></div></div><div class="text-editor-lines"><div class="inner-container"><div class="webkit-line-number"><div class="webkit-line-number-outer"><span class="webkit-line-number-inner">1</span></div></div><div class="webkit-line-number">2</div><div class="webkit-line-number">3</div><div class="webkit-line-number">4</div><div class="webkit-line-number">5</div><div class="webkit-line-number">6</div><div class="webkit-line-number">7</div><div class="webkit-line-number">8</div><div class="webkit-line-number">9</div><div class="webkit-line-number">10</div><div class="webkit-line-number">11</div><div class="webkit-line-number">12</div><div class="webkit-line-number">13</div><div class="webkit-line-number">14</div><div class="webkit-line-number">15</div><div class="webkit-line-number">16</div><div class="webkit-line-number">17</div><div class="webkit-line-number">18</div><div class="webkit-line-number">19</div><div class="webkit-line-number">20</div><div class="webkit-line-number">21</div><div class="webkit-line-number">22</div><div class="webkit-line-number">23</div><div class="webkit-line-number">24</div><div class="webkit-line-number">25</div><div class="webkit-line-number">26</div><div class="webkit-line-number">27</div><div class="webkit-line-number">28</div><div class="webkit-line-number">29</div><div class="webkit-line-number">30</div><div class="webkit-line-number">31</div><div class="webkit-line-number">32</div><div class="webkit-line-number">33</div><div class="webkit-line-number">34</div><div class="webkit-line-number">35</div><div class="webkit-line-number">36</div><div class="webkit-line-number">37</div><div class="webkit-line-number">38</div><div class="webkit-line-number">39</div><div class="webkit-line-number">40</div><div class="webkit-line-number">41</div><div class="webkit-line-number">42</div><div class="webkit-line-number">43</div><div class="webkit-line-number">44</div><div class="webkit-line-number">45</div><div class="webkit-line-number">46</div><div class="webkit-line-number">47</div><div class="webkit-line-number">48</div><div class="webkit-line-number">49</div><div class="webkit-line-number">50</div><div class="webkit-line-number">51</div><div class="webkit-line-number">52</div><div class="webkit-line-number">53</div><div class="webkit-line-number">54</div><div class="webkit-line-number">55</div><div class="webkit-line-number">56</div><div class="webkit-line-number">57</div><div class="webkit-line-number">58</div><div class="webkit-line-number">59</div><div class="webkit-line-number">60</div><div class="webkit-line-number">61</div><div class="webkit-line-number">62</div><div class="webkit-line-number">63</div><div class="webkit-line-number">64</div><div class="webkit-line-number">65</div><div class="webkit-line-number">66</div><div class="webkit-line-number">67</div><div class="webkit-line-number">68</div><div class="webkit-line-number">69</div><div class="webkit-line-number">70</div><div class="webkit-line-number">71</div><div class="webkit-line-number">72</div><div class="webkit-line-number">73</div><div class="webkit-line-number">74</div><div class="webkit-line-number">75</div><div class="webkit-line-number">76</div><div class="webkit-line-number">77</div><div class="webkit-line-number">78</div><div class="webkit-line-number">79</div><div class="webkit-line-number">80</div><div class="webkit-line-number">81</div><div class="webkit-line-number">82</div><div class="webkit-line-number">83</div><div class="webkit-line-number">84</div><div class="webkit-line-number">85</div><div class="webkit-line-number">86</div><div class="webkit-line-number">87</div><div class="webkit-line-number">88</div><div class="webkit-line-number">89</div><div class="webkit-line-number">90</div><div class="webkit-line-number">91</div><div class="webkit-line-number">92</div><div class="webkit-line-number">93</div><div class="webkit-line-number">94</div><div class="webkit-line-number">95</div><div class="webkit-line-number">96</div><div class="webkit-line-number">97</div><div class="webkit-line-number">98</div><div class="webkit-line-number">99</div><div class="webkit-line-number">100</div><div class="webkit-line-number">101</div><div class="webkit-line-number">102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</div></div></div></div></div></div><div class="split-view-resizer" style="left: 357px; "></div></div></div></div></div>
+    <div id="drawer"><div id="drawer-contents" class="drawer-contents"></div><div id="drawer-status-bar" class="status-bar"><div></div></div></div>
+
+
+<iframe src="./Developer Tools - http   dira.ro code SassBrush _files/devtools-page.html" style="display: none; "></iframe></body></html>

@@ -16,4 +16,11 @@
 ////////////////////////
 // Import Design
 ////////////////////////
-@import 'partials/design/design'
+@import 'partials/design/design';
+
+////////////////////////
+// Import Syntax Highlighter
+////////////////////////
+@import 'partials/shCore';
+@import 'partials/shThemeDjango';
+//@import 'partials/shCoreRDark';
