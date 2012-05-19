@@ -1,0 +1,79 @@
+body {
+  font-family: 'Alice', serif;
+  font-weight: 400;
+}
+
+strong, h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+#header {
+  text-align: center;
+  h1 {
+    font-weight: 400;
+  }
+}
+
+
+//body, #header-wrapper {
+//  background-color: #e60013;
+//}
+//
+//#header-wrapper {
+//  padding-top: 1em;
+//}
+//
+//#introduction-wrapper {
+//  @include background(
+//    linear-gradient(top, #e60013, #f28500)
+//  );
+//}
+//  
+//
+//#installation-and-basic-setup-wrapper {
+//  @include background(
+//    linear-gradient(top, #f28500, #f2e600)
+//  );
+//}
+//
+//#basic-api-wrapper {
+//  @include background(
+//    linear-gradient(top, #f2e600, #23c800)
+//  );
+//}
+//
+//#advanced-api-wrapper {
+//  @include background(
+//    linear-gradient(top, #23c800, #00c2b1)
+//  );
+//}
+//
+//#sidebar-api-wrapper {
+//  @include background(
+//    linear-gradient(top, #00c2b1, #0061c2)
+//  );
+//}
+//
+//#media-query-api-wrapper {
+//  @include background(
+//    linear-gradient(top, #0061c2, #c80096)
+//  );
+//}
+//
+//#whats-to-come-wrapper {
+//  @include background(
+//    linear-gradient(top, #c80096, #e60013)
+//  );
+//}
+//
+//.wrapper {
+//  margin-top: -1.245em;
+//}
+//
+//body {
+//  margin: 0;
+//}
+//
+//#page-wrapper .syntaxhighlighter {
+//  background-color: rgba(ghostWhite, .25) !important;
+//}

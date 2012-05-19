@@ -1,13 +1,19 @@
+//////////////////////////////
+// General Page Layout
+//////////////////////////////
 #page-wrapper {
+  width: 100%;
+}
+
+#header, #introduciton, #installation-and-basic-setup, #basic-api, #advanced-api, #sidebar-api, #media-query-api, #whats-to-come {
   @extend %aura-container;
 }
 
-#main-content {
-  @extend %measure;
-}
-
+//////////////////////////////
+// Menu Layout
+//////////////////////////////
 #sidebar {
-  @extend %primary-sidebar;
+  ul {
+    list-style: none;
+  }
 }
-
-@import 'pre/pre';

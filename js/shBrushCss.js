@@ -44,11 +44,11 @@
 						'page-break-after page-break-before page-break-inside pause pause-after pause-before pitch pitch-range play-during position ' +
 						'quotes right richness size slope src speak-header speak-numeral speak-punctuation speak speech-rate stemh stemv stress ' +
 						'table-layout text-align top text-decoration text-indent text-shadow text-transform unicode-bidi unicode-range units-per-em ' +
-						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index zoom';
-		
+						'vertical-align visibility voice-family volume white-space widows width widths word-spacing x-height z-index';
+
 		var values =	'above absolute all always aqua armenian attr aural auto avoid baseline behind below bidi-override black blink block blue bold bolder '+
 						'both bottom braille capitalize caption center center-left center-right circle close-quote code collapse compact condensed '+
-						'continuous counter counters crop cross crosshair cursive dashed decimal decimal-leading-zero digits disc dotted double '+
+						'continuous counter counters crop cross crosshair cursive dashed decimal decimal-leading-zero default digits disc dotted double '+
 						'embed embossed e-resize expanded extra-condensed extra-expanded fantasy far-left far-right fast faster fixed format fuchsia '+
 						'gray green groove handheld hebrew help hidden hide high higher icon inline-table inline inset inside invert italic '+
 						'justify landscape large larger left-side left leftwards level lighter lime line-through list-item local loud lower-alpha '+
@@ -60,52 +60,31 @@
 						'table-caption table-cell table-column table-column-group table-footer-group table-header-group table-row table-row-group teal '+
 						'text-bottom text-top thick thin top transparent tty tv ultra-condensed ultra-expanded underline upper-alpha uppercase upper-latin '+
 						'upper-roman url visible wait white wider w-resize x-fast x-high x-large x-loud x-low x-slow x-small x-soft xx-large xx-small yellow';
-		
+
 		var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
-		
-		var statements		= '!important !default';
-		var preprocessors	= 'import extend debug warn if for while mixin include';
-		
-		var r = SyntaxHighlighter.regexLib;
-		
-	  var getKeywordsPrependedBy = function(keywords, by)
-    {
-      str = keywords
-        .replace(/^\s+|\s+$/g, '')
-        .replace(/\s+/g, '|' + by + '\\b')
-        .replace(/^/, by + '\\b')
-        ;
-
-      return '(?:' + str + ')\\b';
-    }
-
+	
 		this.regexList = [
-			{ regex: r.multiLineCComments,		                                					css: 'comments' },	    // multiline comments
-			{ regex: r.singleLineCComments,		                                					css: 'comments' },	    // singleline comments
-			{ regex: r.doubleQuotedString,		                                					css: 'string' },	      // double quoted strings
-			{ regex: r.singleQuotedString,		                                					css: 'string' },	      // single quoted strings
-			{ regex: /\#[a-fA-F0-9]{3,6}/g,		                                					css: 'value' },		      // html colors
-			{ regex: /\b(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)\b/g,                     			css: 'value' },		      // sizes
-			{ regex: /(\$|!)\w+/g,											                                css: 'variable' },      // variables
-			{ regex: new RegExp(this.getKeywords(statements), 'g'),		                  css: 'color3' },	      // statements
-			{ regex: new RegExp(getKeywordsPrependedBy(preprocessors, '@'), 'g'),	      css: 'preprocessor' },	// preprocessors
-      { regex: new RegExp('(^|\\n)\\s*=.*', 'g'),	                                css: 'functions' },   	// short mixin declarations
-			{ regex: new RegExp('(^|\\n)\\s*\\+.*', 'g'),                              	css: 'functions' },   	// short mixin call
-			{ regex: new RegExp('&amp;', 'g'),	                                        css: 'keyword' },     	// &
-			{ regex: new RegExp('#(\\w|-|_)+', 'g'),	                                  css: 'color2' },        // ids
-			{ regex: new RegExp('(\\.(\\w|-|_)+)', 'g'),                                css: 'color4' },        // classes
-			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),	                      css: 'keyword' },   		// keywords
-			{ regex: new RegExp(getKeywordsPrependedBy(keywords, ':'), 'g'),	          css: 'keyword' },   		// :keyword value
-			{ regex: new RegExp(getValuesCSS(values), 'g'),				                      css: 'value' },	      	// values
-			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			                    css: 'color1' }	      	// fonts
+			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },	// multiline comments
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },	// double quoted strings
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },	// single quoted strings
+			{ regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },		// html colors
+			{ regex: /(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)/g,				css: 'value' },		// sizes
+			{ regex: /!important/g,										css: 'color3' },	// !important
+			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },	// keywords
+			{ regex: new RegExp(getValuesCSS(values), 'g'),				css: 'value' },		// values
+			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }		// fonts
 			];
+
+		this.forHtmlScript({ 
+			left: /(&lt;|<)\s*style.*?(&gt;|>)/gi, 
+			right: /(&lt;|<)\/\s*style\s*(&gt;|>)/gi 
+			});
 	};
 
-
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['sass', 'scss'];
+	Brush.aliases	= ['css'];
 
-	SyntaxHighlighter.brushes.Sass = Brush;
+	SyntaxHighlighter.brushes.CSS = Brush;
 
 	// CommonJS
 	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;

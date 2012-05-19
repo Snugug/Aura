@@ -15,160 +15,204 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <script src="js/modernizr.custom.59098.js"></script>
   </head>
   <body>
   <!--[if lt IE 9]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
     <div id="page-wrapper">
-      <header id="aura-header">
-        <h1><span class="char1">A</span><span class="char2">U</span><span class="char3">R</span><span class="char4">A</span></h1>
-        <h3>Responsive Done Easy</h3>
-      </header>
+      <div class="wrapper" id="header-wrapper">
+        <header id="header">
+          <h1><span class="char1">A</span><span class="char2">U</span><span class="char3">R</span><span class="char4">A</span></h1>
+          <h3>Responsive Done Easy</h3>
+        </header>
+      </div>
       <article id="main-content">
-        <section id="introduciton">
-          <p>Building responsive websites is hard. From grid calculations to unit conversions to remembering just where you put that last breakpoint, there&rsquo;s a lot of moving parts that need to be taken care of in order for your website to come out right. Aura aims to simplify that.</p>
+        <div class="wrapper" id="introduction-wrapper">
+          <section id="introduciton">
+            <p>Building responsive websites is hard. From grid calculations to unit conversions to remembering just where you put that last breakpoint, there&rsquo;s a lot of moving parts that need to be taken care of in order for your website to come out right. Aura aims to simplify that.</p>
 
-          <p>Aura&rsquo;s goal is to help get you set up and help you keep organized, and baring those two things, get the hell out of your way. Built on top of <a href="http://susy.oddbird.net/">Susy</a>, Aura will help you build out a fluid grid based and some basic breakpoints based on your content without any math needed. Designed to make your life easier, Aura will help you build your website from a Mobile First perspective, with helpers for sidebars and a breakpoint API to keep your media queries in check.</p>
-        </section>
-        <section id="installation-and-basic-setup">
-          <h2>Installation and Basic Setup</h2>
+            <p>Aura&rsquo;s goal is to help get you set up and help you keep organized, and baring those two things, get the hell out of your way. Built on top of <a href="http://susy.oddbird.net/">Susy</a>, Aura will help you build out a fluid grid based and some basic breakpoints based on your content without any math needed. Designed to make your life easier, Aura will help you build your website from a Mobile First perspective, with helpers for sidebars and a breakpoint API to keep your media queries in check.</p>
+          </section>
+        </div>
+        <div class="wrapper" id="installation-and-basic-setup-wrapper">
+          <section id="installation-and-basic-setup">
+            <h2>Installation and Basic Setup</h2>
 
-          <p>First, install the Aura gem:</p>
+            <p>First, install the Aura gem:</p>
 
-          <p><pre class="brush: sass">(sudo) gem install compass-aura</pre></p>
+            <pre class="brush: bash">(sudo) gem install compass-aura</pre>
 
-          <p>If you are creating a new project, require Aura:</p>
+            <p>If you are creating a new project, require Aura:</p>
 
-          <p><pre class="brush: sass">compass create &lt;my-project&gt; -r aura</pre></p>
+            <pre class="brush: bash">compass create &lt;my-project&gt; -r aura</pre>
 
-          <p>If you are initializing a project, require Aura as well:</p>
+            <p>If you are initializing a project, require Aura as well:</p>
 
-          <p><pre class="brush: sass">compass init -r aura</pre></p>
+            <pre class="brush: bash">compass init -r aura</pre>
 
-          <p>If you have a project already and would like to use Aura, add the following to the top of your config.rb file:</p>
+            <p>If you have a project already and would like to use Aura, add the following to the top of your config.rb file:</p>
 
-          <p><pre class="brush: sass">require 'aura'</pre></p>
+            <pre class="brush: ruby">require 'aura'</pre>
 
-          <p>In your Sass file, import Aura:</p>
+            <p>In your Sass file, import Aura:</p>
 
-          <p><pre class="brush: sass">@import 'aura';</pre></p>
+            <pre class="brush: sass">@import 'aura';</pre>
 
-          <p>Now here is where Aura differs from some other Compass extensions (at least until I experiment a little bit more and see if I can solve this; it&rsquo;s probably very easy, I just need to go ahead and do it). Because Aura builds your grid based on your input, there is a mixin you need to call in order to get Aura set up.  First, set all of your Aura variables (see the <a href="#basic-api">Basic API</a>), then call the aura-setup mixin:</p>
+            <p>Now here is where Aura differs from some other Compass extensions (at least until I experiment a little bit more and see if I can solve this; it&rsquo;s probably very easy, I just need to go ahead and do it). Because Aura builds your grid based on your input, there is a mixin you need to call in order to get Aura set up.  First, set all of your Aura variables (see the <a href="#basic-api">Basic API</a>), then call the aura-setup mixin:</p>
 
-          <p><pre class="brush: sass">@include aura-setup;</pre></p>
+            <p><pre class="brush: sass">@include aura-setup;</pre></p>
 
-          <p>Finally, you need to hook your HTML structure up to Aura. There are four pieces of Aura that  you need to setup: the container, the main content region (called the measure), the primary sidebar, and the secondary sidebar (currently, Aura only supports a maximum of two sidebars; for more information, see the <a href="#sidebar-api">Sidebar API</a>). The IDs below are used for demonstration purposes; use your own!</p>
+            <p>Finally, you need to hook your HTML structure up to Aura. There are four pieces of Aura that  you need to setup: the container, the main content region (called the measure), the primary sidebar, and the secondary sidebar (currently, Aura only supports a maximum of two sidebars; for more information, see the <a href="#sidebar-api">Sidebar API</a>). The IDs below are used for demonstration purposes; use your own!</p>
 
-<pre class="brush: sass">#page {
-  @extend %aura-container;
-}
+  <pre class="brush: sass">#page {
+    @extend %aura-container;
+  }
 
-main-content {
-  @extend %measure;
-}
+  main-content {
+    @extend %measure;
+  }
 
-sidebar-first {
-  @extend %primary-sidebar;
-}
+  sidebar-first {
+    @extend %primary-sidebar;
+  }
 
-sidebar-second {
-  @extend %secondary-sidebar;
-}</pre>
+  sidebar-second {
+    @extend %secondary-sidebar;
+  }</pre>
 
-          <p>Compile your CSS, and you&rsquo;ve got a website!</p>
-        </section>
-        <section id="basic-api">
-          <h2>Basic API</h2>
+            <p>Compile your CSS, and you&rsquo;ve got a website!</p>
+          </section>
+        </div>
+        <div class="wrapper" id="basic-api-wrapper">
+          <section id="basic-api">
+            <h2>Basic API</h2>
 
-          <p>There are a handful of basic setup options that you can set to customize your grid without needing to do any math (it&rsquo;s really fun to play with these, have something like Live Reload running, and watch your whole grid rearrange itself. Try it!). Do not set any of Susy&rsquo;s variables (except as noted), Aura takes care of that for you.</p>
+            <p>There are a handful of basic setup options that you can set to customize your grid without needing to do any math (it&rsquo;s really fun to play with these, have something like Live Reload running, and watch your whole grid rearrange itself. Try it!). Do not set any of Susy&rsquo;s variables (except as noted), Aura takes care of that for you.</p>
 
-          <p><pre class="brush: sass">$body-font-size</pre>: The base font size to use for your site, generally the font size your body font looks best at. This will be applied to the HTML element, making using em/rem units super easy. Use any unit you want, px, em, pt, or %, they will all be converted to em. Defaults to 16px.</p>
+            <p><strong>$body-font-size</strong>: The base font size to use for your site, generally the font size your body font looks best at. This will be applied to the HTML element, making using em/rem units super easy. Use any unit you want, px, em, pt, or %, they will all be converted to em. Defaults to 16px.</p>
 
-          <p><pre class="brush: sass">$total-columns</pre>: Identical to Susy&rsquo;s total columns variable, with the exception that, depending on your sidebar options, this may be changed for you. Defaults to 12.</p>
+            <p><strong>$total-columns</strong>: Identical to Susy&rsquo;s total columns variable, with the exception that, depending on your sidebar options, this may be changed for you. Defaults to 12.</p>
 
-          <p><pre class="brush: sass">$main-content-cols</pre>: The number of columns you want your main content area to be. Defaults to 9.</p>
+            <p><strong>$main-content-cols</strong>: The number of columns you want your main content area to be. Defaults to 9.</p>
 
-          <p><pre class="brush: sass">$font-scale</pre>: Toggle if you want font scaling turned on. Font scaling will take your $body-font-size and scale it using Modular Scale up two and down two scales. This is applied to your HTML element, making using em/rem units super easy, doubly so as everything will then scale with your base font size. If you turn off Font Scaling, your breakpoints are no longer tied to your content, and as such you&rsquo;re going to need to play with $responsive-ratio to get your single column break correct. Defaults to true.</p>
+            <p><strong>$font-scale</strong>: Toggle if you want font scaling turned on. Font scaling will take your $body-font-size and scale it using Modular Scale up two and down two scales. This is applied to your HTML element, making using em/rem units super easy, doubly so as everything will then scale with your base font size. If you turn off Font Scaling, your breakpoints are no longer tied to your content, and as such you&rsquo;re going to need to play with $responsive-ratio to get your single column break correct. This site uses Aura's Font Scaling. Defaults to true.</p>
 
-          <p><pre class="brush: sass">$obj-scale</pre>: Toggle whether or not you want objects to scale (such as <pre class="brush: sass">img{ max-width: 100%}</pre>). Defaults to true.</p>
+            <p><strong>$obj-scale</strong>: Toggle whether or not you want objects to scale (such as <em>img{ max-width: 100%}</em>). Defaults to true.</p>
 
-          <p><pre class="brush: sass">$sidebars</pre>: Controls your sidebars. See <a href="#sidebar-api">Sidebar API</a> for full information. Defaults to one sidebar on the right (1, &lsquo;right).</p>
+            <p><strong>$sidebars</strong>: Controls your sidebars. See <a href="#sidebar-api">Sidebar API</a> for full information. Defaults to one sidebar on the right (1, &lsquo;right).</p>
 
-          <p><pre class="brush: sass">$single-column</pre>: Displays your site in its single column form. Useful for Mobile First design. Defaults to false.</p>
+            <p><strong>$single-column</strong>: Displays your site in its single column form. Useful for Mobile First design. Defaults to false.</p>
 
-          <p><pre class="brush: sass">$breakpoints</pre>: A comma separated list of named breakpoint to use throughout your files. See <a href="#media-query-api">Media Query API</a> for full information. Defaults to false.</p>
-        </section>
-        <section id="advanced-api">
-          <h2>Advanced API</h2>
+            <p><strong>$breakpoints</strong>: A comma separated list of named breakpoint to use throughout your files. See <a href="#media-query-api">Media Query API</a> for full information. Defaults to false.</p>
+          </section>
+        </div>
+        <div class="wrapper" id="advanced-api-wrapper">
+          <section id="advanced-api">
+            <h2>Advanced API</h2>
 
-          <p>The Advanced API items control the math that takes care of generating your grid and some suggested break points. It&rsquo;s generally best not to mess with these unless you want to get into the nitty-gritty of the math used in building your grid.</p>
+            <p>The Advanced API items control the math that takes care of generating your grid and some suggested break points. It&rsquo;s generally best not to mess with these unless you want to get into the nitty-gritty of the math used in building your grid.</p>
 
-          <p><pre class="brush: sass">$gutter-to-col</pre>: The ratio of gutter width to column width, Defaults to 1 to 4 (1, 4).</p>
+            <p><strong>$gutter-to-col</strong>: The ratio of gutter width to column width, Defaults to 1 to 4 (1, 4).</p>
 
-          <p><pre class="brush: sass">$alphabet-count</pre>: Number of characters in the alphabet you&rsquo;re using. Used to calculate typographic measure for the web. Defaults to 26.</p>
+            <p><strong>$alphabet-count</strong>: Number of characters in the alphabet you&rsquo;re using. Used to calculate typographic measure for the web. Defaults to 26.</p>
 
-          <p><pre class="brush: sass">$measure-width</pre>: Mathematical calculation of the number of characters in the measure. Not a direct character for character count, as web measurements are based on the width of the m character (ems) whereas non-monospaced characters fluctuate in width, making the exact result slightly different than ideal measure width. The default more or less ideally mimics the ideal measure when used with font scaling. Defaults to $alphabet-count time the $fourth modular scale variable (4/3)</p>
+            <p><strong>$measure-width</strong>: Mathematical calculation of the number of characters in the measure. Not a direct character for character count, as web measurements are based on the width of the m character (ems) whereas non-monospaced characters fluctuate in width, making the exact result slightly different than ideal measure width. The default more or less ideally mimics the ideal measure when used with font scaling. Defaults to $alphabet-count time the $fourth modular scale variable (4/3)</p>
 
-          <p><pre class="brush: sass">$lh-addition</pre>: The amount, in ems, to add to font-size to get line height. This will probably be changing. Defaults to .3em.</p>
+            <p><strong>$lh-addition</strong>: The amount, in ems, to add to font-size to get line height. This will probably be changing. Defaults to .3em.</p>
 
-          <p><pre class="brush: sass">$responsive-ratio</pre>: The ratio that the suggested breakpoints and font scaling is built off of. If Font Scaling is turned on, default to $major-third (5/4). If Font Scaling is turned off, defaults to $golden-ratio (1.618).</p>
+            <p><strong>$responsive-ratio</strong>: The ratio that the suggested breakpoints and font scaling is built off of. If Font Scaling is turned on, default to $major-third (5/4). If Font Scaling is turned off, defaults to $golden-ratio (1.618).</p>
 
-          <p><pre class="brush: sass">$width</pre>: If you know the max size you want your grid to be, instead of having Aura build your grid for you based on your content, you can set this to a max width and Aura will calculate the grid for that width. This is not the recommended approach, as it detaches your design from your content, and your content should be driving your design. This will turn off Font Scaling. Defaults to false.</p>
-        </section>
-        <section id="sidebar-api">
-          <h2>Sidebar API</h2>
+            <p><strong>$width</strong>: If you know the max size you want your grid to be, instead of having Aura build your grid for you based on your content, you can set this to a max width and Aura will calculate the grid for that width. This is not the recommended approach, as it detaches your design from your content, and your content should be driving your design. This will turn off Font Scaling. Defaults to false.</p>
+          </section>
+        </div>
+        <div class="wrapper" id="sidebar-api-wrapper">
+          <section id="sidebar-api">
+            <h2>Sidebar API</h2>
 
-          <p>Aura aids you in building out your sidebars from a Mobile First perspective, starting with a single column and adding on layout using media queries as is determined by ideal measure and available screen real estate with Font Scaling on, and by your Responsive Ratio when Font Scaling is turned off. Let&rsquo;s take a look at how you can build and position your sidebars using the Sidebar API.</p>
+            <p>Aura aids you in building out your sidebars from a Mobile First perspective, starting with a single column and adding on layout using media queries as is determined by ideal measure and available screen real estate with Font Scaling on, and by your Responsive Ratio when Font Scaling is turned off. Let&rsquo;s take a look at how you can build and position your sidebars using the Sidebar API.</p>
 
-          <p>A word of note about the Sidebar API. The API was designed with a few assumptions in mind, the first being that you are working Mobile First and the second being that your HTML Structure is clean and semantic, having a rough DOM structure as follows:</p>
+            <p>A word of note about the Sidebar API. The API was designed with a few assumptions in mind, the first being that you are working Mobile First and the second being that your HTML Structure is clean and semantic, having a rough DOM structure as follows:</p>
 
-<p><pre class="brush: sass">-html
---body
----page wrapper
-----header
-----content
-----primary sidebar
-----secondary sidebar
-----footer</pre></p>
+  <p><pre class="brush: bash">
+  -html
+  --body
+  ---page wrapper
+  ----header
+  ----content
+  ----primary sidebar
+  ----secondary sidebar
+  ----footer</pre></p>
 
-          <p>If this is not how your DOM structure roughly looks, I do not know, in fact am fairly sure, that the Sidebar API will not work for you. With that in mind:</p>
+            <p>If this is not how your DOM structure roughly looks, I do not know, in fact am fairly sure, that the Sidebar API will not work for you. With that in mind:</p>
 
-          <p>There are four parts to the Sidebar API, the number of sidebars you want, where you want them positioned, how many columns you want the primary sidebar to be, and how many columns you want your secondary sidebar to be. For the purposes of Aura, the Primary Sidebar is always going to be the single sidebar if you have one sidebar and the leftmost sidebar if you have two sidebars, so the first of two sidebars if you have both sidebars on the left or on the right, and the left sidebar if you have sidebars on either side of your content area. The Secondary Sidebar, on the other hand, is only used if you have two sidebars and is always the rightmost sidebar, so the second of two sidebars if you have both sidebars on the left or on the right, and the right sidebar if you have sidebars on either side of your content.</p>
+            <p>There are four parts to the Sidebar API, the number of sidebars you want, where you want them positioned, how many columns you want the primary sidebar to be, and how many columns you want your secondary sidebar to be. For the purposes of Aura, the Primary Sidebar is always going to be the single sidebar if you have one sidebar and the leftmost sidebar if you have two sidebars, so the first of two sidebars if you have both sidebars on the left or on the right, and the left sidebar if you have sidebars on either side of your content area. The Secondary Sidebar, on the other hand, is only used if you have two sidebars and is always the rightmost sidebar, so the second of two sidebars if you have both sidebars on the left or on the right, and the right sidebar if you have sidebars on either side of your content.</p>
 
-          <h3>No Sidebars</h3>
+            <h3>No Sidebars</h3>
 
-          <p>If you do not want any sidebars (aka are building a single column website), you can set <pre class="brush: sass">$sidebars: 0, 'none';</pre> or <pre class="brush: sass">$single-column: true;</pre>.</p>
+            <p>If you do not want any sidebars (aka are building a single column website), you can write:</p>
+            <pre class="brush: sass">$sidebars: 0, 'none';</pre>
 
-          <h3>One Sidebar</h3>
+            <h3>One Sidebar</h3>
 
-          <p>If you would like to have one sidebar, you would set the first option to 1 and the second option to the side you want them on, left or right: <pre class="brush: sass">$sidebars: 1, 'right';</pre> or <pre class="brush: sass">$sidebars: 1, 'left';</pre>. The styling gets applied to the Primary Sidebar extendable. The width for this sidebar is determined by subtracting <pre class="brush: sass">$main-content-cols</pre> from <pre class="brush: sass">$total-columns</pre>. If you know exactly how many columns you want your sidebar to take up, you can set a third option, number of columns. If your new column count would exceed <pre class="brush: sass">$total-columns</pre>, that is increased so that your sidebar and your content will fit within your grid. So, say I want one sidebar on the right and I want it to span four columns, I would write <pre class="brush: sass">$sidebars: 1, 'right', 4;</pre>.</p>
+            <p>If you would like to have one sidebar, you would set the first option to 1 and the second option to the side you want them on, left or right:</p>
+            <pre class="brush: sass">$sidebars: 1, 'right';
+  $sidebars: 1, 'left';</pre>
+            </p>The styling gets applied to the Primary Sidebar extendable. The width for this sidebar is determined by subtracting <strong>$main-content-cols</strong> from <strong>$total-columns</strong>. If you know exactly how many columns you want your sidebar to take up, you can set a third option, number of columns. If your new column count would exceed <strong>$total-columns</strong>, that is increased so that your sidebar and your content will fit within your grid. So, say I want one sidebar on the right and I want it to span four columns, I would write:</p>
+            <pre class="brush: sass">$sidebars: 1, 'right', 4;</pre>
 
-          <h3>Two Sidebars</h3>
+            <h3>Two Sidebars</h3>
 
-          <p>Aura will also assist you in placing two sidebars, either both on the left (<pre class="brush: sass">$sidebars: 2, 'left';</pre>), both on the right (<pre class="brush: sass">$sidebars: 2, 'right;</pre>), or one straddling each side (<pre class="brush: sass">$sidebars; 2, 'both';</pre>). The widths for the sidebars are determined by dividing the difference between <pre class="brush: sass">$main-content-cols</pre> and <pre class="brush: sass">$total-columns</pre> in half. If it cannot be divided evenly in half, the amount is rounded down and the extra column is given to the Primary Sidebar, so if the difference was 4 columns, each sidebar would be 2 columns wide, whereas if the difference was 3 columns, the Primary Sidebar would be 2 columns wide and the Secondary Sidebar would be 1 column wide. In much the same way you could determine the width of one sidebar, you can for two. If you add in a single option, that will set both sidebars to that width, so <pre class="brush: sass">$sidebars: 2, 'right', 4;</pre> would give you two sidebars, both on the right, both spanning 4 columns. You can also choose the sizes independently with a fourth option, so <pre class="brush: sass">$sidebars: 2, 'both', 4, 3;</pre> would give you two sidebars, one on either side of your content, with the left sidebar (the Primary Sidebar) spanning four columns and the right sidebar (the Secondary Sidebar) spanning three columns.</p>
-        </section>
-        <section id="media-query-api">
-          <h2>Media Query API</h2>
+            <p>Aura will also assist you in placing two sidebars, either both on the left</p>
+            <pre class="brush: sass">$sidebars: 2, 'left';</pre>
+            <p>both on the right</p>
+            <pre class="brush: sass">$sidebars: 2, 'right';</pre>
+            <p>or one on each side</p>
+            <pre class="brush: sass">$sidebars; 2, 'both';</pre>
+          
+            <p>The widths for the sidebars are determined by dividing the difference between <strong>$main-content-cols</strong> and <strong>$total-columns</strong> in half. If it cannot be divided evenly in half, the amount is rounded down and the extra column is given to the Primary Sidebar, so if the difference was 4 columns, each sidebar would be 2 columns wide, whereas if the difference was 3 columns, the Primary Sidebar would be 2 columns wide and the Secondary Sidebar would be 1 column wide. In much the same way you could determine the width of one sidebar, you can for two. If you add in a single option, that will set both sidebars to that width, so<p>
+              <pre class="brush: sass">$sidebars: 2, 'right', 4;</pre>
+              <p>would give you two sidebars, both on the right, both spanning 4 columns. You can also choose the sizes independently with a fourth option, so</p>
+              <pre class="brush: sass">$sidebars: 2, 'both', 4, 3;</pre>
+              <p>would give you two sidebars, one on either side of your content, with the left sidebar (the Primary Sidebar) spanning four columns and the right sidebar (the Secondary Sidebar) spanning three columns.</p>
+          </section>
+        </div>
+        <div class="wrapper" id="media-query-api-wrapper">
+          <section id="media-query-api">
+            <h2>Media Query API</h2>
 
-          <p>Aura aids you in building out your media queries, be them from tv, print, screen, anything really. There are three pieces to Aura&rsquo;s Media Query API: the <pre class="brush: sass">respond-to</pre> mixin, the <pre class="brush: sass">$breakpoints</pre> variable, and the <pre class="brush: sass">media-query</pre> mixin. Each will help you write your media queries in their own way. Each method will produce media queries that will bubble out just like a hand written media query.</p>
+            <p>Aura aids you in building out your media queries, be them from tv, print, screen, anything really. There are three pieces to Aura&rsquo;s Media Query API: the <strong>respond-to</strong> mixin, the <strong>$breakpoints</strong> variable, and the <strong>media-query</strong> mixin. Each will help you write your media queries in their own way. Each method will produce media queries that will bubble out just like a hand written media query.</p>
 
-          <h3>Media Query Mixin</h3>
+            <h3>Media Query Mixin</h3>
 
-          <p>A simple and elegant solution not wanting to write out the whole media query syntax every time. The mixin takes one parameter with two additional optional parameters. The needed parameter is the value you want for your media query, most commonly a number, while the two optional parameters are the <pre class="brush: sass">$operator</pre>, most commonly min or max width, and the <pre class="brush: sass">$query</pre>, most commonly screen. The defaults for <pre class="brush: sass">$operator</pre> is min-width and the default for <pre class="brush: sass">$query</pre> is screen.</p>
+            <p>A simple and elegant solution not wanting to write out the whole media query syntax every time. The mixin takes one parameter with two additional optional parameters. The needed parameter is the value you want for your media query, most commonly a number, while the two optional parameters are the <strong>$operator</strong>, most commonly min or max width, and the <strong>$query</strong>, most commonly screen. The defaults for <strong>$operator</strong> is min-width and the default for <strong>$query</strong> is screen.</p>
 
-          <p>To use the Media Query mixin, call the mixin with the values you want. For instance, if you wanted a min-width screen query at 20em, you would write <pre class="brush: sass">@include media-query(20em) {}</pre> with your selectors and properties within the curly braces. If you wanted a max-width screen media query at 450px, you would write <pre class="brush: sass">@include media-query(450px, 'max-width'){}</pre>. If you wanted a min-width tv query at 30em, you would write <pre class="brush: sass">@include media-query(30em, $query: 'tv'){}</pre>. You can also pass a list into the media query mixin with options in the order of Size, Operator, and Query, and that will work too, so you could do something like <pre class="brush: sass">$tv: 30em 'max-width' 'tv'; @include media-query($tv){}</pre>.</p>
+            <p>To use the Media Query mixin, call the mixin with the values you want. For instance, if you wanted a min-width screen query at 20em, you would write:</p>
+            <pre class="brush: sass">@include media-query(20em) {}</pre>
+          
+            <p>with your selectors and properties within the curly braces. If you wanted a max-width screen media query at 450px, you would write:</p>
 
-          <h3>Breakpoint Variable and the Respond-To Mixin</h3>
+            <pre class="brush: sass">@include media-query(450px, 'max-width'){}</pre>
 
-          <p>As <a href="http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32">Mason Wendell describes</a> in his Sass Way blog post, a mixin that you can call using named breakpoints allows you to reuse breakpoints easily and, more importantly, keep track of your breakpoints in a much simpler manner than remembering each numbered breakpoint. Aura builds out four suggested breakpoints for you, small, medium, large, and full, and you can use them by including the respond-to mixin with one of them.</p>
+            <p>If you wanted a min-width tv query at 30em, you would write:</p>
 
-          <p><pre class="brush: sass">@include respond-to('small') {}</pre></p>
+            <pre class="brush: sass">@include media-query(30em, $query: 'tv'){}</pre>
 
-          <p>The two breakpoints you&rsquo;ll probably use the most are small, which is where your single column becomes multiple columns, and full, which is at full width of your website. Medium and large will probably be used less often, but are essential for Font Scaling, and may be useful if you have it turned off, but get generated anyway as a matter of course.</p>
+            <p>You can also pass a list into the media query mixin with options in the order of Size, Operator, and Query, and that will work too, so you could do something like:</p>
 
-          <p>But, you say, what if I want to define custom breakpoints? Well then, as it turns out, the respond-to mixin in Aura is actually a slightly modified version of my <a href="https://gist.github.com/2493551">Variable Driven Respond-To Mixin</a>, allowing you to set media queries as parts of a list variable and then use them with respond-to! Each breakpoint in the list requires, at a minimum, the name of the breakpoint and the value of the breakpoint; like the Media Query mixin, this assumes your operator is min-width and query is screen; the big difference is if you want to change your query, you also need to define your operator, you can&rsquo;t just call the query variable.</p>
+            <pre class="brush: sass">$tv: 30em 'max-width' 'tv'; 
+  @include media-query($tv){}</pre>
 
-          <p>Well that&rsquo;s a mouthful, what does it actually mean? Well, I think the code example from the gist will explain it all:</p>
+            <h3>Breakpoint Variable and the Respond-To Mixin</h3>
+
+            <p>As <a href="http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32">Mason Wendell describes</a> in his Sass Way blog post, a mixin that you can call using named breakpoints allows you to reuse breakpoints easily and, more importantly, keep track of your breakpoints in a much simpler manner than remembering each numbered breakpoint. Aura builds out four suggested breakpoints for you, small, medium, large, and full, and you can use them by including the respond-to mixin with one of them.</p>
+
+            <pre class="brush: sass">@include respond-to('small') {}</pre>
+
+            <p>The two breakpoints you&rsquo;ll probably use the most are small, which is where your single column becomes multiple columns, and full, which is at full width of your website. Medium and large will probably be used less often, but are essential for Font Scaling, and may be useful if you have it turned off, but get generated anyway as a matter of course.</p>
+
+            <p>But, you say, what if I want to define custom breakpoints? Well then, as it turns out, the respond-to mixin in Aura is actually a slightly modified version of my <a href="https://gist.github.com/2493551">Variable Driven Respond-To Mixin</a>, allowing you to set media queries as parts of a list variable and then use them with respond-to! Each breakpoint in the list requires, at a minimum, the name of the breakpoint and the value of the breakpoint; like the Media Query mixin, this assumes your operator is min-width and query is screen; the big difference is if you want to change your query, you also need to define your operator, you can&rsquo;t just call the query variable.</p>
+
+            <p>Well that&rsquo;s a mouthful, what does it actually mean? Well, I think the code example from the gist will explain it all:</p>
 
 <pre class="brush:sass">// Four breakpoints: foo, bar, baz, and qux.
 //
@@ -230,17 +274,47 @@ waldo {
     background: orange;
   }
 }</pre>
-        </section>
-        <section id="whats-to-come">
-          <h2>What&rsquo;s to Come</h2>
-          <p>Up next on Aura&rsquo;s plate are two things, first, tighter integration with Susy and an integration of Susy&rsquo;s <pre class="brush: sass">at-breakpoint</pre> mixin into <pre class="brush: sass">respond-to</pre>. If you&rsquo;re also a user of my <a href="http://drupal.org/project/aurora">Aurora Drupal Theme</a>, expect to see easier sub theme setup and maintenance. Otherwise, if you have suggestions as to how I can improve Aura or if you run into any bugs, <a href="https://github.com/snugug/aura/issues">let me know</a>!</p>
-        </section>
+          </section>
+        </div>
+        <div class="wrapper" id="whats-to-come-wrapper">
+          <section id="whats-to-come">
+            <h2>What&rsquo;s to Come</h2>
+            <p>Up next on Aura&rsquo;s plate are two things, first, tighter integration with Susy and an integration of Susy&rsquo;s at-breakpoint mixin into respond-to. If you&rsquo;re also a user of my <a href="http://drupal.org/project/aurora">Aurora Drupal Theme</a>, expect to see easier sub theme setup and maintenance. Otherwise, if you have suggestions as to how I can improve Aura or if you run into any bugs, <a href="https://github.com/snugug/aura/issues">let me know</a>!</p>
+          </section>
+        </div>
         
       </article>
       <nav id="sidebar">
-        
+        <ul>
+          <li>
+            <a href="#page-wrapper">Home</a>
+          </li>
+          <li>
+            <a href="#introduciton">Introduction</a>
+          </li>
+          <li>
+            <a href="#installation-and-basic-setup">Installation and Basic Setup</a>
+          </li>
+          <li>
+            <a href="#basic-api">Basic API</a>
+          </li>
+          <li>
+            <a href="#advanced-api">Advanced API</a>
+          </li>
+          <li>
+            <a href="#sidebar-api">Sidebar API</a>
+          </li>
+          <li>
+            <a href="#media-query-api">Media Query API</a>
+          </li>
+          <li>
+            <a href="#whats-to-come">What's To Come</a>
+          </li>
+        </ul>
       </nav>
     </div>
+    
+    <!-- <link href='http://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'> -->
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
@@ -249,11 +323,13 @@ waldo {
     <script src="js/shAutoloader.js" type="text/javascript"></script>
     
     <script type="text/javascript">
-    SyntaxHighlighter.autoloader(
-      'sass                   js/shBrushSass.js'
-    );
-
-    SyntaxHighlighter.all();
+      SyntaxHighlighter.autoloader (
+        'sass     js/shBrushSass.js',
+        'ruby     js/shBrushRuby.js',
+        'bash     js/shBrushBash.js'
+      );
+      SyntaxHighlighter.defaults['toolbar'] = false;
+      SyntaxHighlighter.all();
     </script>
 
     <script src="js/script.js"></script>

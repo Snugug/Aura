@@ -23,3 +23,12 @@
 // Aura Setup
 ////////////////////////
 @include aura-setup;
+
+//////////////////////////////
+// Font Face
+//////////////////////////////
+@include font-face('Alice', 
+          font-files('alice-regular-webfont.woff', 'woff')
+          font-files('alice-regular-webfont.ttf', 'ttf')
+          font-files('alice-regular-webfont.svg#AliceRegular', 'svg'),
+          'alice-regular-webfont.eot');
