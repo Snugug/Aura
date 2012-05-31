@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* line 24, ../sass/style-3.scss */
+#introduction {
+  margin: 0 auto;
+  width: 90vw;
+  line-height: 9.487vw;
+  font-size: 5.863vw;
+}
+@media screen and (min-width: 700px) {
+  /* line 24, ../sass/style-3.scss */
+  #introduction {
+    width: 75vw;
+    line-height: 4.217vw;
+    font-size: 2.606vw;
+  }
+}

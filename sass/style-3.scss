@@ -1,0 +1,45 @@
+@import "aura";
+
+//$base-font-size: 16px;
+//$base-line-height: 24px;
+//
+//@include establish-baseline;
+//h2 {
+//  @include adjust-font-size-to(24px);
+//  @include rhythm($font-size: 24px)
+//}
+//
+//h3 {
+//  @include adjust-font-size-to(18px);
+//  @include rhythm($font-size: 18px);
+//}
+//
+//@media screen and (min-width: 1000px) {
+//  $base-font-size: 24px;
+//  $base-line-height: 36px;
+//  
+//  @include establish-baseline;
+//}
+
+#introduction {
+  margin: 0 auto;
+  
+  width: 90vw;
+  
+  $line-height: 9.486832981; // Square root;
+//  $line-height: 4.481404747; // Cubed root;
+  $font-size: $line-height / golden();
+  
+  line-height: #{$line-height}vw;
+  font-size: #{$font-size}vw;
+  
+  @media screen and (min-width: 700px) {
+    width: 75vw;
+
+    $line-height: 4.217163327; // Cubed root of 75. Needs to be replaced w/proper root function, need to build for Sassy Math
+    $font-size: $line-height / golden();
+
+    line-height: #{$line-height}vw;
+    font-size: #{$font-size}vw;
+  }
+}
