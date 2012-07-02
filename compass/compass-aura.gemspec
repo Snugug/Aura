@@ -15,20 +15,17 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/Snugug/Aura"
   
   # Project Description
-  s.description = "Responsive Framework utilizing Susy and Modular Scale."
-  s.summary = "Responsive Framework for Compass."
+  s.description = "Responsive Typography for Sass+Compass."
+  s.summary = "Responsive Typography FTW."
   
   # Files to Include
-  s.files = [
-    "lib/aura.rb", 
-    "stylesheets/_aura.scss", 
-    "stylesheets/aura/_functions.scss", 
-    "stylesheets/aura/_mixins.scss", 
-    "stylesheets/aura/_variables.scss"
-  ]
+  s.files = Dir.glob("lib/**/*.*")
+  s.files += Dir.glob("stylesheets/**/*.*")
+  s.files += Dir.glob("templates/**/*.*")
   
   # Dependent Gems
-  s.add_dependency 'modular-scale',       ">= 0.0.4" 
-  s.add_dependency 'susy',                ">= 1.0.rc.0"
-  s.add_dependency 'sassy-math',          ">= 0.1.8"
+  s.add_dependency 'modular-scale',       ">= 0.0.5" 
+  s.add_dependency 'susy',                ">= 1.0.rc.1"
+  s.add_dependency 'sassy-math',          ">= 1.1"
+  s.add_dependency 'respond-to',          ">= 2.0.1"
 end

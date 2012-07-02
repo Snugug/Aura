@@ -1,14 +1,51 @@
 //////////////////////////////
-// Requires Susy, so Import Susy
+// Requires Modular Scale
 //////////////////////////////
 @import 'susy';
+@import 'respond-to';
 @import 'modular-scale';
-@import 'math';
 
-//////////////////////////////
-// Aurora Variables, Functions, Mixins
-//////////////////////////////
-@import 'aura/variables';
-@import 'aura/functions';
-@import 'aura/mixins';
-
+//$base-size: 14px 44px;
+//$ratio: golden_ratio();
+//
+//$measure-span: 9 !default;
+//
+//$breakpoint-names: 'small' 'medium' 'large' 'full' !default;
+//$breakpoint-multi-columns: 'full';
+//
+//$length-bkpts: length($breakpoint-names);
+//$index-multi: index($breakpoint-names, $breakpoint-multi-columns);
+//
+//$full-width: 0 !default;
+//
+//@for $i from 0 through $length-bkpts - 1 {
+//  $size: '';
+//  @if $i < $index-multi {
+//    $size: (power(ms($i+1), 2) / (columns($total-columns) / 100%) * 1px);
+//  }
+//  @else {
+//    $size: (power(ms($i+1), 2) / (columns($measure-span) / 100%) * 1px);
+//  }
+//  
+//  $query: join(nth($breakpoint-names, $i+1), $size, space);
+//  
+//  $breakpoints: append($breakpoints, $query, comma);
+//  
+//  @if nth($breakpoint-names, $i+1) == 'full' {
+//    $full-width: $size;
+//  }
+//}
+//
+//
+//$col-to-gutter: 4 1;
+//
+//@debug $total-columns;
+//$width: $full-width / $total-columns;
+//$width-single: $full-width / (nth($col-to-gutter, 1) * $total-columns + nth($col-to-gutter, 2) * ($total-columns + 1));
+//$width-single: $width-single * 1em / 16px;
+//@debug $width;
+//@debug $width-single;
+//$column-width: $width-single * nth($col-to-gutter, 1);
+//$gutter-width: $width-single * nth($col-to-gutter, 2);
+//$grid-padding: $gutter-width;
+//@debug $column-width;
