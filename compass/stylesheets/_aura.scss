@@ -5,47 +5,192 @@
 @import 'respond-to';
 @import 'modular-scale';
 
-//$base-size: 14px 44px;
-//$ratio: golden_ratio();
-//
-//$measure-span: 9 !default;
-//
-//$breakpoint-names: 'small' 'medium' 'large' 'full' !default;
-//$breakpoint-multi-columns: 'full';
-//
-//$length-bkpts: length($breakpoint-names);
-//$index-multi: index($breakpoint-names, $breakpoint-multi-columns);
-//
-//$full-width: 0 !default;
-//
-//@for $i from 0 through $length-bkpts - 1 {
-//  $size: '';
-//  @if $i < $index-multi {
-//    $size: (power(ms($i+1), 2) / (columns($total-columns) / 100%) * 1px);
-//  }
-//  @else {
-//    $size: (power(ms($i+1), 2) / (columns($measure-span) / 100%) * 1px);
-//  }
-//  
-//  $query: join(nth($breakpoint-names, $i+1), $size, space);
-//  
-//  $breakpoints: append($breakpoints, $query, comma);
-//  
-//  @if nth($breakpoint-names, $i+1) == 'full' {
-//    $full-width: $size;
-//  }
-//}
-//
-//
-//$col-to-gutter: 4 1;
-//
-//@debug $total-columns;
-//$width: $full-width / $total-columns;
-//$width-single: $full-width / (nth($col-to-gutter, 1) * $total-columns + nth($col-to-gutter, 2) * ($total-columns + 1));
-//$width-single: $width-single * 1em / 16px;
-//@debug $width;
-//@debug $width-single;
-//$column-width: $width-single * nth($col-to-gutter, 1);
-//$gutter-width: $width-single * nth($col-to-gutter, 2);
-//$grid-padding: $gutter-width;
-//@debug $column-width;
+$base-font-size: 14px;
+
+$base-touch-size: 44px !default;
+
+$ratio: golden_ratio() !default;
+
+$measure-span: 9 !default;
+
+$breakpoint-names: 'small' 'medium' 'large' 'full' !default;
+$breakpoint-values: () !default;
+$breakpoint-multi-columns: 'full' !default;
+$breakpoint-overrides: '' !default;
+$full-width: 0 !default;
+$full-width-override: false !default;
+
+
+
+@function px-base-em($px) {
+  @return ($px / 16px) * 1em;
+}
+
+@mixin measure-generate {
+  @if type-of($base-touch-size) == 'number' {
+    $base-size: $base-font-size $base-touch-size;
+  }
+  @else {
+    $base-size: $base-font-size;
+  }
+  
+  $length-bkpts: length($breakpoint-names);
+  $index-multi: index($breakpoint-names, $breakpoint-multi-columns);
+  @if not $index-multi {
+    $index-multi: length($breakpoint-names) + 1;
+  }
+
+  @for $i from 0 through $length-bkpts - 1 {
+  //  @debug $i;
+  //  @debug ms($i+1);
+    $size: '';
+    @if $i < $index-multi {
+      $size: (power(ms($i+1), 2) / (columns($total-columns) / 100%) * 1px);
+    }
+    @else {
+      $size: (power(ms($i+1), 2) / (columns($measure-span) / 100%) * 1px);
+    }
+
+    $breakpoint-name: nth($breakpoint-names, $i+1);
+
+    @if type-of(nth($breakpoint-overrides, 1)) != 'list' {
+      @if nth($breakpoint-overrides, 1) == $breakpoint-name {
+        $size: nth($breakpoint-overrides, 2);
+      }
+    }
+    @else {
+      @each $override in $breakpoint-overrides {
+        @if nth($override, 1) == $breakpoint-name {
+          $size: nth($override, 2);
+        }
+      }
+    }
+
+    $breakpoint-values: append($breakpoint-values, $size);
+
+    $query: join(nth($breakpoint-names, $i+1), $size, space);
+
+    $breakpoints: append($breakpoints, $query, comma);
+
+    @if nth($breakpoint-names, $i+1) == 'full' {
+      @if $full-width-override {
+        $full-width: $full-width-override;
+      }
+      @else {
+        $full-width: $size;
+      }
+    }
+  }
+  
+  // Column to Gutter Ratio
+  $col-to-gutter: 4 1;
+
+  // Find Single Subcolumn Width
+  $width: $full-width / $total-columns;
+  $width-single: $full-width / (nth($col-to-gutter, 1) * $total-columns + nth($col-to-gutter, 2) * ($total-columns + 1));
+  $width-single: $width-single * 1em / 16px;
+
+  // Create Columns
+  $column-width: $width-single * nth($col-to-gutter, 1);
+  $gutter-width: $width-single * nth($col-to-gutter, 2);
+  $grid-padding: $gutter-width;
+
+  //@debug columns($measure-span);
+  //@debug ms(5);
+
+  @if type-of($base-touch-size) == 'number' {
+    $base-size: px-base-em($base-font-size) px-base-em($base-touch-size);
+  }
+  @else {
+    $base-size: px-base-em($base-font-size);
+  }
+  
+  html {
+    line-height: #{$ratio + 'em'};
+
+    font-size: ms(0);
+
+    @for $i from 1 through $length-bkpts {
+      @include respond-to(nth($breakpoint-names, $i)) {
+        font-size: ms($i);
+      }
+    }
+  }
+}
+
+@mixin aura-container() {
+  @include container();
+  
+  @for $i from 1 through length($breakpoint-names) {
+    @include respond-to(nth($breakpoint-names, $i)) {
+      max-width: 1em / ms($i) * columns-width();
+    }
+  }
+}
+
+%measure-tester:before {
+  content: 'This is the measure tester. Each asterisk marks the * approximate min and max * width for your measure. You should adjust the gene * rated breakpoints using * the $breakpoint-overrides variable in order to kee * p your measure ideal. Y *  ou can also adjust the full size with $full-width- * override. Happy theming *';
+  display: block;
+  position: relative;
+}
+
+@mixin measure($omega: "") {
+  clear: both;
+
+  $index-multi: index($breakpoint-names, $breakpoint-multi-columns);
+  @if not $index-multi {
+    $index-multi: length($breakpoint-names) + 1;
+  }
+    
+    
+  @for $i from 0 through length($breakpoint-names) {
+    @if $i == 0 {
+      @if $i < $index-multi {
+        clear: both;
+      }
+      @else {
+        @include span-columns($measure-span $omega);
+      }
+    }
+    @else {
+      @include respond-to(nth($breakpoint-names, $i)) {
+        @if $i < $index-multi {
+          clear: both;
+        }
+        @else {
+          @include span-columns($measure-span $omega);
+        }
+      }
+    }
+  }
+}
+
+@function to-vw($i) {
+  @if $i == 0 {
+    @return ms($i) / (nth($breakpoint-values, $i+1) * .01);
+  }
+  @else {
+    @return ms($i) / (nth($breakpoint-values, $i) * .01);
+  }
+}
+
+@function aura-scale($multiple, $size: 'none') {
+  $index-multi: index($breakpoint-names, $size);
+  @if not $index-multi {
+    $index-multi: length($breakpoint-names) + 1;
+  }
+  
+  @for $i from 1 through length($breakpoint-names) {
+    @if $index-multi == $i {
+      @if $i != length($breakpoint-names) {
+        $base-size: 1em px-base-em(nth($breakpoint-values, $i+1));
+      }
+      @else {
+        $base-size: 1em px-base-em($full-width);
+      }
+      @return modular-scale($multiple, $base-size, $ratio);
+    }
+  }
+  
+  @return ms($multiple, (1em px-base-em(nth($breakpoint-values, 1))));
+}
