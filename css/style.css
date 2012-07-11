@@ -1,56 +1,50 @@
 @charset "UTF-8";
-/* line 77, ../sass/style.scss */
-html:before, html:after {
-  display: none;
-}
-/* line 81, ../sass/style.scss */
-html:before {
-  content: "4.844, 3.214, 3.155";
-}
-/* line 84, ../sass/style.scss */
-html:after {
-  content: "529, 729, 1369";
+/* line 131, ../compass/stylesheets/_aura.scss */
+#main-content:before {
+  content: 'This is the measure tester. Each asterisk marks the * approximate min and max * width for your measure. You should adjust the gene * rated breakpoints using * the $breakpoint-overrides variable in order to kee * p your measure ideal. Y *  ou can also adjust the full size with $full-width- * override. Happy theming *';
+  display: block;
+  position: relative;
 }
 
-/* line 89, ../sass/style.scss */
-body {
+/* line 108, ../compass/stylesheets/_aura.scss */
+html {
   line-height: 1.618em;
-  font-size: 14px;
+  font-size: 0.875em;
 }
-@media (min-width: 289px) {
-  /* line 89, ../sass/style.scss */
-  body {
-    font-size: 17px;
+@media (min-width: 39.125em) {
+  /* line 108, ../compass/stylesheets/_aura.scss */
+  html {
+    font-size: 1.05em;
   }
 }
-@media (min-width: 529px) {
-  /* line 89, ../sass/style.scss */
-  body {
-    font-size: 23px;
+@media (min-width: 45.375em) {
+  /* line 108, ../compass/stylesheets/_aura.scss */
+  html {
+    font-size: 1.416em;
   }
 }
-@media (min-width: 729px) {
-  /* line 89, ../sass/style.scss */
-  body {
-    font-size: 27px;
+@media (min-width: 75em) {
+  /* line 108, ../compass/stylesheets/_aura.scss */
+  html {
+    font-size: 1.7em;
   }
 }
-@media (min-width: 1369px) {
-  /* line 89, ../sass/style.scss */
-  body {
-    font-size: 37px;
+@media (min-width: 87.5em) {
+  /* line 108, ../compass/stylesheets/_aura.scss */
+  html {
+    font-size: 2.291em;
   }
 }
 
-/* line 150, ../sass/style.scss */
+/* line 18, ../sass/style.scss */
 #page-wrapper {
   *zoom: 1;
-  max-width: 82.757em;
-  _width: 82.757em;
+  max-width: 84.631em;
+  _width: 84.631em;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.403em;
-  padding-right: 1.403em;
+  padding-left: 1.434em;
+  padding-right: 1.434em;
 }
 /* line 38, ../../../../../usr/local/gems/compass-0.13.alpha.0/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #page-wrapper:after {
@@ -58,34 +52,67 @@ body {
   display: table;
   clear: both;
 }
-@media (min-width: 289px) {
-  /* line 150, ../sass/style.scss */
+@media (min-width: 39.125em) {
+  /* line 18, ../sass/style.scss */
   #page-wrapper {
-    max-width: 77.889em;
+    max-width: 80.567em;
   }
 }
-@media (min-width: 529px) {
-  /* line 150, ../sass/style.scss */
+@media (min-width: 45.375em) {
+  /* line 18, ../sass/style.scss */
   #page-wrapper {
-    max-width: 57.57em;
+    max-width: 59.778em;
   }
 }
-@media (min-width: 729px) {
-  /* line 150, ../sass/style.scss */
+@media (min-width: 75em) {
+  /* line 18, ../sass/style.scss */
   #page-wrapper {
-    max-width: 49.041em;
+    max-width: 49.794em;
   }
 }
-@media (min-width: 1369px) {
-  /* line 150, ../sass/style.scss */
+@media (min-width: 87.5em) {
+  /* line 18, ../sass/style.scss */
   #page-wrapper {
-    max-width: 35.787em;
+    max-width: 36.946em;
   }
 }
 
-@media (min-width: 1369px) {
-  /* line 157, ../sass/style.scss */
+/* line 23, ../sass/style.scss */
+#main-content {
+  font-size: 1.563em;
+  clear: both;
+  clear: both;
+}
+@media (min-width: 87.5em) {
+  /* line 23, ../sass/style.scss */
   #main-content {
     background: red;
+  }
+}
+@media (min-width: 39.125em) {
+  /* line 23, ../sass/style.scss */
+  #main-content {
+    clear: both;
+  }
+}
+@media (min-width: 45.375em) {
+  /* line 23, ../sass/style.scss */
+  #main-content {
+    clear: both;
+  }
+}
+@media (min-width: 75em) {
+  /* line 23, ../sass/style.scss */
+  #main-content {
+    clear: both;
+  }
+}
+@media (min-width: 87.5em) {
+  /* line 23, ../sass/style.scss */
+  #main-content {
+    width: 74.576%;
+    float: left;
+    margin-right: 1.695%;
+    display: inline;
   }
 }
