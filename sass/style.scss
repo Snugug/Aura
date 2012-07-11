@@ -3,187 +3,29 @@
 ////////////////////////
 @import '../compass/stylesheets/aura';
 
-$base-size: 14px 44px;
-$ratio: golden_ratio();
+//$base-font-size: 16px;
 
-$measure-span: 9 !default;
+$breakpoint-to-ems: true;
 
-$breakpoint-names: 'small' 'medium' 'large' 'full' !default;
-$breakpoint-values: () !default;
 $breakpoint-multi-columns: 'full';
 
-$length-bkpts: length($breakpoint-names);
-$index-multi: index($breakpoint-names, $breakpoint-multi-columns);
+//$breakpoint-multi-columns: 'full';
+$breakpoint-overrides: 'small' 626px, 'medium' 726px, 'large' 1200px, 'full' 1400px;
 
-$full-width: 0 !default;
+@include measure-generate;
 
-@for $i from 0 through $length-bkpts - 1 {
-  $size: '';
-  @if $i < $index-multi {
-    $size: (power(ms($i+1), 2) / (columns($total-columns) / 100%) * 1px);
-  }
-  @else {
-    $size: (power(ms($i+1), 2) / (columns($measure-span) / 100%) * 1px);
-  }
-  
-  $breakpoint-values: append($breakpoint-values, $size);
-  $query: join(nth($breakpoint-names, $i+1), $size, space);
-  
-  $breakpoints: append($breakpoints, $query, comma);
-  
-  @if nth($breakpoint-names, $i+1) == 'full' {
-    $full-width: $size;
-  }
-}
-
-@debug $breakpoints;
-
-// Column to Gutter Ratio
-$col-to-gutter: 4 1;
-
-// Find Single Subcolumn Width
-$width: $full-width / $total-columns;
-$width-single: $full-width / (nth($col-to-gutter, 1) * $total-columns + nth($col-to-gutter, 2) * ($total-columns + 1));
-$width-single: $width-single * 1em / 16px;
-
-// Create Columns
-$column-width: $width-single * nth($col-to-gutter, 1);
-$gutter-width: $width-single * nth($col-to-gutter, 2);
-$grid-padding: $gutter-width;
-
-//@debug columns($measure-span);
-//@debug ms(5);
-
-@mixin aura-container() {
-  @include container();
-  
-  @for $i from 1 through $length-bkpts {
-    @include respond-to(nth($breakpoint-names, $i)) {
-      max-width: 16px / ms($i) * columns-width();
-    }
-  }
-}
-
-@function to-vw($i) {
-  @if $i == 0 {
-    @return ms($i) / (nth($breakpoint-values, $i+1) * .01);
-  }
-  @else {
-    @return ms($i) / (nth($breakpoint-values, $i) * .01);
-  }
-}
-
-html {
-  &:before, &:after {
-    display: none;
-  }
-  
-  &:before {
-    content: '#{ms(0) / (nth($breakpoint-values, 1) * .01)}, #{ms(1) / (nth($breakpoint-values, 2) * .01)}, #{ms(2) / (nth($breakpoint-values, 3) * .01)}';
-  }
-  &:after {
-    content: '#{nth($breakpoint-values, 2) / 1px}, #{nth($breakpoint-values, 3) /1px}, #{nth($breakpoint-values, 4) /1px}';
-  }
-}
-
-body {
-  line-height: #{$ratio + 'em'};
-  
-  font-size: ms(0);
-  
-  @for $i from 1 through $length-bkpts {
-    @include respond-to(nth($breakpoint-names, $i)) {
-      font-size: ms($i);
-    }
-  }
-}
-
-//@for $i from 0 through $length-bkpts - 1 {
-//  @if $i == 0 {
-//    font-size: ms($i+1) / 16px * 1em;
-//    
-//    @if $i < $index-multi {
-//      clear: both;
-//    }
-//    @else {
-//      @include span-columns($measure-span);
-//    }
-//  }
-//  @else {
-//    @include respond-to(nth($breakpoint-names, $i)) {
-//      font-size: ms($i+1) / 16px * 1em;
-////        font-size: ms($i) / (nth($breakpoint-values, $i) * .01) * 1vw;
-//      
-//      @if $i < $index-multi {
-//        clear: both;
-//      }
-//      @else {
-//        @include span-columns($measure-span);
-//      }
-//    }
-//  }
-//}
-
-//@for $i from 0 through 5 {
-//  $breakpoint: 'breakpoint #{$i}';
-//  $size: (power(ms($i+1), 2) / (columns($measure-span) / 100%) * 1px);
-//  $query: join($breakpoint, $size, space);
-//
-//  $breakpoints: append($breakpoints, $query, comma);
-//}
-
-//@debug $breakpoint-names;
-//@debug index($breakpoint-names, $breakpoint-multi-columns);
-//@debug $breakpoints;
-//@debug $full-width;
-//@debug $total-columns;
-
-//$test:();
-//@for $i from 0 through 5 {
-//  $holder: 'This is #{$i}' $i;
-//  $test: append($test, $holder, comma);
-//}
-//@debug $test;
-//@debug nth($test, 1);
-//@debug nth(nth($test, 1),2);
 
 #page-wrapper {
   @include aura-container();
-//  @include susy-grid-background();
 }
 
-//@debug nth($breakpoints, 1);
 
 #main-content {
-//  line-height: golden-ratio() * 1em;
+  font-size: aura-scale(1, 'small');
   
+  @extend %measure-tester;
   @include respond-to('full') {
     background: red;
   }
-//  clear: both;
-//  
-//  @for $i from 0 through $length-bkpts {
-//    @if $i == 0 {
-//      font-size: ms($i);
-//      
-//      @if $i < $index-multi {
-//        clear: both;
-//      }
-//      @else {
-//        @include span-columns($measure-span);
-//      }
-//    }
-//    @else {
-//      @include respond-to(nth($breakpoint-names, $i)) {
-//        font-size: ms($i);
-//        
-//        @if $i < $index-multi {
-//          clear: both;
-//        }
-//        @else {
-//          @include span-columns($measure-span);
-//        }
-//      }
-//    }
-//  }
+  @include measure;
 }
