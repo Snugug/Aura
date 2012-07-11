@@ -3,8 +3,8 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "compass-aura"
-  s.version = "0.3.1"
-  s.date = "2011-05-14"
+  s.version = "0.5"
+  s.date = "2011-07-11"
   s.rubyforge_project = "compass-aura"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # Files to Include
   s.files = Dir.glob("lib/**/*.*")
   s.files += Dir.glob("stylesheets/**/*.*")
-  s.files += Dir.glob("templates/**/*.*")
+  # s.files += Dir.glob("templates/**/*.*")
   
   # Dependent Gems
   s.add_dependency 'modular-scale',       ">= 0.0.5" 
