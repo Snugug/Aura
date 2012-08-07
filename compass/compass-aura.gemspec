@@ -3,8 +3,8 @@
 Gem::Specification.new do |s|
   # General Project Information
   s.name = "compass-aura"
-  s.version = "0.5"
-  s.date = "2011-07-11"
+  s.version = "0.5.alpha.2"
+  s.date = "2011-07-13"
   s.rubyforge_project = "compass-aura"
   s.rubygems_version = "1.7.2"
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2")
@@ -27,5 +27,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'modular-scale',       ">= 0.0.5" 
   s.add_dependency 'susy',                ">= 1.0.rc.1"
   s.add_dependency 'sassy-math',          ">= 1.1"
-  s.add_dependency 'respond-to',          ">= 2.0.1"
+  s.add_dependency 'respond-to',          ">= 2.0.3"
 end
